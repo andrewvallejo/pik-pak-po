@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'pokemon_gbregular';
+  src: url('webfont/pokemongb-raeo-webfont.woff2') format('woff2'),
+       url('webfont/pokemongb-raeo-webfont.woff') format('woff');
+  font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Theme */
  --charmender: #F77819; 
@@ -13,19 +24,12 @@
   border: border-box;
 }
 
-@font-face {
-  font-family: 'pokemon_gbregular';
-  src: url('webfont/pokemongb-raeo-webfont.woff2') format('woff2'),
-       url('webfont/pokemongb-raeo-webfont.woff') format('woff');
-  font-weight: normal;
-  
-}
 
 body {
-  height: 100vh;
-  width: 100vw;;
+
   font-family: 'pokemon_gbregular', Arial, sans-serif;
   justify-content: space-between;
+  line-height: 1.6;
 }
 
 /* attributes */
@@ -39,6 +43,12 @@ body {
   flex-direction: row;
 }
 
+.page {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
 /* header */
 
 header {
@@ -46,6 +56,9 @@ header {
  align-items: center;
  padding: .2rem;
 }
+
+/* Main */
+
 
 /* footer */
 
@@ -58,5 +71,5 @@ footer {
 }
 
 footer p {
-  width: 50%;
+  width: 60%;
 }
