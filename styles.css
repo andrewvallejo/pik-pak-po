@@ -7,6 +7,8 @@
 
 html {
   scroll-behavior: smooth;
+  min-width: 1080px;
+  min-height: 720px;
 }
 
 :root {
@@ -16,21 +18,22 @@ html {
  --bulbasaur: #B7D0C0;
  --pikachu: #FFD400; 
  --white: #fff;
+ --glass: rgba(225, 255, 225, 0.5)
 }
 
 * {
   padding: 0;
   margin: 0;
   border: border-box;
+  text-decoration: none;
 }
 
 
 body {
   font-family: 'pokemon_gbregular', Arial, sans-serif;
   justify-content: space-between;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   overflow-y: hidden;
-  overflow-x: hidden;
 }
 
 /* attributes */
@@ -52,31 +55,75 @@ body {
 /* intro page */
 .intro {
   background: var(--squirtle);
+  justify-content: center;
+  align-items: center;
 }
 
 /* main page */
 main {
   justify-content: space-between;
-}
+} 
 
 /* header */
 header {
- justify-content: center;
- align-items: center;
- padding: .2rem;
+  background-color: var(--pikachu);
+  justify-content: space-between;
+  align-items: center;
+  padding: .2rem;
 }
 
+.player {
+  margin-right: 2rem;
+  align-items: center;
+}
+
+header img {
+  margin-right: .5rem;
+  height: 2rem;
+}
+
+
+
 /* Main */
+.showcase {
+  height: 100vh;
+  width: 100vw;
+  background: var(--bulbasaur);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* .opponent-stand {
+height: 10rem;
+width: 15rem; 
+border-bottom: 3px var(--pikachu) solid;
+} */
+
+.gameboy-battle {
+   align-self: center;
+}
+
+.gameboy {
+  min-height: 10rem;
+  max-height: 40rem;
+}
+
+.menu {
+  width: 27rem;
+  /* height: auto; */
+}
 
 
 /* footer */
 
 footer {
+  background-color: var(--pikachu);
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: .5rem;
-  padding: .2rem;
+  padding: .5rem;
 }
 
 footer p {
