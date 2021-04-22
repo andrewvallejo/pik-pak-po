@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'pokemon_gbregular';
+  src: url('webfont/pokemongb-raeo-webfont.woff2') format('woff2'),
+       url('webfont/pokemongb-raeo-webfont.woff') format('woff');
+  font-weight: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  min-width: 1080px;
+  min-height: 720px;
+}
+
+:root {
+  /* Theme */
+ --charmender: #F77819; 
+ --squirtle: #7FE4D8; 
+ --bulbasaur: #B7D0C0;
+ --pikachu: #FFD400; 
+ --white: #fff;
+ --glass: rgba(225, 255, 225, 0.5)
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: border-box;
+  text-decoration: none;
+}
+
+
+body {
+  font-family: 'pokemon_gbregular', Arial, sans-serif;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+/* attributes */
+.flex-column { 
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.page {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* intro page */
+.intro {
+  background: var(--squirtle);
+  justify-content: center;
+  align-items: center;
+}
+
+/* main page */
+main {
+  justify-content: space-between;
+} 
+
+/* header */
+header {
+  background-color: var(--pikachu);
+  justify-content: space-between;
+  align-items: center;
+  padding: .2rem;
+}
+
+h1 {
+  align-self: center;
+  margin-left: 2rem;
+}
+
+.player {
+  margin-right: 2rem;
+  align-items: center;
+}
+
+header img {
+  margin-right: .5rem;
+  height: 2rem;
+}
+
+
+
+/* Main */
+.showcase {
+  height: 100vh;
+  width: 100vw;
+  background: var(--bulbasaur);
+  /* align-items: center; */
+  justify-content: space-around;
+  position: relative;
+}
+
+/* Gameboy */
+
+.gameboy-battle {
+   align-self: center;
+}
+
+.gameboy {
+  min-height: 10rem;
+  max-height: 40rem;
+}
+
+/* Battle Card */
+
+.outer-card {
+  width: 27rem;
+}
+
+.battle-card {
+  position: relative;
+  width: 100%;
+}
+
+.inner-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  width: 100%;
+  justify-content: space-around;
+  padding: 1.2rem 2rem;
+  align-items: flex-start;
+}
+
+.box p {
+  font-size: 1.4rem;
+}
+
+.box:nth-of-type(2) p {
+  font-size: 1.8rem;
+}
+
+.box:nth-of-type(2) p:nth-of-type(1) {
+  margin-top: .8rem;
+  font-size: 2.5rem;
+}
+
+/* Side Menu */
+
+
+
+.menu {
+  height: 30rem;
+  width: 20rem;
+  margin: 0 2rem 15rem 2rem;
+  background-color: var(--glass);
+  border: #FFD400 5px solid;
+  border-radius: 5px;;
+  align-self: center;
+}
+
+.playerMenu {
+
+}
+
+
+
+/* footer */
+
+footer {
+  background-color: var(--pikachu);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: .40rem;
+  padding: .5rem;
+  line-height: 1.8;
+
+}
+
+footer p {
+  width: 80%;
+}
