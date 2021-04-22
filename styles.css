@@ -8,14 +8,18 @@
 }
 
 @font-face {
-  font-family: 'pkmn_rbygscregular';
-  src: url('fontkit/pkmn_rbygsc-webfont.woff2') format('woff2'),
-       url('fontkit/pkmn_rbygsc-webfont.woff') format('woff');
+  font-family: 'pokemon_gbregular';
+  src: url('webfont/pokemongb-raeo-webfont.woff2') format('woff2'),
+       url('webfont/pokemongb-raeo-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
 }
 
 body {
-  font-family: 'pkmn_rbygscregula', Arial, sans-serif;
+  font-family: 'pokemon_gbregular', Arial, sans-serif;
+  color: pink;
+  font-weight: normal;
+  font-style: normal;
 }
+
