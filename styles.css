@@ -106,19 +106,23 @@ header img {
 
 .gameboy {
   min-height: 10rem;
-  max-height: 40rem;
+  max-height: 30rem;
+  position: absolute;
+  top: 1%;
+  left: 38%;
 }
 
 /* Battle Card */
+.battle-card {
+  position: relative;
+  width: 100%;
+  margin-top: 30rem;
+}
 
 .outer-card {
   width: 27rem;
 }
 
-.battle-card {
-  position: relative;
-  width: 100%;
-}
 
 .inner-card {
   position: absolute;
@@ -153,7 +157,6 @@ header img {
 .menu {
   height: 30rem;
   width: 20rem;
-  margin: 0 2rem 15rem 2rem;
   background-color: var(--glass);
   border: #FFD400 5px solid;
   border-radius: 5px;;
@@ -173,12 +176,12 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: .40rem;
-  padding: .5rem;
+  font-size: .5rem;
   line-height: 1.8;
 
 }
 
 footer p {
-  width: 80%;
+  width: 100%;
+  padding: .2rem;
 }
