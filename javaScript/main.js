@@ -28,3 +28,6 @@ function sayBag() {
 function sayRun() {
   console.log('run')
 }
+
+
+// Helper FUn
