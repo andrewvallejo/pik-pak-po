@@ -21,6 +21,7 @@ html {
  --glass: rgba(225, 255, 225, 0.5)
 }
 
+
 * {
   padding: 0;
   margin: 0;
@@ -115,6 +116,20 @@ header img {
 }
 
 /* Player Panel */
+.player-menu,
+.gymleader-menu {
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon {
+  height: 10rem;
+  width: 10rem;
+}
+
+
+
+
 
 /* Gameboy Panel*/
 
@@ -175,9 +190,7 @@ header img {
   font-size: 2.5rem;
 }
 
-/* Side Menu */
-
-
+/* /* Side Menu * */
 
 .menu {
   background-color: var(--glass);
@@ -188,9 +201,6 @@ header img {
   border: #FFD400 5px solid;
 }
 
-.playerMenu {
-
-}
 
 /* footer */
 
