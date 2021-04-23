@@ -6,7 +6,7 @@ class Player {
   }
   saveWinsToStorage() {
 
-  }Z
+  }
   retrieveWinsFromStorage() {
     // takeTurn()
   }
