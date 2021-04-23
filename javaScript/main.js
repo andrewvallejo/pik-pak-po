@@ -5,29 +5,29 @@ var abilityMove = document.querySelector('#abilityMove')
 var bagMove = document.querySelector('#bagMove')
 var runMove = document.querySelector('#runMove')
 
-swipeMove.addEventListener('click', saySwipe)
-hardenMove.addEventListener('click', sayHarden)
-abilityMove.addEventListener('click', sayAbil)
-bagMove.addEventListener('click', sayBag)
-runMove.addEventListener('click', sayRun)
+// Battle 
+swipeMove.addEventListener('click', swipe)
+hardenMove.addEventListener('click', harden)
+abilityMove.addEventListener('click', ability)
+// bagMove.addEventListener('click', )
+// runMove.addEventListener('click', )
 
+var playerStory = new Game()
+// playerStory.updatePlayerMove()
 
-
-function saySwipe() {
-  console.log('swipe')
+pikpakpo()
+function pikpakpo() {
+  return playerStory
 }
-function sayHarden() {
-  console.log('harden')
-}
-function sayAbil() {
-  console.log('abil')
-}
-function sayBag() {
-  console.log('bag')
-}
-function sayRun() {
-  console.log('run')
-}
+  function swipe() {   
+  playerStory.updatePlayerMove('swipe')
+  }
+  function harden() {
+    playerStory.updatePlayerMove('harden')
+  }
+  function ability() {
+    playerStory.updatePlayerMove('abiltiy')
+  }
 
 
 // Helper FUn
