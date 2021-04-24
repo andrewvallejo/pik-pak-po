@@ -1,7 +1,11 @@
 // Intro Page
 var introPage = document.querySelector('#introPage')
 var showcase = document.querySelector('#showcase')
-var pokeballBtn = document.querySelector('#pokeball')
+var pokeballBtn = document.querySelector('#bigPokeball')
+var profOak = document.querySelector('#profOak')
+var bgStripe = document.querySelector('#bgStripe')
+
+// Main
 var header = document.querySelector('header')
 var footer = document.querySelector('footer')
 
@@ -37,7 +41,7 @@ abilityMove.addEventListener('click', ability)
 fightMove.addEventListener('click', showBattleCard)
 nextMove.addEventListener('click', showPlayAgainCard)
 playAgainMove.addEventListener('click', showBattleCard)
-pokeballBtn.addEventListener('click', showMainPage)
+pokeballBtn.addEventListener('click', startIntro)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 
@@ -63,11 +67,19 @@ function pikpakpo() {
   }
 
 // Intro Page
-function showMainPage() {
-  hide(introPage)
-  show(showcase)
-  show(header)
-  show(footer)
+function startIntro() {
+  hide(pokeballBtn)
+  show(profOak)
+  show(bgStripe)
+  animateSripe()
+  // hide(introPage)
+  // show(showcase)
+  // show(header)
+  // show(footer)
+}
+
+function animateStripe() {
+  bgStripe.classList.add('slide-transition')
 }
 
 

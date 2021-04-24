@@ -73,9 +73,43 @@ body {
 /*===*[intro page]*===*/
 .intro {
   background: var(--squirtle);
+  position: relative;
   justify-content: center;
-  align-items: center;
   height: 100vh;
+}
+
+.big-pokeball {
+  align-self: center;
+}
+
+.bg-stripe {
+  background: #C55D67;
+  position: absolute;
+  width: 100%;
+  height: 10rem;
+  left: 100rem;
+  animation: slide 1s forwards ease-in-out;
+}
+
+@keyframes slide {
+  100% {
+    left: 0;
+  }
+}
+
+.prof-oak {
+  z-index: 1;
+  opacity: 0;
+  align-self: flex-end;
+  margin-right: 5rem;
+  animation: fadein 1s 1s forwards ease-in-out;
+
+}
+
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -222,7 +256,7 @@ header img {
   opacity: 0;
 }
 
-.move:hover::before{
+.move:hover::before {
   content: '►';
   opacity: 1;
 }
