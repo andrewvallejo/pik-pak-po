@@ -66,6 +66,9 @@ body {
   cursor: pointer;
 }
 
+.prioity {
+  z-index: 1;
+}
 
 /*===*[intro page]*===*/
 .intro {
@@ -173,6 +176,7 @@ header img {
 .card-text {
   position: absolute;
   font-size: 1rem;
+  line-height: 1.4rem;
   top: .75rem;
   left: 1rem;
   width: 24rem;
@@ -192,7 +196,11 @@ header img {
 .opening-box {
   align-items: flex-end;
   margin-right: 1rem;
+  margin: 4.5rem 1rem 0 0;
+
 }
+
+
 
 /*===*[Battle Card]*===*/
 

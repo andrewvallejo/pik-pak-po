@@ -45,3 +45,11 @@ function hide(e) {
 function show() {
   e.classList.remove('hidden')
 }
+
+function prioitize() {
+  e.classList.add('prioitize')
+}
+
+function unprioitize() {
+  e.classList.remove('prioitize')
+}
