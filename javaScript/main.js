@@ -1,3 +1,6 @@
+// Gameboy
+var screen = document.querySelector('#screen')
+
 // Card
 var openingCard = document.querySelector('#openingCard')
 var battleCard = document.querySelector('#battleCard')
@@ -11,13 +14,15 @@ var bagMove = document.querySelector('#bagMove')
 var runMove = document.querySelector('#runMove')
 var fightMove = document.querySelector('#fightMove')
 var openRunMove = document.querySelector('#openRunMove')
-
+var nextMove = document.querySelector('#nextMove')
+var enemyMoveCard = document.querySelector('#enemyMoveCard')
 
 // Battle 
 swipeMove.addEventListener('click', swipe)
 hardenMove.addEventListener('click', harden)
 abilityMove.addEventListener('click', ability)
 fightMove.addEventListener('click', showBattleCard)
+nextMove.addEventListener('click', showOutcomeCard)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 
@@ -31,21 +36,38 @@ function pikpakpo() {
   // Player's Moves
   function swipe() {   
   playerStory.triggerFight('swipe')
+  showEnemyMoveCard()
   }
   function harden() {
     playerStory.triggerFight('harden')
+    showEnemyMoveCard()
   }
   function ability() {
     playerStory.triggerFight('ability')
+    showEnemyMoveCard()
   }
 
 
 // Battle Sequence
 function showBattleCard() {
   hide(openingCard)
+  hide(enemyMoveCard)
   show(battleCard)
   prioitize(battleCard)
   unprioitize(openingCard)
+}
+
+function showEnemyMoveCard() {
+  hide(battleCard)
+  show(enemyMoveCard)
+  prioitize(enemyMoveCard)
+  unprioitize(battleCard)
+}
+
+function showOutcomeCard() {
+  show(screen)
+  showBattleCard()
+
 }
 
 

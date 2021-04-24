@@ -36,7 +36,7 @@
       <div class="gameboy-battle third flex-column">
         <div class="gameboy-outline flex-column">
           <img src="assets/misc/gameboy-color.png" class="gameboy" alt="gameboy">
-          <div class="gameboyScreen flex-column">
+          <div id="screen" class="gameboyScreen flex-column hidden">
             <strong id="outcome" class="outcome"></strong>
           </div>
         </div>
@@ -46,8 +46,8 @@
           <div id="openingCard" class= "inner-card flex-row"> 
             <p class="card-text">What will charmender do?</p>
             <div class="box opening-box flex-column prioity">
-              <p id="fightMove" class="btn move opening-move">FIGHT!</p>
-              <p id="openRunMove" class="btn move opening-move">RUN!</p>
+              <p id="fightMove" class="btn move">FIGHT!</p>
+              <p id="openRunMove" class="btn move">RUN!</p>
             </div>
           </div>
           <div id="battleCard" class="inner-card flex-row hidden">
@@ -59,6 +59,12 @@
             <div class="box flex-column">
               <p id="bagMove" class="btn move">BAG</p>
               <p id="runMove" class="btn move">RUN!</p>
+            </div>
+          </div>
+          <div id="enemyMoveCard" class= "inner-card flex-row hidden"> 
+            <p class="card-text">Foe BULBASAUR used <span id="enemyMove">MOVE</span> on CHARMENDER</p>
+            <div class="box opening-box flex-column">
+              <p id="nextMove" class="btn move prioity">NEXT!</p>
             </div>
           </div>
         </div>
