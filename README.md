@@ -8,9 +8,9 @@ Do you like Pokémon games and all of their franchise? Well then prepare yoursel
 ## Skills: JS / HTML / CSS / Pokemon Master
 
 
- <img src="assets/icons/egg.png" alt="egg" width="20px"/> Game Intro as landing page
- <img src="assets/icons/egg.png" alt="egg" width="20px"/> Play Pik-Pak-Po with gameboy
- <img src="assets/icons/egg.png" alt="egg" width="20px"/> Rules are like rock-paper-scissors but with a twist... 
+ <img src="assets/icons/egg.png" alt="egg" width="20px"/> Game Intro as landing page <br>
+ <img src="assets/icons/egg.png" alt="egg" width="20px"/> Play Pik-Pak-Po with gameboy <br>
+ <img src="assets/icons/egg.png" alt="egg" width="20px"/> Rules are like rock-paper-scissors but with a twist...  <br>
 
 
 
