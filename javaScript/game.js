@@ -19,13 +19,16 @@ class Game {
   triggerFight(move) {
     this.updatePlayerMove(move)
     this.updateGymleaderMove()
+    getOutcome()
+  }
+
+  getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
     outcome === 'win' ? this.player.battlesWon++ : null
     outcome === 'win' ? outcomeMsg.innerText = 'You Win!' :
     outcome === 'lose' ? outcomeMsg.innerText = 'You Lose!':
     outcome === 'draw' ? outcomeMsg.innerText = 'Draw!' :
     null
-    console.log(this.player.battlesWon)
   }
 
   compareMove(playerMove, gymLeaderMove) {
