@@ -1,15 +1,17 @@
 class Player {
   constructor(player) {
-    this.name = player.name
+    this.name = player
     this.badges = []
     this.battlesWon = 0
   }
   saveWinsToStorage() {
-
+   localStorage.setItem('wins', this.battlesWon)
   }
   retrieveWinsFromStorage() {
-    // takeTurn()
+    return localStorage.getItem('wins')
+  }
+  takeTurn(player) {
+    
   }
 }
 
-// module.exports = Player

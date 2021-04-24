@@ -1,12 +1,43 @@
 class Game {
   constructor() {
-    //A Game should include:
-// Two Player instances
-// A way to keep track of the data for the game board
-// A way to keep track of the selected game type
-// A way to keep track of which player’s turn it currently is
-// A way to check the Game’s board data for win conditions
-// A way to detect when a game is a draw (no one has won)
-// A way to reset the Game’s board to begin a new game
+   this.player = new Player('Ash')
+   this.gymleader = new Player('Misty')
+   this.playerMove = ''
+   this.gymleaderMove = ''
+   this.winner = ''
+  }
+  updatePlayerMove(move) {
+    this.playerMove = move
+  }
+  updateGymleaderMove() {
+    var moveChoice = Math.floor(Math.random() * (4 - 1)) + 1
+    return moveChoice === 1 ? this.gymleaderMove = 'swipe' : 
+    moveChoice === 2 ? this.gymleaderMove = 'harden' :
+    moveChoice === 3 ? this.gymleaderMove = 'ability' :
+    null
+  }
+  triggerFight(move) {
+    this.updatePlayerMove(move)
+    this.updateGymleaderMove()
+    var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
+    outcome === 'win' ? this.player.battlesWon++ : null
+    outcome === 'win' ? outcomeMsg.innerText = 'You Win!' :
+    outcome === 'lose' ? outcomeMsg.innerText = 'You Lose!':
+    outcome === 'draw' ? outcomeMsg.innerText = 'Draw!' :
+    null
+    console.log(this.player.battlesWon)
+  }
+
+  compareMove(playerMove, gymLeaderMove) {
+   return playerMove === 'swipe' &&  gymLeaderMove === 'ability' ? 'win' : 
+          playerMove === 'swipe' && gymLeaderMove === 'swipe' ? 'draw' :
+          playerMove === 'swipe' && gymLeaderMove === 'harden' ? 'lose' :
+          playerMove === 'harden' && gymLeaderMove === 'swipe' ? 'win' :
+          playerMove === 'harden' && gymLeaderMove === 'ability' ? 'lose' :
+          playerMove === 'harden' && gymLeaderMove === 'harden' ? 'draw' :
+          playerMove === 'ability' && gymLeaderMove === 'harden' ? 'win' : 
+          playerMove === 'ability' && gymLeaderMove === 'swipe' ? 'lose' :
+          playerMove === 'ability' && gymLeaderMove === 'ability' ? 'draw' :
+          null
   }
 }
