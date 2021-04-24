@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-   this.player = new Player('Ash')
-   this.gymleader = new Player('Misty')
+   this.player = new Player({name:'Ash', pokemon:'Charmender'})
+   this.gymleader = new Player({name:'Misty', pokemon:'Bulbasaur'})
    this.playerMove = ''
    this.gymleaderMove = ''
    this.winner = ''
@@ -19,13 +19,16 @@ class Game {
   triggerFight(move) {
     this.updatePlayerMove(move)
     this.updateGymleaderMove()
+    this.getOutcome()
+  }
+
+  getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
     outcome === 'win' ? this.player.battlesWon++ : null
     outcome === 'win' ? outcomeMsg.innerText = 'You Win!' :
     outcome === 'lose' ? outcomeMsg.innerText = 'You Lose!':
     outcome === 'draw' ? outcomeMsg.innerText = 'Draw!' :
     null
-    console.log(this.player.battlesWon)
   }
 
   compareMove(playerMove, gymLeaderMove) {

@@ -1,8 +1,9 @@
 class Player {
   constructor(player) {
-    this.name = player
+    this.name = player.name
     this.badges = []
     this.battlesWon = 0
+    this.pokemon = player.pokemon
   }
   saveWinsToStorage() {
    localStorage.setItem('wins', this.battlesWon)
