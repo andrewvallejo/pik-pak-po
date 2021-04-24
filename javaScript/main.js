@@ -55,26 +55,18 @@ function showBattleCard() {
   hide(openingCard)
   hide(screen)
   hide(playAgainCard)
-  // hide(enemyMoveCard)
   show(battleCard)
-
-  // prioitize(battleCard)
-  // unprioitize(openingCard)
 }
 
 function showEnemyMoveCard() {
   hide(battleCard)
   show(enemyMoveCard)
-  // prioitize(enemyMoveCard)
-  // unprioitize(battleCard)
 }
 
 function showPlayAgainCard() {
   show(screen)
   hide(enemyMoveCard)
   show(playAgainCard)
-  // prioitize(playAgainCard)
-  // unprioitize(enemyMoveCard)
 }
 
 function showOpeningCard() {
@@ -85,7 +77,6 @@ function showOpeningCard() {
 
 
 // Helper Function 
-
 function hide(e) {
   e.classList.add('hidden')
 }
@@ -94,10 +85,3 @@ function show(e) {
   e.classList.remove('hidden')
 }
 
-// function prioitize(e) {
-//   e.classList.add('prioity')
-// }
-
-// function unprioitize(e) {
-//   e.classList.remove('prioity')
-// }
