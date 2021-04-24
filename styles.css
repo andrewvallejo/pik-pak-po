@@ -146,7 +146,7 @@ header img {
   position: absolute;
   justify-content: center;
   margin-top: 2.7rem;
-  width: 11rem;
+  widgit sth: 11rem;
   height: 9.5rem;
 }
 
@@ -154,8 +154,10 @@ header img {
   text-align: center;
 }
 
+/*===*[Cards]*===*/
+
 /*===*[Battle Card]*===*/
-.battle-card {
+.card {
   position: relative;
 
 }
