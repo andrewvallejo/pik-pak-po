@@ -13,14 +13,15 @@ abilityMove.addEventListener('click', ability)
 // runMove.addEventListener('click', )
 
 var playerStory = new Game()
-// playerStory.updatePlayerMove()
+
 
 pikpakpo()
 function pikpakpo() {
   return playerStory
 }
+
   function swipe() {   
-  playerStory.updatePlayerMove('swipe')
+  playerStory.triggerFight('swipe')
   }
   function harden() {
     playerStory.updatePlayerMove('harden')
