@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'pokemon_gbregular';
   src: url('webfont/pokemongb-raeo-webfont.woff2') format('woff2'),
-       url('webfont/pokemongb-raeo-webfont.woff') format('woff');
+    url('webfont/pokemongb-raeo-webfont.woff') format('woff');
   font-weight: normal;
 }
 
@@ -12,13 +12,13 @@ html {
 }
 
 :root {
-  /* Theme */
- --charmender: #F77819; 
- --squirtle: #7FE4D8; 
- --bulbasaur: #B7D0C0;
- --pikachu: #FFD400; 
- --white: #fff;
- --glass: rgba(225, 255, 225, 0.5)
+  /*===*[Theme]*===*/
+  --charmender: #F77819;
+  --squirtle: #7FE4D8;
+  --bulbasaur: #B7D0C0;
+  --pikachu: #FFD400;
+  --white: #fff;
+  --glass: rgba(225, 255, 225, 0.5)
 }
 
 
@@ -29,15 +29,14 @@ html {
   text-decoration: none;
 }
 
-
 body {
   font-family: 'pokemon_gbregular', Arial, sans-serif;
   justify-content: space-between;
   overflow-y: hidden;
 }
 
-/* attributes */
-.flex-column { 
+/*===*[attributes]*===*/
+.flex-column {
   display: flex;
   flex-direction: column;
 }
@@ -48,38 +47,35 @@ body {
 }
 
 .page {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
 }
 
 .third {
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .hidden {
   display: none;
 }
 
+.move {
+  cursor: pointer;
+}
 
-/* typography */
 
-
-/* intro page */
+/*===*[intro page]*===*/
 .intro {
   background: var(--squirtle);
   justify-content: center;
   align-items: center;
 }
 
-/* main page */
-main {
-  /* justify-content: space-between; */
-} 
 
-/* header */
+/*===*[header]*===*/
 header {
   background-color: var(--pikachu);
   justify-content: space-between;
@@ -104,18 +100,24 @@ header img {
   height: 2rem;
 }
 
-
-
-/* Main */
+/*===*[Main]*===*/
 .showcase {
   background: var(--bulbasaur);
-  /* position: relative; */
-  /* justify-content: space-around; */
   width: 100vw;
   height: 90vh;
 }
 
-/* Player Panel */
+.menu {
+  background-color: var(--glass);
+  align-self: center;
+  width: 24rem;
+  height: 30rem;
+  border-radius: 5px;
+  border: #FFD400 5px solid;
+}
+
+
+/*===*[Player Panel]*===*/
 .player-menu,
 .gymleader-menu {
   justify-content: center;
@@ -127,30 +129,20 @@ header img {
   width: 10rem;
 }
 
+/*===*[Gameboy]*===*/
+.gameboyDiv {
+  align-items: center;
+}
 
-
-
-
-
-
-/* Gameboy */
 .gameboy {
-  /* position: absolute; */
-  /* top: 1%; */
-  /* left: 38%; */
-  /* min-height: 10rem; */
-  /* align-self: center; */
   margin-bottom: 1rem;
   height: 28rem;
   width: 22rem;
   position: relative;
 }
 
-.gameboyDiv { 
-  align-items: center;
-}
 
-.gameboyScreen  {
+.gameboyScreen {
   position: absolute;
   justify-content: center;
   margin-top: 2.7rem;
@@ -162,29 +154,13 @@ header img {
   text-align: center;
 }
 
-
-
-
-
-
-
-.gameboy-battle {
-   /* align-self: center; */
-   justify-content: center;
-   /* padding: 2rem 0; */
-
-   /* border: 4px solid pink; */
-}
-
-
-/* Battle Card */
+/*===*[Battle Card]*===*/
 .battle-card {
   position: relative;
-  /* width: 100%;  */
-  /* height: 10rem */
+
 }
 
-.outer-card {
+.msg-border {
   width: 26rem;
 }
 
@@ -193,6 +169,8 @@ header img {
   position: absolute;
   height: 100%;
   width: 100%;
+  border: pink 1px solid;
+
 }
 
 .box {
@@ -215,25 +193,9 @@ header img {
   font-size: 2.5rem;
 }
 
-/* menu items */
-.move {
-  cursor: pointer;
-}
-
-/* /* Side Menu * */
-
-.menu {
-  background-color: var(--glass);
-  align-self: center;
-  width: 24rem;
-  height: 30rem;
-  border-radius: 5px;
-  border: #FFD400 5px solid;
-}
 
 
-/* footer */
-
+/*===*[footer]*===*/
 footer {
   background-color: var(--pikachu);
   justify-content: center;
