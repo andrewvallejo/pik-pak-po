@@ -4,6 +4,7 @@ var hardenMove = document.querySelector('#hardenMove')
 var abilityMove = document.querySelector('#abilityMove')
 var bagMove = document.querySelector('#bagMove')
 var runMove = document.querySelector('#runMove')
+var outcomeMsg = document.querySelector('#outcome')
 
 // Battle 
 swipeMove.addEventListener('click', swipe)
@@ -27,8 +28,17 @@ function pikpakpo() {
     playerStory.triggerFight('harden')
   }
   function ability() {
-    playerStory.triggerFight('abiltiy')
+    playerStory.triggerFight('ability')
   }
 
 
-// Helper FUn
+
+// Helper Function 
+
+function hide(e) {
+  e.classList.add('hidden')
+}
+
+function show() {
+  e.classList.remove('hidden')
+}

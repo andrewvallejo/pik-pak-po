@@ -20,9 +20,10 @@ class Game {
     this.updatePlayerMove(move)
     this.updateGymleaderMove()
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
-    outcome === 'win' ? console.log('you win')  :
-    outcome === 'lose' ? console.log('you lose') :
-    outcome === 'draw' ? console.log('draw') :
+    outcome === 'win' ? this.battlesWon++ : null
+    outcome === 'win' ? outcomeMsg.innerText = 'You Win!' :
+    outcome === 'lose' ? outcomeMsg.innerText = 'You Lose!':
+    outcome === 'draw' ? outcomeMsg.innerText = 'Draw!' :
     null
   }
 
@@ -36,6 +37,6 @@ class Game {
           playerMove === 'ability' && gymLeaderMove === 'harden' ? 'win' : 
           playerMove === 'ability' && gymLeaderMove === 'swipe' ? 'lose' :
           playerMove === 'ability' && gymLeaderMove === 'ability' ? 'draw' :
-          console.log('error')
+          null
   }
 }
