@@ -1,3 +1,10 @@
+// Intro Page
+var introPage = document.querySelector('#introPage')
+var showcase = document.querySelector('#showcase')
+var pokeballBtn = document.querySelector('#pokeball')
+var header = document.querySelector('header')
+var footer = document.querySelector('footer')
+
 // Gameboy
 var screen = document.querySelector('#screen')
 
@@ -25,6 +32,7 @@ abilityMove.addEventListener('click', ability)
 fightMove.addEventListener('click', showBattleCard)
 nextMove.addEventListener('click', showPlayAgainCard)
 playAgainMove.addEventListener('click', showBattleCard)
+pokeballBtn.addEventListener('click', showMainPage)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 
@@ -48,6 +56,14 @@ function pikpakpo() {
     playerStory.triggerFight('ability')
     showEnemyMoveCard()
   }
+
+// Intro Page
+function showMainPage() {
+  hide(introPage)
+  show(showcase)
+  show(header)
+  show(footer)
+}
 
 
 // Battle Sequence

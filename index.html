@@ -13,21 +13,23 @@
 <body class="flex-column">
   <!-- Intro Page -->
   <!--(DONT BELOW DELETE THIS!)-->
-  <!-- <section id="introPage" class="intro page flex-column">
-    <a href="#mainPage"><img src="/assets/icons/pokeball.png" alt=""></a>
-  </section> -->
+
   <!-- (DONT DELETE ANYTHING ABOVE THIS!) -->
   <!-- Main Page  -->
   <main id="mainPage" class="page flex-column">
+    <section id="introPage" class="intro page flex-column">
+      <img id="pokeball" src="/assets/icons/pokeball.png" alt="pokeball">
+    </section>
     <!-- Header -->
-    <header class="flex-row">
+    <header class="flex-row hidden">
       <h1>Pik-Pak-Po</h1>
       <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="pokeball">
         <p>Hello, Ash!</p>
         <div>
     </header>
+
     <!-- Content -->
-    <section class="showcase flex-row">
+    <section id="showcase" class="showcase flex-row hidden">
       <div class="playerCard third flex-column">
         <div class="player-menu menu flex-column">
           <img src="assets/icons/charmander_icon-icons.com_67576.png" alt="charmender" class="pokemon">
@@ -43,7 +45,7 @@
         <!-- Battle Card -->
         <div class="card flex-row ">
           <img src="assets/misc/text_border.png" alt="text border" class="msg-border">
-          <div id="openingCard" class= "inner-card flex-row"> 
+          <div id="openingCard" class="inner-card flex-row">
             <p class="card-text">What will charmender do?</p>
             <li class="box opening-box flex-column prioity">
               <p id="fightMove" class="btn move">FIGHT!</p>
@@ -61,18 +63,18 @@
               <p id="runMove" class="btn move">RUN!</p>
             </li>
           </div>
-          <div id="enemyMoveCard" class= "inner-card flex-row hidden"> 
+          <div id="enemyMoveCard" class="inner-card flex-row hidden">
             <p class="card-text">Foe BULBASAUR used <span id="enemyMove">MOVE</span> on CHARMENDER</p>
             <div class="box opening-box flex-column">
               <p id="nextMove" class="btn move prioity">NEXT!</p>
             </div>
           </div>
-          <div id="playAgainCard" class= "inner-card flex-column hidden"> 
-              <p id="playAgainMove" class="btn move play-again-move flex-row">PLAY AGAIN?</p>
-            </div>
+          <div id="playAgainCard" class="inner-card flex-column hidden">
+            <p id="playAgainMove" class="btn move play-again-move flex-row">PLAY AGAIN?</p>
           </div>
         </div>
-        <!-- End Batte Card -->
+      </div>
+      <!-- End Batte Card -->
       </div>
       <div class="game-card third flex-column">
         <div class="game-menu menu gymleader-menu flex-column">
@@ -81,7 +83,7 @@
       </div>
     </section>
     <!-- Footer -->
-    <footer class="flex-column">
+    <footer class="flex-column hidden">
       <p>All Content is © Copyright of Andrew Vallejo 2021 | Privacy Policy | Manage Cookie Settings
         Pokémon and All Respective Names are Trademark & © of Nintendo 1996-2021</p>
     </footer>
@@ -91,4 +93,5 @@
 <script src="javaScript/player.js"></script>
 <script src="javaScript/game.js"></script>
 <script src="javaScript/main.js"></script>
+
 </html>
