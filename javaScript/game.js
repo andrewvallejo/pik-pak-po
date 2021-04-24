@@ -19,7 +19,7 @@ class Game {
   triggerFight(move) {
     this.updatePlayerMove(move)
     this.updateGymleaderMove()
-    getOutcome()
+    this.getOutcome()
   }
 
   getOutcome() {
