@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <title>Poke-Pik-Po</title>
 </head>
+
 <body class="flex-column">
   <!-- Intro Page -->
   <!--(DONT BELOW DELETE THIS!)-->
@@ -32,7 +34,7 @@
         </div>
       </div>
       <div class="gameboy-battle third flex-column">
-        <div class="gameboyDiv flex-column">
+        <div class="gameboy-outline flex-column">
           <img src="assets/misc/gameboy-color.png" class="gameboy" alt="gameboy">
           <div class="gameboyScreen flex-column">
             <strong id="outcome" class="outcome"></strong>
@@ -41,14 +43,20 @@
         <!-- Battle Card -->
         <div class="card flex-row ">
           <img src="assets/misc/text_border.png" alt="text border" class="msg-border">
-          <div class="choices-card inner-card flex-row">
-            <div class="left-card box flex-column">
-              <p id="swipeMove" class="btn move">SWIPE</p>
-                
-                <p id="hardenMove" class="btn move">HARDEN</p>
-                <p id="abilityMove" class=" btn move">ABILITY</p>
+          <div id="openingCard" class="opening-card inner-card flex-row hidden"> 
+            <p class="card-text">What will charmender do?</p>
+            <div class="box opening-box flex-column">
+              <p id="fightMove" class="btn move opening-move">FIGHT!</p>
+              <p id="openRunMove" class="btn move opening-move">RUN!</p>
             </div>
-            <div class="right-card box flex-column">
+          </div>
+          <div id="battleCard" class="inner-card flex-row">
+            <div class="moves-box box flex-column">
+              <p id="swipeMove" class="btn move">SWIPE</p>
+              <p id="hardenMove" class="btn move">HARDEN</p>
+              <p id="abilityMove" class=" btn move">ABILITY</p>
+            </div>
+            <div class="box flex-column">
               <p id="bagMove" class="btn move">BAG</p>
               <p id="runMove" class="btn move">RUN!</p>
             </div>
@@ -73,4 +81,5 @@
 <script src="javaScript/player.js"></script>
 <script src="javaScript/game.js"></script>
 <script src="javaScript/main.js"></script>
+
 </html>

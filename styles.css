@@ -130,7 +130,7 @@ header img {
 }
 
 /*===*[Gameboy]*===*/
-.gameboyDiv {
+.gameboy-outline {
   align-items: center;
 }
 
@@ -146,7 +146,7 @@ header img {
   position: absolute;
   justify-content: center;
   margin-top: 2.7rem;
-  widgit sth: 11rem;
+  width: 11rem;
   height: 9.5rem;
 }
 
@@ -155,27 +155,29 @@ header img {
 }
 
 /*===*[Cards]*===*/
-
-/*===*[Battle Card]*===*/
 .card {
   position: relative;
-
 }
 
 .msg-border {
   width: 26rem;
 }
 
-
 .inner-card {
   position: absolute;
   height: 100%;
   width: 100%;
-
+  justify-content: center;
 }
 
-.left-card {
-  margin-left: .5rem;
+.card-text {
+  position: absolute;
+  font-size: 1rem;
+  top: .75rem;
+  left: 1rem;
+  width: 24rem;
+  height: 10rem;
+  padding: 1.5rem 1rem;
 }
 
 .box {
@@ -184,6 +186,21 @@ header img {
   width: 100%;
   padding: 1rem;
 }
+
+/*===*[Opening Card*===*/
+
+.opening-box {
+  align-items: flex-end;
+  margin-right: 1rem;
+}
+
+/*===*[Battle Card]*===*/
+
+
+.moves-box {
+  margin-left: .5rem;
+}
+
 
 .move {
   font-size: 1.4rem;
