@@ -10,7 +10,7 @@ class Player {
   retrieveWinsFromStorage() {
     return localStorage.getItem('wins')
   }
-  takeTurn(player) {
+  takeTurn() {
     
   }
 }
