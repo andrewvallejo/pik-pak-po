@@ -4,7 +4,8 @@ var screen = document.querySelector('#screen')
 // Card
 var openingCard = document.querySelector('#openingCard')
 var battleCard = document.querySelector('#battleCard')
-
+var enemyMoveCard = document.querySelector('#enemyMoveCard')
+var playAgainCard = document.querySelector('#playAgainCard')
 
 var outcomeMsg = document.querySelector('#outcome')
 var swipeMove =  document.querySelector('#swipeMove')
@@ -15,14 +16,15 @@ var runMove = document.querySelector('#runMove')
 var fightMove = document.querySelector('#fightMove')
 var openRunMove = document.querySelector('#openRunMove')
 var nextMove = document.querySelector('#nextMove')
-var enemyMoveCard = document.querySelector('#enemyMoveCard')
+var playAgainMove = document.querySelector('#playAgainMove')
 
 // Battle 
 swipeMove.addEventListener('click', swipe)
 hardenMove.addEventListener('click', harden)
 abilityMove.addEventListener('click', ability)
 fightMove.addEventListener('click', showBattleCard)
-nextMove.addEventListener('click', showOutcomeCard)
+nextMove.addEventListener('click', showPlayAgainCard)
+playAgainMove.addEventListener('click', showBattleCard)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 
@@ -51,25 +53,35 @@ function pikpakpo() {
 // Battle Sequence
 function showBattleCard() {
   hide(openingCard)
-  hide(enemyMoveCard)
+  hide(screen)
+  hide(playAgainCard)
+  // hide(enemyMoveCard)
   show(battleCard)
-  prioitize(battleCard)
-  unprioitize(openingCard)
+
+  // prioitize(battleCard)
+  // unprioitize(openingCard)
 }
 
 function showEnemyMoveCard() {
   hide(battleCard)
   show(enemyMoveCard)
-  prioitize(enemyMoveCard)
-  unprioitize(battleCard)
+  // prioitize(enemyMoveCard)
+  // unprioitize(battleCard)
 }
 
-function showOutcomeCard() {
+function showPlayAgainCard() {
   show(screen)
-  showBattleCard()
-
+  hide(enemyMoveCard)
+  show(playAgainCard)
+  // prioitize(playAgainCard)
+  // unprioitize(enemyMoveCard)
 }
 
+function showOpeningCard() {
+  hide(screen)
+  hide(playAgainCard)
+  show(showBattleCard)
+}
 
 
 // Helper Function 
@@ -82,10 +94,10 @@ function show(e) {
   e.classList.remove('hidden')
 }
 
-function prioitize(e) {
-  e.classList.add('prioitize')
-}
+// function prioitize(e) {
+//   e.classList.add('prioity')
+// }
 
-function unprioitize(e) {
-  e.classList.remove('prioitize')
-}
+// function unprioitize(e) {
+//   e.classList.remove('prioity')
+// }
