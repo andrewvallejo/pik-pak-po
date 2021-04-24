@@ -5,6 +5,11 @@ var pokeballBtn = document.querySelector('#pokeball')
 var header = document.querySelector('header')
 var footer = document.querySelector('footer')
 
+// Enemy
+var enemyPokemon = document.querySelector('#enemyPokemon')
+var enemyMove = document.querySelector('#enemyMove')
+var playerPokemon = document.querySelector('#playerPokemon')
+
 // Gameboy
 var screen = document.querySelector('#screen')
 
@@ -67,6 +72,7 @@ function showMainPage() {
 
 
 // Battle Sequence
+
 function showBattleCard() {
   hide(openingCard)
   hide(screen)
@@ -77,6 +83,14 @@ function showBattleCard() {
 function showEnemyMoveCard() {
   hide(battleCard)
   show(enemyMoveCard)
+  changeEnemyText()
+}
+
+function changeEnemyText() {
+  enemyPokemon.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
+  enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
+  playerPokemon.innerHTML = `${playerStory.player.pokemon.toUpperCase()}`
+
 }
 
 function showPlayAgainCard() {

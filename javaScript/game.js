@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-   this.player = new Player('Ash')
-   this.gymleader = new Player('Misty')
+   this.player = new Player({name:'Ash', pokemon:'Charmender'})
+   this.gymleader = new Player({name:'Misty', pokemon:'Bulbasaur'})
    this.playerMove = ''
    this.gymleaderMove = ''
    this.winner = ''
