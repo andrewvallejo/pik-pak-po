@@ -24,10 +24,10 @@ function pikpakpo() {
   playerStory.triggerFight('swipe')
   }
   function harden() {
-    playerStory.updatePlayerMove('harden')
+    playerStory.triggerFight('harden')
   }
   function ability() {
-    playerStory.updatePlayerMove('abiltiy')
+    playerStory.triggerFight('abiltiy')
   }
 
 
