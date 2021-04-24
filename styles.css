@@ -146,12 +146,16 @@ header img {
   position: relative;
 }
 
+.gameboyDiv { 
+  align-items: center;
+}
+
 .gameboyScreen  {
   position: absolute;
   justify-content: center;
-  height: 9.5rem;
+  margin-top: 2.7rem;
   width: 11rem;
-  top: 19.2%
+  height: 9.5rem;
 }
 
 .outcome {
