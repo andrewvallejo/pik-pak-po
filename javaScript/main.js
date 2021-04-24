@@ -1,4 +1,8 @@
 // Card
+var openingCard = document.querySelector('#openingCard')
+var battleCard = document.querySelector('#battleCard')
+
+
 var outcomeMsg = document.querySelector('#outcome')
 var swipeMove =  document.querySelector('#swipeMove')
 var hardenMove = document.querySelector('#hardenMove')
@@ -13,17 +17,18 @@ var openRunMove = document.querySelector('#openRunMove')
 swipeMove.addEventListener('click', swipe)
 hardenMove.addEventListener('click', harden)
 abilityMove.addEventListener('click', ability)
+fightMove.addEventListener('click', showBattleCard)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 
+
+// Initialize Story
 var playerStory = new Game()
-
-
 pikpakpo()
 function pikpakpo() {
   return playerStory
-}
-
+}  
+  // Player's Moves
   function swipe() {   
   playerStory.triggerFight('swipe')
   }
@@ -35,6 +40,15 @@ function pikpakpo() {
   }
 
 
+// Battle Sequence
+function showBattleCard() {
+  hide(openingCard)
+  show(battleCard)
+  prioitize(battleCard)
+  unprioitize(openingCard)
+}
+
+
 
 // Helper Function 
 
@@ -42,14 +56,14 @@ function hide(e) {
   e.classList.add('hidden')
 }
 
-function show() {
+function show(e) {
   e.classList.remove('hidden')
 }
 
-function prioitize() {
+function prioitize(e) {
   e.classList.add('prioitize')
 }
 
-function unprioitize() {
+function unprioitize(e) {
   e.classList.remove('prioitize')
 }
