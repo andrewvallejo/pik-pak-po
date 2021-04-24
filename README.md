@@ -12,7 +12,10 @@ Do you like Pokémon games and all of their franchise? Well then prepare yoursel
  <img src="assets/icons/egg.png" alt="egg" width="20px"/> Play Pik-Pak-Po with gameboy <br>
  <img src="assets/icons/egg.png" alt="egg" width="20px"/> Rules are like rock-paper-scissors but with a twist...  <br>
 
-
+#### Battle!
+Battle with the same battle script as the pokemon video games! In the tutorial (normal version) of the game, you will be given 3 options, swipe, harden, and ability. The sequence in which the moves beat eachother are as follows: <br>
+**ABILITY < SWIPE < HARDEN < ABILITY** <br>
+Players will take turns choosing their moves and the player who chooses the stronger moves wins
 
 
 
