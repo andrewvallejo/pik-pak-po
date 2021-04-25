@@ -18,7 +18,7 @@ html {
   --bulbasaur: #B7D0C0;
   --pikachu: #FFD400;
   --white: #fff;
-  --glass: rgba(225, 255, 225, 0.5)
+  --glass: rgba(200, 228, 216, 1)
 }
 
 
@@ -103,6 +103,26 @@ body {
   align-self: flex-end;
   margin-right: 5rem;
   animation: fadein 1s 1s forwards ease-in-out;
+}
+
+
+
+.oaks-msg {
+  position: absolute;
+  left: 20rem;
+  z-index: 2;
+  animation: fadein 1s 1s forwards ease-in-out;
+
+}
+
+.oaks-msg-box {
+  background: var(--glass);
+  position: absolute;
+  align-self: center;
+  margin-right: 1rem;
+  width: 36rem;
+  height: 15rem;
+  animation: fadein 1s 1s forwards ease-in-out;
 
 }
 
@@ -111,7 +131,6 @@ body {
     opacity: 1;
   }
 }
-
 
 /*===*[header]*===*/
 header {
@@ -199,6 +218,10 @@ header img {
 
 .msg-border {
   width: 26rem;
+}
+
+.msg-border-2x {
+  width: 40rem;
 }
 
 .inner-card {
