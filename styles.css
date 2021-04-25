@@ -69,6 +69,10 @@ body {
   z-index: 3;
 }
 
+.tiny-text {
+  font-size: .7rem;
+}
+
 /*===*[intro page]*===*/
 .intro {
   position: relative;
@@ -141,6 +145,18 @@ input {
   text-align: center;
 }
 
+.pokemon {
+  margin: 0 0 3rem 1.5rem;
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  background: var(--glass);
+}
+
+.pokemon:hover {
+  animation: shake 500ms forwards;
+}
+
 .poke {
   position: absolute;
   top: 70%;
@@ -203,10 +219,6 @@ header img {
   align-items: center;
 }
 
-.pokemon {
-  height: 10rem;
-  width: 10rem;
-}
 
 /*===*[Gameboy]*===*/
 .gameboy-outline {
@@ -338,4 +350,29 @@ footer p {
   100% {
     left: 0;
   }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(2px) rotate(3deg);
+  }
+
+  20% {
+    transform: translateX(-4px) rotate(-6deg);
+  }
+
+  40% {
+     transform: translateX(3px) rotate(7deg);
+
+  }
+  
+  80% {
+    transform: translateX(0px) rotate(-1deg);
+  }
+  
+  100% {
+    transform: translateX(0px) rotate(0deg);
+
+  }
+
 }
