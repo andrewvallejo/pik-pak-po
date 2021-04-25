@@ -13,6 +13,7 @@ var pokemonSheet = document.querySelector('#pokemonSheet')
 var profOak = document.querySelector('#profOak')
 var profOakText = document.querySelector('#profOakText')
 var showcase = document.querySelector('#showcase')
+var skipIntroBtn = document.querySelector('#skipIntro')
 
 // Player & Enemey
 var bulbasaur = document.querySelector('#bulbasaur')
@@ -55,6 +56,7 @@ pageOneBtn.addEventListener('click', gotoNext)
 playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
 swipeMove.addEventListener('click', swipe)
+skipIntroBtn.addEventListener('click', skipIntro)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 // Intro ER
@@ -142,11 +144,26 @@ function chooseSquirtle() {
   playerSprite.src = '/assets/pokemon/07_squirtle.png"'
   playerSprite.alt = 'squirtle'
   gotoNext(squirtle.pokemon)
-  return playerStory = new Game(nameForm.value, squirtle)
+
 }
 
+function skipIntro() {
+  hide(introPage)
+  show(showcase)
+  show(header)
+  show(footer)
+  return playerStory = new Game('Ash', summonPikachu())
+}
 
-
+function summonPikachu() {
+  var pikachu = {
+    pokemon: 'pikachu',
+    move: 'lightning'
+  }
+  playerSprite.src = 'assets/pokemon/25_pikachu.png'
+  playerSprite.alt = 'pikachu'
+  return pikachu
+}
 
   // Player's Moves
   function swipe() {   
