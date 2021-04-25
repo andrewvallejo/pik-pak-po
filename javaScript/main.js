@@ -7,7 +7,8 @@ var oaksMsg = document.querySelector('#oaksMsg')
 var oaksMsgBox = document.querySelector('#oaksMsgBox')
 var bgStripe = document.querySelector('#bgStripe')
 var pageOneBtn = document.querySelector('#pageOneBtn')
-var profOakText = document.querySelector('#profOakText')
+// var profOakText = document.querySelector('#profOakText')
+var oaksMsgBox = document.querySelector('#oaksMsgBox')
 
 // Main
 var header = document.querySelector('header')
@@ -48,10 +49,14 @@ playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
-pageOneBtn.addEventListener('click', alertme)
+pageOneBtn.addEventListener('click', gotoNext)
 
-function alertme() {
-  alert(' ')
+function gotoNext() {
+var click = 0
+click++
+if(click === 0) {
+  oaksMsgBox.innerHTML = '<p> what</p>'
+  }
 }
 
 
@@ -82,8 +87,6 @@ function startIntro() {
   show(bgStripe)
   show(oaksMsg)
   show(oaksMsgBox)
-  // animateSripe()
-
 }
 
 
