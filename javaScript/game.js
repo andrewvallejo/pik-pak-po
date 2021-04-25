@@ -33,14 +33,12 @@ class Game {
 
   compareMove(playerMove, gymLeaderMove) {
    return playerMove === 'swipe' &&  gymLeaderMove === 'ability' ? 'win' : 
-          playerMove === 'swipe' && gymLeaderMove === 'swipe' ? 'draw' :
           playerMove === 'swipe' && gymLeaderMove === 'harden' ? 'lose' :
           playerMove === 'harden' && gymLeaderMove === 'swipe' ? 'win' :
           playerMove === 'harden' && gymLeaderMove === 'ability' ? 'lose' :
-          playerMove === 'harden' && gymLeaderMove === 'harden' ? 'draw' :
           playerMove === 'ability' && gymLeaderMove === 'harden' ? 'win' : 
-          playerMove === 'ability' && gymLeaderMove === 'swipe' ? 'lose' :
-          playerMove === 'ability' && gymLeaderMove === 'ability' ? 'draw' :
+          playerMove === 'ability' && gymLeaderMove === 'swipe' ? 'lose' : 
+          playerMove ===  gymLeaderMove ? 'draw' :
           null
   }
 }

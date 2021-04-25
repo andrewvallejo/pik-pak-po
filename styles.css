@@ -120,7 +120,7 @@ input {
   animation: fadein 1s 1.5s forwards ease-in-out;
 }
 
-.oaks-msg-box {
+.oaks-msg-content {
   position: absolute;
   left: 22rem;
   justify-content: center;
@@ -134,7 +134,7 @@ input {
   background: var(--glass);
 }
 
-.oaks-msg-box p {
+.oaks-msg-content p {
   position: relative;
   margin: 0 1rem;
   line-height: 2.5;
@@ -271,7 +271,7 @@ header img {
   padding: 1rem;
 }
 
-/*===*[Opening Card*===*/
+/*===*[Battle Card]*===*/
 .opening-box {
   align-items: flex-end;
   margin-right: 1rem;
@@ -279,11 +279,14 @@ header img {
   margin: 4.5rem 1rem 0 0;
 }
 
-/*===*[Battle Card]*===*/
 .moves-box {
   margin-left: .5rem;
 }
 
+.play-again-move {
+  justify-content: center;
+  align-items: center;
+}
 
 .move {
   font-size: 1.4rem;
@@ -308,13 +311,6 @@ header img {
 .box:nth-of-type(2) p:nth-of-type(1) {
   margin-top: .8rem;
 }
-
-
-.play-again-move {
-  justify-content: center;
-  align-items: center;
-}
-
 
 /*===*[footer]*===*/
 footer {

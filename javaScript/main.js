@@ -1,58 +1,59 @@
 // Intro Page
-var introPage = document.querySelector('#introPage')
-var showcase = document.querySelector('#showcase')
-var pokeballBtn = document.querySelector('#bigPokeball')
-var profOak = document.querySelector('#profOak')
-var oaksMsg = document.querySelector('#oaksMsg')
-var oaksMsgBox = document.querySelector('#oaksMsgBox')
 var bgStripe = document.querySelector('#bgStripe')
-var pageOneBtn = document.querySelector('#pageOneBtn')
-var profOakText = document.querySelector('#profOakText')
-var oaksMsgBox = document.querySelector('#oaksMsgBox')
-var formCard = document.querySelector('#formCard')
-var nameForm = document.querySelector('#name')
-var pokemonSheet = document.querySelector('#pokemonSheet')
-// Main
-var header = document.querySelector('header')
+var introPage = document.querySelector('#introPage')
 var footer = document.querySelector('footer')
+var formCard = document.querySelector('#formCard')
+var header = document.querySelector('header')
+var nameForm = document.querySelector('#name')
+var oaksMsg = document.querySelector('#oaksMsg')
+var oaksMsgBox = document.querySelector('#oaksMsgContent')
+var pageOneBtn = document.querySelector('#pageOneBtn')
+var pokeballBtn = document.querySelector('#bigPokeball')
+var pokemonSheet = document.querySelector('#pokemonSheet')
+var profOak = document.querySelector('#profOak')
+var profOakText = document.querySelector('#profOakText')
+var showcase = document.querySelector('#showcase')
 
-// Enemy
-var enemyPokemon = document.querySelector('#enemyPokemon')
-var enemyMove = document.querySelector('#enemyMove')
+// Player & Enemey
 var playerPokemon = document.querySelector('#playerPokemon')
+var enemyMove = document.querySelector('#enemyMove')
+var enemyPokemon = document.querySelector('#enemyPokemon')
 
 // Gameboy
 var screen = document.querySelector('#screen')
 
 // Card
-var openingCard = document.querySelector('#openingCard')
 var battleCard = document.querySelector('#battleCard')
 var enemyMoveCard = document.querySelector('#enemyMoveCard')
+var openingCard = document.querySelector('#openingCard')
 var playAgainCard = document.querySelector('#playAgainCard')
 
-var outcomeMsg = document.querySelector('#outcome')
-var swipeMove =  document.querySelector('#swipeMove')
-var hardenMove = document.querySelector('#hardenMove')
+// Battle Card
 var abilityMove = document.querySelector('#abilityMove')
 var bagMove = document.querySelector('#bagMove')
-var runMove = document.querySelector('#runMove')
 var fightMove = document.querySelector('#fightMove')
-var openRunMove = document.querySelector('#openRunMove')
+var hardenMove = document.querySelector('#hardenMove')
 var nextMove = document.querySelector('#nextMove')
+var openRunMove = document.querySelector('#openRunMove')
+var outcomeMsg = document.querySelector('#outcome')
 var playAgainMove = document.querySelector('#playAgainMove')
+var runMove = document.querySelector('#runMove')
+var swipeMove =  document.querySelector('#swipeMove')
 
-// Battle 
-swipeMove.addEventListener('click', swipe)
-hardenMove.addEventListener('click', harden)
+// Battle ER
 abilityMove.addEventListener('click', ability)
+hardenMove.addEventListener('click', harden)
 fightMove.addEventListener('click', showBattleCard)
 nextMove.addEventListener('click', showPlayAgainCard)
+pageOneBtn.addEventListener('click', gotoNext)
 playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
+swipeMove.addEventListener('click', swipe)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
-pageOneBtn.addEventListener('click', gotoNext)
 
+
+// Introduction
 var click = 0
 function gotoNext() {
 click++
@@ -71,9 +72,9 @@ if(click <= 1) {
   } else if (click === 6) {
     hide(formCard)
     show(profOakText)
-    profOakText.innerHTML = `<p>${nameForm.value}? Well, there are some things in life that we can't choose...</p>`
+    profOakText.innerHTML = `<p>${nameForm.value.toUpperCase()}? Well, there are some things in life that we can't choose...</p>`
   } else if (click === 7) {
-    profOakText.innerHTML = `<p>Well ${nameForm.value}, you may not be an oak but at least are a pokemo-whaa?!?!</p>`
+    profOakText.innerHTML = `<p>Well ${nameForm.value.toUpperCase()}, you may not be an oak but at least are a pokemo-whaa?!?!</p>`
   } else if (click === 8) {
     profOakText.innerHTML = `<p>Yup, you're a pokemon, so get over it..</p>
     <p>uh, which one are you again?</p>`
@@ -86,6 +87,7 @@ if(click <= 1) {
 // Initialize Story
 var playerStory = new Game(nameForm.value)
 pikpakpo()
+
 function pikpakpo() {
   return playerStory
 }  
@@ -114,7 +116,6 @@ function startIntro() {
 
 
 // Battle Sequence
-
 function showBattleCard() {
   hide(openingCard)
   hide(screen)
@@ -132,7 +133,6 @@ function changeEnemyText() {
   enemyPokemon.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
   enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
   playerPokemon.innerHTML = `${playerStory.player.pokemon.toUpperCase()}`
-
 }
 
 function showPlayAgainCard() {
