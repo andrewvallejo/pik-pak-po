@@ -67,7 +67,7 @@ squirtle.addEventListener('click', function(){
 
 
 // Introduction
-var playerStory = new Game({name:`${chosenOne}`, pokemon:`${chosenPokemon}`})
+var playerStory = new Game(chosenOne, chosenPokemon)
 var chosenPokemon = ''
 var chosenOne = ''
 var click = 0
@@ -103,14 +103,20 @@ if(click <= 1) {
   } else if (click === 10) {
     hide(pokemonSheet)
     show(pageOneBtn)
-    show(profOakText)
-    profOakText.innerHTML = `<p>Oh, thats right, a ${pokemon.id.toUpperCase()}!</p>
+    profOakText.innerHTML = `<p>Oh, thats right.. a ${pokemon.id.toUpperCase()}..</p>
     <p class="tiny-text">probably another trash pokemon...</p>`
+    show(profOakText)
   } else if (click === 11) {
     profOakText.innerHTML = `<p>Anyways, ${chosenOne.toUpperCase()}</p>
     <p>Well, are you ready for your first day?</p>
     <p class="tiny-text">or for anything, lol...</p>`
   } else if (click === 12) {
+    hide(introPage)
+    show(header)
+    show(footer)
+    show(showcase)
+    console.log(chosenPokemon)
+    console.log(chosenOne)
     return playerStory
     }
 }
