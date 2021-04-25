@@ -4,7 +4,7 @@ class Player {
     this.badges = []
     this.battlesWon = 0
     this.pokemon = pokemon
-  }
+   }
   saveWinsToStorage() {
    localStorage.setItem('wins', this.battlesWon)
   }

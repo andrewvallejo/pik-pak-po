@@ -55,7 +55,7 @@ swipeMove.addEventListener('click', swipe)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 // Intro ER
-charmander.addEventListener('click', chooseCharmender)
+charmander.addEventListener('click', chooseCharmander)
 bulbasaur.addEventListener('click', chooseBulbasaur)
 squirtle.addEventListener('click', chooseSquirtle)
 
@@ -110,18 +110,30 @@ function gotoNext(pokemon) {
 }
  
 function chooseBulbasaur() {
-  gotoNext('bulbasaur')
-  return playerStory = new Game(nameForm.value,'bulbasaur')
+  var bulbasaur = {
+    pokemon: 'bulbasaur',
+    move: 'vinewhip' 
+  }
+  gotoNext(bulbasaur.pokemon)
+  return playerStory = new Game(nameForm.value, bulbasaur)
 }
 
-function chooseCharmender() {
+function chooseCharmander() {
+  var charmander = {
+    pokemon: 'charmander',
+    move: 'ember',
+  }
   gotoNext('charmander')
-  return playerStory = new Game(nameForm.value,'charmander')
+  return playerStory = new Game(nameForm.value, charmander)
 }
 
 function chooseSquirtle() {
-  gotoNext('squirtle')
-  return playerStory = new Game(nameForm.value,'squirtle')
+  var squirtle = {
+    pokemon: 'squirtle',
+    move: 'bubble' 
+  }
+  gotoNext(squirtle.pokemon)
+  return playerStory = new Game(nameForm.value, squirtle)
 }
 
 
