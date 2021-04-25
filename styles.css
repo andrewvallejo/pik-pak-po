@@ -18,9 +18,8 @@ html {
   --bulbasaur: #B7D0C0;
   --pikachu: #FFD400;
   --white: #fff;
-  --glass: rgba(225, 255, 225, 0.5)
+  --glass: rgba(200, 228, 216, 1)
 }
-
 
 * {
   padding: 0;
@@ -37,13 +36,13 @@ body {
 
 /*===*[attributes]*===*/
 .flex-column {
-  display: flex;
   flex-direction: column;
+  display: flex;
 }
 
 .flex-row {
-  display: flex;
   flex-direction: row;
+  display: flex;
 }
 
 .page {
@@ -67,25 +66,117 @@ body {
 }
 
 .prioity {
-  z-index: 1;
+  z-index: 3;
+}
+
+.tiny-text {
+  font-size: .7rem;
 }
 
 /*===*[intro page]*===*/
 .intro {
-  background: var(--squirtle);
+  position: relative;
   justify-content: center;
-  align-items: center;
   height: 100vh;
+  background: var(--squirtle);
 }
 
+.big-pokeball {
+  align-self: center;
+}
+
+.bg-stripe {
+  position: absolute;
+  left: 100rem;
+  animation: slide 1s forwards ease-in-out;
+  width: 100%;
+  height: 10rem;
+  background: #C55D67;
+}
+
+.prof-oak {
+  z-index: 1;
+  opacity: 0;
+  align-self: flex-end;
+  animation: fadein 1.5s 1.5s forwards ease-in-out;
+  margin-right: 5rem;
+}
+
+.form-card {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+input {
+  align-self: center;
+  margin-top: .5rem;
+  outline: none;
+  width: 80%;
+  padding: 1rem 1rem;
+  font-family: 'pokemon_gbregular', Arial, sans-serif;
+  text-align: center;
+}
+
+.oaks-msg {
+  position: absolute;
+  left: 20rem;
+  opacity: 0;
+  animation: fadein 1s 1.5s forwards ease-in-out;
+}
+
+.oaks-msg-content {
+  position: absolute;
+  left: 22rem;
+  justify-content: center;
+  align-content: center;
+  opacity: 0;
+  animation: fadein 1s 1.5s forwards ease-in-out;
+  margin-right: 1rem;
+  border-radius: 25px;
+  width: 36rem;
+  height: 14rem;
+  background: var(--glass);
+}
+
+.oaks-msg-content p {
+  position: relative;
+  margin: 0 1rem;
+  line-height: 2.5;
+  text-align: center;
+}
+
+.pokemon {
+  margin: 0 0 3rem 1.5rem;
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  background: var(--glass);
+}
+
+.pokemon:hover {
+  animation: shake 500ms forwards;
+}
+
+.poke {
+  position: absolute;
+  top: 70%;
+  width: 4rem;
+  align-self: flex-end;
+  transition: 100ms ease-in-out;
+}
+
+.poke:hover {
+  transition: all 500ms ease-in-out;
+  transform: rotate(30deg) scale(1.1);
+}
 
 /*===*[header]*===*/
 header {
-  background-color: var(--pikachu);
   justify-content: space-between;
   align-items: center;
-  padding: .2rem;
   height: 5vh;
+  padding: .2rem;
+  background-color: var(--pikachu);
 }
 
 h1 {
@@ -106,18 +197,18 @@ header img {
 
 /*===*[Main]*===*/
 .showcase {
-  background: var(--bulbasaur);
   width: 100vw;
   height: 90vh;
+  background: var(--bulbasaur);
 }
 
 .menu {
-  background-color: var(--glass);
   align-self: center;
+  border: #FFD400 5px solid;
+  border-radius: 5px;
   width: 24rem;
   height: 30rem;
-  border-radius: 5px;
-  border: #FFD400 5px solid;
+  background-color: var(--glass);
 }
 
 
@@ -128,10 +219,6 @@ header img {
   align-items: center;
 }
 
-.pokemon {
-  height: 10rem;
-  width: 10rem;
-}
 
 /*===*[Gameboy]*===*/
 .gameboy-outline {
@@ -144,7 +231,6 @@ header img {
   width: 22rem;
   position: relative;
 }
-
 
 .gameboyScreen {
   position: absolute;
@@ -165,6 +251,10 @@ header img {
 
 .msg-border {
   width: 26rem;
+}
+
+.msg-border-2x {
+  width: 40rem;
 }
 
 .inner-card {
@@ -193,24 +283,22 @@ header img {
   padding: 1rem;
 }
 
-/*===*[Opening Card*===*/
-
+/*===*[Battle Card]*===*/
 .opening-box {
   align-items: flex-end;
   margin-right: 1rem;
+  /* Fix this margin redundancy */
   margin: 4.5rem 1rem 0 0;
-
 }
-
-
-
-/*===*[Battle Card]*===*/
-
 
 .moves-box {
   margin-left: .5rem;
 }
 
+.play-again-move {
+  justify-content: center;
+  align-items: center;
+}
 
 .move {
   font-size: 1.4rem;
@@ -218,11 +306,11 @@ header img {
 
 .move::before {
   content: '►';
-  margin-right: .2rem;
   opacity: 0;
+  margin-right: .2rem;
 }
 
-.move:hover::before{
+.move:hover::before {
   content: '►';
   opacity: 1;
 }
@@ -236,24 +324,55 @@ header img {
   margin-top: .8rem;
 }
 
-
-.play-again-move {
-  align-items: center;
-  justify-content: center;
-}
-
-
 /*===*[footer]*===*/
 footer {
-  background-color: var(--pikachu);
   align-items: center;
+  height: 5vh;
+  background-color: var(--pikachu);
   font-size: .5rem;
   line-height: 1.8;
-  height: 5vh;
 }
 
 footer p {
   text-align: center;
   width: 70%;
   padding: .2rem;
+}
+
+/*===*[Animation]*===*/
+@keyframes fadein {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(2px) rotate(3deg);
+  }
+
+  20% {
+    transform: translateX(-4px) rotate(-6deg);
+  }
+
+  40% {
+     transform: translateX(3px) rotate(7deg);
+
+  }
+  
+  80% {
+    transform: translateX(0px) rotate(-1deg);
+  }
+  
+  100% {
+    transform: translateX(0px) rotate(0deg);
+
+  }
+
 }

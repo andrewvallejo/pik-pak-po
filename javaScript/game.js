@@ -1,7 +1,7 @@
 class Game {
-  constructor() {
-   this.player = new Player({name:'Ash', pokemon:'Charmender'})
-   this.gymleader = new Player({name:'Misty', pokemon:'Bulbasaur'})
+  constructor(trainer, pokemon) {
+   this.player = new Player(trainer, pokemon)
+   this.gymleader = new Player('Misty', 'raichu')
    this.playerMove = ''
    this.gymleaderMove = ''
    this.winner = ''
@@ -16,6 +16,7 @@ class Game {
     moveChoice === 3 ? this.gymleaderMove = 'ability' :
     null
   }
+
   triggerFight(move) {
     this.updatePlayerMove(move)
     this.updateGymleaderMove()
@@ -32,15 +33,13 @@ class Game {
   }
 
   compareMove(playerMove, gymLeaderMove) {
-   return playerMove === 'swipe' &&  gymLeaderMove === 'ability' ? 'win' : 
-          playerMove === 'swipe' && gymLeaderMove === 'swipe' ? 'draw' :
+   return playerMove === 'swipe' &&  gymLeaderMove === 'ability' ? 'win': 
           playerMove === 'swipe' && gymLeaderMove === 'harden' ? 'lose' :
           playerMove === 'harden' && gymLeaderMove === 'swipe' ? 'win' :
           playerMove === 'harden' && gymLeaderMove === 'ability' ? 'lose' :
-          playerMove === 'harden' && gymLeaderMove === 'harden' ? 'draw' :
           playerMove === 'ability' && gymLeaderMove === 'harden' ? 'win' : 
-          playerMove === 'ability' && gymLeaderMove === 'swipe' ? 'lose' :
-          playerMove === 'ability' && gymLeaderMove === 'ability' ? 'draw' :
+          playerMove === 'ability' && gymLeaderMove === 'swipe' ? 'lose' : 
+          playerMove ===  gymLeaderMove ? 'draw' :
           null
   }
 }
