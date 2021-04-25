@@ -109,7 +109,6 @@ body {
 
 .oaks-msg {
   position: absolute;
-  z-index: 0;
   left: 20rem;
   opacity: 0;
   animation: fadein 1s 1.5s forwards ease-in-out;
@@ -119,7 +118,9 @@ body {
 .oaks-msg-box {
   background: var(--glass);
   position: absolute;
-  align-self: center;
+  /* align-self: center; */
+  left: 22rem;
+
   margin-right: 1rem;
   width: 36rem;
   height: 14rem;
