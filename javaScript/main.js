@@ -6,6 +6,8 @@ var profOak = document.querySelector('#profOak')
 var oaksMsg = document.querySelector('#oaksMsg')
 var oaksMsgBox = document.querySelector('#oaksMsgBox')
 var bgStripe = document.querySelector('#bgStripe')
+var pageOneBtn = document.querySelector('#pageOneBtn')
+var profOakText = document.querySelector('#profOakText')
 
 // Main
 var header = document.querySelector('header')
@@ -46,6 +48,11 @@ playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
+pageOneBtn.addEventListener('click', alertme)
+
+function alertme() {
+  alert(' ')
+}
 
 
 // Initialize Story
