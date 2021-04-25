@@ -1,6 +1,6 @@
 class Player {
-  constructor(player, pokemon) {
-    this.name = player
+  constructor(trainer, pokemon) {
+    this.name = trainer
     this.badges = []
     this.battlesWon = 0
     this.pokemon = pokemon
