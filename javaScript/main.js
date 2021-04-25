@@ -10,6 +10,8 @@ var pageOneBtn = document.querySelector('#pageOneBtn')
 var profOakText = document.querySelector('#profOakText')
 var oaksMsgBox = document.querySelector('#oaksMsgBox')
 var formCard = document.querySelector('#formCard')
+var nameForm = document.querySelector('#name')
+var pokemonSheet = document.querySelector('#pokemonSheet')
 // Main
 var header = document.querySelector('header')
 var footer = document.querySelector('footer')
@@ -63,15 +65,26 @@ if(click <= 1) {
   }  else if (click === 4) {
     profOakText.innerHTML = `<p>Before you we start, can you tell me... </p>
     <p>What is your name?</p>`
-  } else if (click > 4 ) {
+  } else if (click === 5) {
     show(formCard)
     hide(profOakText)
+  } else if (click === 6) {
+    hide(formCard)
+    show(profOakText)
+    profOakText.innerHTML = `<p>${nameForm.value}? Well, there are some things in life that we can't choose...</p>`
+  } else if (click === 7) {
+    profOakText.innerHTML = `<p>Well ${nameForm.value}, you may be no oak but sure are a pokemon-whaa?!?!</p>`
+  } else if (click === 8) {
+    profOakText.innerHTML = `<p>Yup, you're a pokemon, so get over it..</p>
+    <p>uh, which one are you again?</p>`
+  } else if (click === 9) {
+    hide(profOakText)
+    show(pokemonSheet)
   }
 }
 
-
 // Initialize Story
-var playerStory = new Game()
+var playerStory = new Game(nameForm.value)
 pikpakpo()
 function pikpakpo() {
   return playerStory

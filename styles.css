@@ -105,6 +105,20 @@ body {
   animation: fadein 1.5s 1.5s forwards ease-in-out;
 }
 
+.form-card {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+input {
+  font-family: 'pokemon_gbregular', Arial, sans-serif;
+  outline: none;
+  padding: 1rem 1rem;
+  width: 80%;
+  align-self: center;
+  margin-top: .5rem;
+  text-align: center;
+}
 
 
 .oaks-msg {

@@ -1,5 +1,5 @@
 class Game {
-  constructor() {
+  constructor(player) {
    this.player = new Player({name:'Ash', pokemon:'pikachu'})
    this.gymleader = new Player({name:'Misty', pokemon:'raichu'})
    this.playerMove = ''
