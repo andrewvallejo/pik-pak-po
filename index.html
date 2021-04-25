@@ -58,14 +58,19 @@
           </div>
         </div>
         <!-- Battle Card -->
-        <div class="card flex-row ">
+        <div class="card flex-row">
           <img src="assets/misc/text_border.png" alt="text border" class="msg-border">
-          <div id="openingCard" class="inner-card flex-row">
-            <p class="card-text">What will charmender do?</p>
+          <div id="openingCard" class="inner-card flex-row hidden">
+            <p class="card-text">What will <span id="pokemonDo">charmander</span> do?</p>
             <li class="box opening-box flex-column prioity">
               <p id="fightMove" class="btn move">FIGHT!</p>
               <p id="openRunMove" class="btn move">RUN!</p>
             </li>
+          </div>
+          <!-- tutorial card -->
+          <div id="tutorialCard" class="inner-card flex-column">
+            <p id="cardText" class="card-text"> Have you ever played rock paper scissors?</p>
+            <p id="nextMoveOak" class="btn move oak-btn  prioity">I have...</p>
           </div>
           <div id="battleCard" class="inner-card flex-row hidden">
             <li class="moves-box box flex-column">
@@ -79,7 +84,7 @@
             </li>
           </div>
           <div id="enemyMoveCard" class="inner-card flex-row hidden">
-            <p class="card-text">Foe, <span id="enemyPokemon">BULBASAUR</span>, used <span id="enemyMove">MOVE</span> on
+            <p class="card-text">Foe, <span id="enemyPokemonText">BULBASAUR</span>, used <span id="enemyMove">MOVE</span> on
               <span id="playerPokemon">CHARMANDER</span></p>
             <div class="box opening-box flex-column">
               <p id="nextMove" class="btn move prioity">NEXT!</p>
@@ -94,7 +99,7 @@
       </div>
       <div class="game-card third flex-column">
         <div class="game-menu menu gymleader-menu flex-column">
-          <img src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur" class="pokemon">
+          <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur" class="pokemon">
         </div>
       </div>
     </section>

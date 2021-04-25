@@ -19,7 +19,8 @@ var skipIntroBtn = document.querySelector('#skipIntro')
 var bulbasaur = document.querySelector('#bulbasaur')
 var charmander = document.querySelector('#charmander')
 var enemyMove = document.querySelector('#enemyMove')
-var enemyPokemon = document.querySelector('#enemyPokemon')
+var enemyPokemonText = document.querySelector('#enemyPokemonText')
+var enemyPokemonSprite = document.querySelector('#enemyPokemonSprite')
 var playerPokemon = document.querySelector('#playerPokemon')
 var squirtle = document.querySelector('#squirtle')
 
@@ -35,7 +36,13 @@ var enemyMoveCard = document.querySelector('#enemyMoveCard')
 var openingCard = document.querySelector('#openingCard')
 var playAgainCard = document.querySelector('#playAgainCard')
 
+// Tutorial Card
+var nextMoveOak = document.querySelector('#nextMoveOak')
+var tutorialCard = document.querySelector('#tutorialCard')
+var cardText = document.querySelector('#cardText')
+
 // Battle Card
+var pokemonDo = document.querySelector('#pokemonDo')
 var abilityMove = document.querySelector('#abilityMove')
 var bagMove = document.querySelector('#bagMove')
 var fightMove = document.querySelector('#fightMove')
@@ -57,6 +64,7 @@ playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
 swipeMove.addEventListener('click', swipe)
 skipIntroBtn.addEventListener('click', skipIntro)
+nextMoveOak.addEventListener('click', gotoNextPanal)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 // Intro ER
@@ -111,6 +119,8 @@ function gotoNext(pokemon) {
       show(header)
       show(footer)
       show(showcase)
+      enemyPokemonSprite.src = 'assets/icons/professor-oak.png'
+      enemyPokemonSprite.alt = 'Professor Oak'
     }
 }
  
@@ -121,6 +131,8 @@ function chooseBulbasaur() {
   }
   playerSprite.src = '/assets/pokemon/01_bulbasaur.png'
   playerSprite.alt = 'bulbasaur'
+  pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
+  summonOak()
   gotoNext(bulbasaur.pokemon)
   return playerStory = new Game(nameForm.value, bulbasaur)
 }
@@ -132,6 +144,7 @@ function chooseCharmander() {
   }
   playerSprite.src = '/assets/pokemon/04_charmander.png'
   playerSprite.alt = 'charmander'
+  pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
   return playerStory = new Game(nameForm.value, charmander)
 }
@@ -141,10 +154,10 @@ function chooseSquirtle() {
     pokemon: 'squirtle',
     move: 'bubble' 
   }
-  playerSprite.src = '/assets/pokemon/07_squirtle.png"'
+  pokemonDo.innerText = squirtle.pokemon.toUpperCase()
+  playerSprite.src = '/assets/pokemon/07_squirtle.png'
   playerSprite.alt = 'squirtle'
   gotoNext(squirtle.pokemon)
-
 }
 
 function skipIntro() {
@@ -152,6 +165,7 @@ function skipIntro() {
   show(showcase)
   show(header)
   show(footer)
+  summonOak()
   return playerStory = new Game('Ash', summonPikachu())
 }
 
@@ -160,9 +174,17 @@ function summonPikachu() {
     pokemon: 'pikachu',
     move: 'lightning'
   }
+  pokemonDo.innerText = pikachu.pokemon.toUpperCase()
   playerSprite.src = 'assets/pokemon/25_pikachu.png'
   playerSprite.alt = 'pikachu'
   return pikachu
+}
+
+function summonOak() {
+  enemyPokemonSprite.src = 'assets/icons/professor-oak.png'
+  enemyPokemonSprite.alt = 'Professor Oak'
+  enemyPokemonSprite.classList.remove('pokemon')
+  enemyPokemonSprite.classList.add('prof-oak-small')
 }
 
   // Player's Moves
@@ -179,7 +201,50 @@ function summonPikachu() {
     showEnemyMoveCard()
   }
 
-// Intro Page
+// Tutorial Card 
+var pCount = 0
+function gotoNextPanal() {
+  pCount++ 
+  if (pCount === 1) {
+    cardText.innerText =  `Now imagine playing that but in real life!`
+    nextMoveOak.innerText = 'Um..'
+  } else if (pCount === 2) {
+    cardText.innerText =  `They, this is your life now so you get used to it, now listen to the rules carefully`
+    nextMoveOak.innerText = 'Ok..'
+    }
+    else if (pCount === 3) {
+      cardText.innerText =  `SWIPE will always beat ABILITY`
+      nextMoveOak.innerText = 'Got it'
+      }
+    else if (pCount === 4) {
+      cardText.innerText =  `ABILTY will always beat HARDEN`
+      nextMoveOak.innerText = 'I see'
+      }
+      else if (pCount === 5) {
+      cardText.innerText =  `and HARDEN will always beat SWIPE`
+      nextMoveOak.innerText = 'Alright'
+      }
+      else if (pCount === 6) {
+      cardText.innerText =  `I will say it again because you're an idiot.`
+      nextMoveOak.innerText = 'Excuse me?!'
+      }
+      else if (pCount === 7) {
+      cardText.innerText =  `I said! SWIPE beats ABILITY. ABILITY beats HARDEN. HARDEN beats SWIPE! You got it?!`
+      nextMoveOak.innerText = 'I think so..'
+      }
+      else if (pCount === 8) {
+      cardText.innerText =  `Okay! Are you ready to start your training?`
+      nextMoveOak.innerText = 'Yah!'
+      }
+      else if (pCount === 9) {
+        hide(tutorialCard)
+        show(battleCard)
+      }   
+
+  }
+
+
+//  Battle Card
 function startIntro() {
   hide(pokeballBtn)
   show(profOak)
@@ -188,8 +253,6 @@ function startIntro() {
   show(oaksMsgBox)
 }
 
-
-// Battle Sequence
 function showBattleCard() {
   hide(openingCard)
   hide(screen)
