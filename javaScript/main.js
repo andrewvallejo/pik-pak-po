@@ -3,6 +3,8 @@ var introPage = document.querySelector('#introPage')
 var showcase = document.querySelector('#showcase')
 var pokeballBtn = document.querySelector('#bigPokeball')
 var profOak = document.querySelector('#profOak')
+var oaksMsg = document.querySelector('#oaksMsg')
+var oaksMsgBox = document.querySelector('#oaksMsgBox')
 var bgStripe = document.querySelector('#bgStripe')
 
 // Main
@@ -71,15 +73,10 @@ function startIntro() {
   hide(pokeballBtn)
   show(profOak)
   show(bgStripe)
-  animateSripe()
-  // hide(introPage)
-  // show(showcase)
-  // show(header)
-  // show(footer)
-}
+  show(oaksMsg)
+  show(oaksMsgBox)
+  // animateSripe()
 
-function animateStripe() {
-  bgStripe.classList.add('slide-transition')
 }
 
 
