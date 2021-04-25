@@ -55,74 +55,76 @@ swipeMove.addEventListener('click', swipe)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 // Intro ER
-charmander.addEventListener('click', function(){
-  gotoNext(charmander)
-})
-bulbasaur.addEventListener('click', function(){
-  gotoNext(bulbasaur)
-})
-squirtle.addEventListener('click', function(){
-  gotoNext(squirtle)
-})
+charmander.addEventListener('click', chooseCharmender)
+bulbasaur.addEventListener('click', chooseBulbasaur)
+squirtle.addEventListener('click', chooseSquirtle)
 
+var playerStory;
 
 // Introduction
-var playerStory = new Game(chosenOne, chosenPokemon)
-var chosenPokemon = ''
-var chosenOne = ''
 var click = 0
 function gotoNext(pokemon) {
-click++
-if(click <= 1) { 
-  profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
-  } else if (click === 2) {
-    profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
-  } else if (click === 3) {
-    profOakText.innerHTML = `<p>..so mind your manners..</p>`
-  }  else if (click === 4) {
-    profOakText.innerHTML = `<p>Before you we start, can you tell me... </p>
-    <p>What is your name?</p>`
-  } else if (click === 5) {
-    show(formCard)
-    hide(profOakText)
-  } else if (click === 6) {
-    chosenOne = nameForm.value
-    profOakText.innerHTML = `<p>${chosenOne.toUpperCase()}? Well, there are some things in life that we can't choose...</p>`
-    hide(formCard)
-    show(profOakText) 
-  } else if (click === 7) {
-    profOakText.innerHTML = `<p>Well ${chosenOne.toUpperCase()}, you may not be an oak but at least are a pokemo-whaa?!?!</p>`
-  } else if (click === 8) {
-    profOakText.innerHTML = `<p>Yup, you're a pokemon, so get over it..</p>
-    <p>uh, which one are you again?</p>`
-  } else if (click === 9) {
-    hide(profOakText)
-    hide(pageOneBtn)
-    show(pokemonSheet)
-    chosenPokemon = pokemon.id
-  } else if (click === 10) {
-    hide(pokemonSheet)
-    show(pageOneBtn)
-    profOakText.innerHTML = `<p>Oh, thats right.. a ${pokemon.id.toUpperCase()}..</p>
-    <p class="tiny-text">probably another trash pokemon...</p>`
-    show(profOakText)
-  } else if (click === 11) {
-    profOakText.innerHTML = `<p>Anyways, ${chosenOne.toUpperCase()}</p>
-    <p>Well, are you ready for your first day?</p>
-    <p class="tiny-text">or for anything, lol...</p>`
-  } else if (click === 12) {
-    hide(introPage)
-    show(header)
-    show(footer)
-    show(showcase)
-    console.log(chosenPokemon)
-    console.log(chosenOne)
-    return playerStory
+  click++
+  if(click <= 1) { 
+    profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
+    } else if (click === 2) {
+      profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
+    } else if (click === 3) {
+      profOakText.innerHTML = `<p>..so mind your manners..</p>`
+    }  else if (click === 4) {
+      profOakText.innerHTML = `<p>Before you we start, can you tell me... </p>
+      <p>What is your name?</p>`
+    } else if (click === 5) {
+      show(formCard)
+      hide(profOakText)
+      // trainer.name = name
+    } else if (click === 6) {
+      profOakText.innerHTML = `<p>${nameForm.value.toUpperCase()}? Well, there are some things in life that we can't choose...</p>`
+      hide(formCard)
+      show(profOakText) 
+    } else if (click === 7) {
+      profOakText.innerHTML = `<p>Well ${nameForm.value.toUpperCase()}, you may not be an oak but at least are a pokemo-whaa?!?!</p>`
+    } else if (click === 8) {
+      profOakText.innerHTML = `<p>Yup, you're a pokemon, so get over it..</p>
+      <p>uh, which one are you again?</p>`
+    } else if (click === 9) {
+      hide(profOakText)
+      hide(pageOneBtn)
+      show(pokemonSheet)
+    } else if (click === 10) {
+      hide(pokemonSheet)
+      show(pageOneBtn)
+      profOakText.innerHTML = `<p>Oh, thats right.. a ${pokemon.toUpperCase()}..</p>
+      <p class="tiny-text">probably another trash pokemon...</p>`
+      show(profOakText)
+    } else if (click === 11) {
+      profOakText.innerHTML = `<p>Anyways, ${nameForm.value.toUpperCase()}</p>
+      <p>Well, are you ready for your first day?</p>
+      <p class="tiny-text">or for anything, lol...</p>`
+    } else if (click === 12) {
+      hide(introPage)
+      show(header)
+      show(footer)
+      show(showcase)
     }
+}
+ 
+function chooseBulbasaur() {
+  gotoNext('bulbasaur')
+  return playerStory = new Game(nameForm.value,'bulbasaur')
+}
+
+function chooseCharmender() {
+  gotoNext('charmander')
+  return playerStory = new Game(nameForm.value,'charmander')
+}
+
+function chooseSquirtle() {
+  gotoNext('squirtle')
+  return playerStory = new Game(nameForm.value,'squirtle')
 }
 
 
-// Initialize Story
 
 
   // Player's Moves
