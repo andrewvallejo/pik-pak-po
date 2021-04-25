@@ -7,9 +7,9 @@ var oaksMsg = document.querySelector('#oaksMsg')
 var oaksMsgBox = document.querySelector('#oaksMsgBox')
 var bgStripe = document.querySelector('#bgStripe')
 var pageOneBtn = document.querySelector('#pageOneBtn')
-// var profOakText = document.querySelector('#profOakText')
+var profOakText = document.querySelector('#profOakText')
 var oaksMsgBox = document.querySelector('#oaksMsgBox')
-
+var formCard = document.querySelector('#formCard')
 // Main
 var header = document.querySelector('header')
 var footer = document.querySelector('footer')
@@ -51,11 +51,21 @@ pokeballBtn.addEventListener('click', startIntro)
 // runMove.addEventListener('click', )
 pageOneBtn.addEventListener('click', gotoNext)
 
-function gotoNext() {
 var click = 0
+function gotoNext() {
 click++
-if(click === 0) {
-  oaksMsgBox.innerHTML = '<p> what</p>'
+if(click <= 1) { 
+  profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
+  } else if (click === 2) {
+    profOakText.innerHTML = `<p>But you should call me 'The doctor Professor'</p>`
+  } else if (click === 3) {
+    profOakText.innerHTML = `<p>..so mind your manners..</p>`
+  }  else if (click === 4) {
+    profOakText.innerHTML = `<p>Before you we start, can you tell me... </p>
+    <p>What is your name?</p>`
+  } else if (click > 4 ) {
+    show(formCard)
+    hide(profOakText)
   }
 }
 
