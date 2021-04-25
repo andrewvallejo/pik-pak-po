@@ -67,7 +67,7 @@ body {
 }
 
 .prioity {
-  z-index: 1;
+  z-index: 3;
 }
 
 /*===*[intro page]*===*/
@@ -102,16 +102,17 @@ body {
   opacity: 0;
   align-self: flex-end;
   margin-right: 5rem;
-  animation: fadein 1s 1s forwards ease-in-out;
+  animation: fadein 1.5s 1.5s forwards ease-in-out;
 }
 
 
 
 .oaks-msg {
   position: absolute;
+  z-index: 0;
   left: 20rem;
-  z-index: 2;
-  animation: fadein 1s 1s forwards ease-in-out;
+  opacity: 0;
+  animation: fadein 1s 1.5s forwards ease-in-out;
 
 }
 
@@ -121,9 +122,34 @@ body {
   align-self: center;
   margin-right: 1rem;
   width: 36rem;
-  height: 15rem;
-  animation: fadein 1s 1s forwards ease-in-out;
+  height: 14rem;
+  border-radius: 25px;
+  opacity: 0;
+  justify-content: center;
+  align-content: center;
+  animation: fadein 1s 1.5s forwards ease-in-out;
+}
 
+.oaks-msg-box p {
+  position: relative;
+  margin: 0 1rem;
+  text-align: center;
+  line-height: 2.5;
+}
+
+.poke {
+  position: absolute;
+  top: 70%;
+  width: 4rem;
+  align-self: flex-end;
+  transition: 100ms ease-in-out;
+
+}
+
+.poke:hover {
+  transition: all 500ms ease-in-out;
+  transform: rotate(30deg);
+  /* transform: scale(1.2); */
 }
 
 @keyframes fadein {
