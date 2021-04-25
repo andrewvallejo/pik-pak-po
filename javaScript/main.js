@@ -22,6 +22,9 @@ var enemyPokemon = document.querySelector('#enemyPokemon')
 var playerPokemon = document.querySelector('#playerPokemon')
 var squirtle = document.querySelector('#squirtle')
 
+// Player Info 
+var playerSprite = document.querySelector('#playerSprite')
+
 // Gameboy
 var screen = document.querySelector('#screen')
 
@@ -114,6 +117,8 @@ function chooseBulbasaur() {
     pokemon: 'bulbasaur',
     move: 'vinewhip' 
   }
+  playerSprite.src = '/assets/pokemon/01_bulbasaur.png'
+  playerSprite.alt = 'bulbasaur'
   gotoNext(bulbasaur.pokemon)
   return playerStory = new Game(nameForm.value, bulbasaur)
 }
@@ -123,6 +128,8 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
+  playerSprite.src = '/assets/pokemon/04_charmander.png'
+  playerSprite.alt = 'charmander'
   gotoNext('charmander')
   return playerStory = new Game(nameForm.value, charmander)
 }
@@ -132,6 +139,8 @@ function chooseSquirtle() {
     pokemon: 'squirtle',
     move: 'bubble' 
   }
+  playerSprite.src = '/assets/pokemon/07_squirtle.png"'
+  playerSprite.alt = 'squirtle'
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
 }
