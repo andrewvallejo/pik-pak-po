@@ -73,7 +73,7 @@ if(click <= 1) {
     show(profOakText)
     profOakText.innerHTML = `<p>${nameForm.value}? Well, there are some things in life that we can't choose...</p>`
   } else if (click === 7) {
-    profOakText.innerHTML = `<p>Well ${nameForm.value}, you may be no oak but sure are a pokemon-whaa?!?!</p>`
+    profOakText.innerHTML = `<p>Well ${nameForm.value}, you may not be an oak but at least are a pokemo-whaa?!?!</p>`
   } else if (click === 8) {
     profOakText.innerHTML = `<p>Yup, you're a pokemon, so get over it..</p>
     <p>uh, which one are you again?</p>`
