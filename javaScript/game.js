@@ -1,6 +1,6 @@
 class Game {
-  constructor(player, pokemon) {
-   this.player = new Player(player, pokemon)
+  constructor(trainer, pokemon) {
+   this.player = new Player(trainer, pokemon)
    this.gymleader = new Player('Misty', 'raichu')
    this.playerMove = ''
    this.gymleaderMove = ''
@@ -16,7 +16,7 @@ class Game {
     moveChoice === 3 ? this.gymleaderMove = 'ability' :
     null
   }
-  
+
   triggerFight(move) {
     this.updatePlayerMove(move)
     this.updateGymleaderMove()
