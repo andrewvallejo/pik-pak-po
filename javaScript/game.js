@@ -1,6 +1,6 @@
 class Game {
   constructor(player) {
-   this.player = new Player({name:'Ash', pokemon:'pikachu'})
+   this.player = new Player(player)
    this.gymleader = new Player({name:'Misty', pokemon:'raichu'})
    this.playerMove = ''
    this.gymleaderMove = ''
@@ -32,7 +32,7 @@ class Game {
   }
 
   compareMove(playerMove, gymLeaderMove) {
-   return playerMove === 'swipe' &&  gymLeaderMove === 'ability' ? 'win' : 
+   return playerMove === 'swipe' &&  gymLeaderMove === 'ability' ? 'win': 
           playerMove === 'swipe' && gymLeaderMove === 'harden' ? 'lose' :
           playerMove === 'harden' && gymLeaderMove === 'swipe' ? 'win' :
           playerMove === 'harden' && gymLeaderMove === 'ability' ? 'lose' :
