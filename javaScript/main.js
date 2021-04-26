@@ -242,11 +242,11 @@ function gotoNextPanel() {
       nextMoveOak.innerText = 'Got it'
       }
       else if (pCount === 4) {
-      cardText.innerText =  `ABILTY will always beat HARDEN`
+      cardText.innerText =  `ABILITY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
       }
       else if (pCount === 5) {
-      cardText.innerText =  `and HARDEN will always beat SWIPE`
+      cardText.innerText =  `And HARDEN will always beat SWIPE`
       nextMoveOak.innerText = 'Alright'
       }
       else if (pCount === 6) {
@@ -282,25 +282,25 @@ function gotoNextPanel() {
     nextMoveOak.innerText = 'Tell me more..'
       } else if (pCount === 14) {
         cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
-    nextMoveOak.innerText = `This sucks'`
+    nextMoveOak.innerText = `This sucks!'`
       }  else if (pCount === 15) {
-        cardText.innerText =  `I know.`
+        cardText.innerText =  `I know, ${playerStory.player.name}, I know.`
     nextMoveOak.innerText = 'Oh..'
       } else if (pCount === 16) {
         cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
     nextMoveOak.innerText = 'Thats nice'
       } else if (pCount === 17) {
         cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
-    nextMoveOak.innerText = 'Capiche'
+    nextMoveOak.innerText = 'Capiche.'
       } else if (pCount === 18) {
         cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
     nextMoveOak.innerText = 'I want out!'
       } else if (pCount === 19) {
         cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
-    nextMoveOak.innerText = 'neat!'
+    nextMoveOak.innerText = 'Neat!'
       } else if (pCount === 20) {
         cardText.innerText =  `Off you go!`
-    nextMoveOak.innerText = 'wait!!'
+    nextMoveOak.innerText = 'Nait!!'
         hide(tutorialCard)
         hide(enemyPokemonSprite)
       }
