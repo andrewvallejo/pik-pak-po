@@ -192,7 +192,7 @@ function summonPikachu() {
     pokemon: 'pikachu',
     move: 'lightning'
   }
-  pokemonDo.innerText = pikachu.pokemon.pokemon.toUpperCase()
+  pokemonDo.innerText = pikachu.pokemon.toUpperCase()
   playerSprite.src = 'assets/pokemon/25_pikachu.png'
   playerSprite.alt = 'pikachu'
   return pikachu
@@ -325,6 +325,10 @@ function showOpeningCard() {
   show(showBattleCard)
 }
 
+function showEndTutorialCard() {
+  hide(battleCard)
+}
+ 
 
 // Helper Function 
 function hide(e) {
