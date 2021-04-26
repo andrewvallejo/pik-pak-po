@@ -102,6 +102,10 @@ body {
   margin-right: 5rem;
 }
 
+.prof-oak-small {
+  height: 25rem;
+}
+
 .form-card {
   font-size: 1.2rem;
   text-align: center;
@@ -281,6 +285,13 @@ header img {
   align-items: flex-start;
   width: 100%;
   padding: 1rem;
+}
+
+
+/* Oak Msg Card */
+.oak-btn {
+  align-self: flex-end;
+  margin: 6rem 1rem 0 0;
 }
 
 /*===*[Battle Card]*===*/
