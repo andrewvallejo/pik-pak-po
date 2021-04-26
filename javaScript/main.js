@@ -64,7 +64,7 @@ playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
 swipeMove.addEventListener('click', swipe)
 skipIntroBtn.addEventListener('click', skipIntro)
-nextMoveOak.addEventListener('click', gotoNextPanal)
+nextMoveOak.addEventListener('click', gotoNextPanel)
 // bagMove.addEventListener('click', )
 // runMove.addEventListener('click', )
 // Intro ER
@@ -121,6 +121,22 @@ function gotoNext(pokemon) {
       summonOak()
     }
 }
+
+// var click = 0 ;
+// function gotoNext(pokemon) {
+//   click++
+// switch (click) {
+//   case 2:
+//     profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
+//     break;
+//   case 3:
+//     profOakText.innerHTML = `<p>..so mind your manners..</p>`
+//     break;
+//   profOakText.innerHTML = `<p>..so mind your manners..</p>`
+//   default:
+//     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
+//   }
+// }
  
 function chooseBulbasaur() {
   var bulbasaur = {
@@ -213,20 +229,20 @@ function updateDialog(poke) {
 
 // Tutorial Card 
 var pCount = 0
-function gotoNextPanal() {
+function gotoNextPanel() {
   pCount++ 
   if (pCount === 1) {
     cardText.innerText =  `Now imagine playing that but in real life!`
     nextMoveOak.innerText = 'Um..'
   } else if (pCount === 2) {
-    cardText.innerText =  `They, this is your life now so you get used to it, now listen to the rules carefully`
-    nextMoveOak.innerText = 'Ok..'
-    }
-    else if (pCount === 3) {
+      cardText.innerText =  `They, this is your life now so you get used to it, now listen to the rules carefully`
+      nextMoveOak.innerText = 'Ok..'
+      }
+      else if (pCount === 3) {
       cardText.innerText =  `SWIPE will always beat ABILITY`
       nextMoveOak.innerText = 'Got it'
       }
-    else if (pCount === 4) {
+      else if (pCount === 4) {
       cardText.innerText =  `ABILTY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
       }
@@ -252,7 +268,6 @@ function gotoNextPanal() {
         hide(profOak)
         summonCaterpie()
       }   
-
   }
 
 // Player's Moves
