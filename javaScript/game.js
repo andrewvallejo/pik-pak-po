@@ -14,7 +14,7 @@ class Game {
     return moveChoice === 1 ? this.gymleaderMove = 'swipe' : 
     moveChoice === 2 ? this.gymleaderMove = 'harden' :
     moveChoice === 3 ? this.gymleaderMove = 'ability' :
-    null
+    null 
   }
 
   triggerFight(move) {

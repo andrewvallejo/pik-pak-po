@@ -187,6 +187,21 @@ function summonOak() {
   enemyPokemonSprite.classList.add('prof-oak-small')
 }
 
+function summonCaterpie() {
+  var caterpie = {
+    pokemon: 'caterpie',
+    move: 'string shot'
+  }
+  enemyPokemonSprite.src = 'assets/pokemon/10_caterpie.png'
+  enemyPokemonSprite.alt = 'Caterpie'
+  enemyPokemonSprite.classList.add('pokemon')
+  enemyPokemonSprite.classList.remove('prof-oak-small')
+  enemyPokemonText.innerText =  caterpie.pokemon.toUpperCase()
+  enemyMove.innerText = caterpie.move.toUpperCase()
+  playerPokemon.innerText = playerStory.player.pokemon.toUpperCase()
+  return caterpie
+}
+
   // Player's Moves
   function swipe() {   
   playerStory.triggerFight('swipe')
@@ -239,6 +254,8 @@ function gotoNextPanal() {
       else if (pCount === 9) {
         hide(tutorialCard)
         show(battleCard)
+        hide(profOak)
+        summonCaterpie()
       }   
 
   }
@@ -267,7 +284,7 @@ function showEnemyMoveCard() {
 }
 
 function changeEnemyText() {
-  enemyPokemon.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
+  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
   enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
   playerPokemon.innerHTML = `${playerStory.player.pokemon.toUpperCase()}`
 }
