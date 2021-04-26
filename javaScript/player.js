@@ -1,12 +1,13 @@
 class Player {
   constructor(trainer, pokemon) {
     this.name = trainer
+    this.token = '🙂'
     this.badges = []
-    this.battlesWon = 0
+    this.wins = 0
     this.pokemon = pokemon
    }
   saveWinsToStorage() {
-   localStorage.setItem('wins', this.battlesWon)
+   localStorage.setItem('wins', this.wins)
   }
   retrieveWinsFromStorage() {
     return localStorage.getItem('wins')
