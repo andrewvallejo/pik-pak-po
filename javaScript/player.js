@@ -5,6 +5,7 @@ class Player {
     this.badges = []
     this.wins = 0
     this.pokemon = pokemon
+    this.tutorialComplete = false 
    }
   saveWinsToStorage() {
    localStorage.setItem('wins', this.wins)
@@ -12,8 +13,19 @@ class Player {
   retrieveWinsFromStorage() {
     return localStorage.getItem('wins')
   }
-  takeTurn() {
-    
+  checkTutorialWins() {
+    if (this.wins >= 3 && !this.tutorialComplete) {
+      showEndTutorialCard()
+      this.tutorialComplete = true
+    }
+  }
+  updateWins() {
+    this.wins++
+  }
+  startRealGame() {
+    if (this.tutorialComplete) {
+      this.wins = 0 
+    }
   }
 }
 
