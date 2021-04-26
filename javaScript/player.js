@@ -14,18 +14,14 @@ class Player {
     return localStorage.getItem('wins')
   }
   checkTutorialWins() {
-    if (this.wins >= 3 && !this.tutorialComplete) {
-      showEndTutorialCard()
+    if (this.wins >= 2 && !this.tutorialComplete) {
       this.tutorialComplete = true
     }
   }
   updateWins() {
-    this.wins++
+    this.wins += 1
   }
-  startRealGame() {
-    if (this.tutorialComplete) {
-      this.wins = 0 
-    }
+ 
   }
-}
+
 
