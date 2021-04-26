@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,30 +8,46 @@
   <link rel="stylesheet" href="styles.css">
   <title>Poke-Pik-Po</title>
 </head>
-
-<body class="flex-column">
-  <!-- Intro Page -->
-  <!--(DONT BELOW DELETE THIS!)-->
-
-  <!-- (DONT DELETE ANYTHING ABOVE THIS!) -->
-  <!-- Main Page  -->
-  <main id="mainPage" class="page flex-column">
+<!-- Main Page  -->
+<main id="mainPage" class="page flex-column">
+  <body class="flex-column">
+    <!-- Intro Page -->
     <section id="introPage" class="intro page flex-column">
-      <img id="pokeball" src="/assets/icons/pokeball.png" alt="pokeball">
+      <img id="bigPokeball" src="/assets/icons/pokeball.png" alt="pokeball" class="btn big-pokeball">
+      <img id="skipIntro" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity">
+      <span id="bgStripe" class='bg-stripe hidden'></span>
+      <img id="profOak" src="assets/icons/professor-oak.png" alt="Professor Oak" class='prof-oak hidden'>
+      <img id="oaksMsg" src="assets/misc/text_border.png" alt="text border" class="oaks-msg msg-border-2x hidden">
+      <div id="oaksMsgContent" class="oaks-msg-content flex-column hidden">
+        <div id="profOakText">
+          <p> Hello there! </p>
+          <p> Welcome to the world of pokémon! My name is Oak!</p>
+        </div>
+          <form id="formCard" class="form-card hidden flex-column">
+            <label for="name">Your Name?</label>
+            <input type="text" id="name" name="name">
+          </form>
+          <div id="pokemonSheet" class="flex-row hidden">
+            <img id="bulbasaur" src="/assets/pokemon/01_bulbasaur.png" alt="bulbasaur" class="pokemon btn">
+            <img id="charmander" src="/assets/pokemon/04_charmander.png" alt="charmander"class="pokemon btn">
+            <img id="squirtle" src="/assets/pokemon/07_squirtle.png" alt="squirtle"class="pokemon btn">
+          </div>
+        <img id="pageOneBtn" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity">
+      </div>
     </section>
+    <!-- Main -->
     <!-- Header -->
     <header class="flex-row hidden">
       <h1>Pik-Pak-Po</h1>
-      <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="pokeball">
+      <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="big pokeball">
         <p>Hello, Ash!</p>
         <div>
     </header>
-
     <!-- Content -->
     <section id="showcase" class="showcase flex-row hidden">
       <div class="playerCard third flex-column">
         <div class="player-menu menu flex-column">
-          <img src="assets/icons/charmander_icon-icons.com_67576.png" alt="charmender" class="pokemon">
+          <img id="playerSprite" src="assets/icons/charmander_icon-icons.com_67576.png" alt="charmender" class="pokemon">
         </div>
       </div>
       <div class="gameboy-battle third flex-column">
@@ -43,14 +58,19 @@
           </div>
         </div>
         <!-- Battle Card -->
-        <div class="card flex-row ">
+        <div class="card flex-row">
           <img src="assets/misc/text_border.png" alt="text border" class="msg-border">
-          <div id="openingCard" class="inner-card flex-row">
-            <p class="card-text">What will charmender do?</p>
+          <div id="openingCard" class="inner-card flex-row hidden">
+            <p class="card-text">What will <span id="pokemonDo">charmander</span> do?</p>
             <li class="box opening-box flex-column prioity">
               <p id="fightMove" class="btn move">FIGHT!</p>
               <p id="openRunMove" class="btn move">RUN!</p>
             </li>
+          </div>
+          <!-- tutorial card -->
+          <div id="tutorialCard" class="inner-card flex-column">
+            <p id="cardText" class="card-text"> Have you ever played rock paper scissors?</p>
+            <p id="nextMoveOak" class="btn move oak-btn  prioity">I have...</p>
           </div>
           <div id="battleCard" class="inner-card flex-row hidden">
             <li class="moves-box box flex-column">
@@ -64,7 +84,8 @@
             </li>
           </div>
           <div id="enemyMoveCard" class="inner-card flex-row hidden">
-            <p class="card-text">Foe, <span id="enemyPokemon">BULBASAUR</span>, used <span id="enemyMove">MOVE</span> on <span id="playerPokemon">CHARMANDER</span></p>
+            <p class="card-text">Foe, <span id="enemyPokemonText">BULBASAUR</span>, used <span id="enemyMove">MOVE</span> on
+              <span id="playerPokemon">CHARMANDER</span></p>
             <div class="box opening-box flex-column">
               <p id="nextMove" class="btn move prioity">NEXT!</p>
             </div>
@@ -78,7 +99,7 @@
       </div>
       <div class="game-card third flex-column">
         <div class="game-menu menu gymleader-menu flex-column">
-          <img src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur" class="pokemon">
+          <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur" class="pokemon">
         </div>
       </div>
     </section>
@@ -87,11 +108,12 @@
       <p>All Content is © Copyright of Andrew Vallejo 2021 | Privacy Policy | Manage Cookie Settings
         Pokémon and All Respective Names are Trademark & © of Nintendo 1996-2021</p>
     </footer>
-  </main>
+</main>
 </body>
 <script src="javaScript/data.js"></script>
 <script src="javaScript/player.js"></script>
 <script src="javaScript/game.js"></script>
 <script src="javaScript/main.js"></script>
-
 </html>
+
+<img src="assets/pokemon/25_pikachu.png" alt="pikachu">
