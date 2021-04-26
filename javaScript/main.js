@@ -90,7 +90,6 @@ function gotoNext(pokemon) {
     } else if (click === 5) {
       show(formCard)
       hide(profOakText)
-      // trainer.name = name
     } else if (click === 6) {
       profOakText.innerHTML = `<p>${nameForm.value.toUpperCase()}? Well, there are some things in life that we can't choose...</p>`
       hide(formCard)
@@ -119,8 +118,7 @@ function gotoNext(pokemon) {
       show(header)
       show(footer)
       show(showcase)
-      enemyPokemonSprite.src = 'assets/icons/professor-oak.png'
-      enemyPokemonSprite.alt = 'Professor Oak'
+      summonOak()
     }
 }
  
@@ -158,15 +156,19 @@ function chooseSquirtle() {
   playerSprite.src = '/assets/pokemon/07_squirtle.png'
   playerSprite.alt = 'squirtle'
   gotoNext(squirtle.pokemon)
+  return playerStory = new Game(nameForm.value, squirtle)
+
 }
 
 function skipIntro() {
   hide(introPage)
+  hide(tutorialCard)
+  show(battleCard)
   show(showcase)
   show(header)
-  show(footer)
-  summonOak()
+  show(footer) 
   return playerStory = new Game('Ash', summonPikachu())
+
 }
 
 function summonPikachu() {
@@ -174,7 +176,7 @@ function summonPikachu() {
     pokemon: 'pikachu',
     move: 'lightning'
   }
-  pokemonDo.innerText = pikachu.pokemon.toUpperCase()
+  pokemonDo.innerText = pikachu.pokemon.pokemon.toUpperCase()
   playerSprite.src = 'assets/pokemon/25_pikachu.png'
   playerSprite.alt = 'pikachu'
   return pikachu
@@ -196,25 +198,18 @@ function summonCaterpie() {
   enemyPokemonSprite.alt = 'Caterpie'
   enemyPokemonSprite.classList.add('pokemon')
   enemyPokemonSprite.classList.remove('prof-oak-small')
-  enemyPokemonText.innerText =  caterpie.pokemon.toUpperCase()
-  enemyMove.innerText = caterpie.move.toUpperCase()
-  playerPokemon.innerText = playerStory.player.pokemon.toUpperCase()
+  playerStory.gymleader = new Player('Tutorial Person', 'caterpie')
+  changeEnemyText()
   return caterpie
 }
 
-  // Player's Moves
-  function swipe() {   
-  playerStory.triggerFight('swipe')
-  showEnemyMoveCard()
-  }
-  function harden() {
-    playerStory.triggerFight('harden')
-    showEnemyMoveCard()
-  }
-  function ability() {
-    playerStory.triggerFight('ability')
-    showEnemyMoveCard()
-  }
+function updateDialog(poke) {
+  enemyPokemonText.innerText =  poke.pokemon.toUpperCase()
+  enemyMove.innerText = poke.move.toUpperCase()
+  playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
+}
+
+
 
 // Tutorial Card 
 var pCount = 0
@@ -260,6 +255,20 @@ function gotoNextPanal() {
 
   }
 
+// Player's Moves
+function swipe() {   
+  playerStory.triggerFight('swipe')
+  showEnemyMoveCard()
+}
+function harden() {
+  playerStory.triggerFight('harden')
+  showEnemyMoveCard()
+}
+function ability() {
+  playerStory.triggerFight('ability')
+  showEnemyMoveCard()
+}
+
 
 //  Battle Card
 function startIntro() {
@@ -286,7 +295,7 @@ function showEnemyMoveCard() {
 function changeEnemyText() {
   enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
   enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
-  playerPokemon.innerHTML = `${playerStory.player.pokemon.toUpperCase()}`
+  playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
 }
 
 function showPlayAgainCard() {
