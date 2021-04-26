@@ -83,6 +83,11 @@ var playerStory;
 // Introduction
 var click = 0
 function gotoNext(pokemon) {
+  if(!nameForm.value && click === 5) {
+    nameForm.placeholder = "you're name, bud"
+    click = 5
+    return;
+  }
   click++
   if(click <= 1) { 
     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
