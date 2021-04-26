@@ -21,12 +21,12 @@ class Game {
 
   triggerFight(move) {
     this.player.checkTutorialWins()
-    this.player.startRealGame()
     this.playerMove = move
     this.updateGymleaderMove()
     this.getOutcome()
-   
   }
+
+
 
   getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
