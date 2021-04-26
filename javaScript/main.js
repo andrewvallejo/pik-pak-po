@@ -298,7 +298,7 @@ function gotoNextPanel() {
         cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
     nextMoveOak.innerText = `This sucks!'`
       }  else if (pCount === 15) {
-        cardText.innerText =  `I know, ${playerStory.player.name}, I know.`
+        cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
     nextMoveOak.innerText = 'Oh..'
       } else if (pCount === 16) {
         cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
