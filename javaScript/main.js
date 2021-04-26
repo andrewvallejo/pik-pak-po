@@ -184,7 +184,6 @@ function skipIntro() {
   show(header)
   show(footer) 
   return playerStory = new Game('Ash', summonPikachu())
-
 }
 
 function summonPikachu() {
@@ -268,22 +267,75 @@ function gotoNextPanel() {
         hide(profOak)
         summonCaterpie()
       }   
+      else if (pCount === 10) {
+        cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
+    nextMoveOak.innerText = 'Um..'
+      }
+      else if (pCount === 11) {
+        cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
+    nextMoveOak.innerText = 'NO!'
+      } else if (pCount === 12) {
+        cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
+    nextMoveOak.innerText = 'Thats better?'
+      } else if (pCount === 13) {
+        cardText.innerText =  `Since the stakes are higher, the rules change too`
+    nextMoveOak.innerText = 'Tell me more..'
+      } else if (pCount === 14) {
+        cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
+    nextMoveOak.innerText = `This sucks'`
+      }  else if (pCount === 15) {
+        cardText.innerText =  `I know.`
+    nextMoveOak.innerText = 'Oh..'
+      } else if (pCount === 16) {
+        cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
+    nextMoveOak.innerText = 'Thats nice'
+      } else if (pCount === 17) {
+        cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
+    nextMoveOak.innerText = 'Capiche'
+      } else if (pCount === 18) {
+        cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
+    nextMoveOak.innerText = 'I want out!'
+      } else if (pCount === 19) {
+        cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
+    nextMoveOak.innerText = 'neat!'
+      } else if (pCount === 20) {
+        cardText.innerText =  `Off you go!`
+    nextMoveOak.innerText = 'wait!!'
+        hide(tutorialCard)
+        hide(enemyPokemonSprite)
+      }
   }
+  
+
+
 
 // Player's Moves
-function swipe() {   
+function swipe() {
+  if (playerStory.player.tutorialComplete) {
+    showEndTutorialCard()
+  } else {   
   playerStory.triggerFight('swipe')
   showEnemyMoveCard()
 }
-function harden() {
-  playerStory.triggerFight('harden')
-  showEnemyMoveCard()
-}
-function ability() {
-  playerStory.triggerFight('ability')
-  showEnemyMoveCard()
 }
 
+
+function harden() {
+  if (playerStory.player.tutorialComplete) {
+    showEndTutorialCard()
+  } else {   
+  playerStory.triggerFight('harden')
+  showEnemyMoveCard()
+  }
+}
+function ability() {
+  if (playerStory.player.tutorialComplete) {
+    showEndTutorialCard()
+  } else {   
+  playerStory.triggerFight('ability')
+  showEnemyMoveCard()
+  }
+}
 
 //  Battle Card
 function startIntro() {
@@ -327,6 +379,11 @@ function showOpeningCard() {
 
 function showEndTutorialCard() {
   hide(battleCard)
+  summonOak()
+  cardText.innerText =  `Hold up! I think you are ready to take on the world. Are you with me?`
+  nextMoveOak.innerText = 'Yah!'  
+  show(tutorialCard)
+  // gotoNextPanel()
 }
  
 
