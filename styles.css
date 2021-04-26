@@ -195,6 +195,13 @@ header img {
 
 /*===*[Opening Card*===*/
 
+/* Oak Msg Card */
+.oak-btn {
+  align-self: flex-end;
+  margin: 6rem 1.3rem 0 0;
+}
+
+/*===*[Battle Card]*===*/
 .opening-box {
   align-items: flex-end;
   margin-right: 1rem;
