@@ -11,6 +11,8 @@ var pokemonSheet = document.querySelector('#pokemonSheet')
 var profOak = document.querySelector('#profOak')
 var profOakText = document.querySelector('#profOakText')
 var skipIntroBtn = document.querySelector('#skipIntro')
+var enemyWins = document.querySelector('#enemyWins')
+var playerWins = document.querySelector('#playerWins')
 
 // Main Page
 var footer = document.querySelector('footer')
