@@ -8,9 +8,9 @@ class Game {
    this.playersWins = 0
    this.gymleaderWins = 0
   }
-  updatePlayerMove(move) {
-    this.playerMove = move
-  }
+
+
+
   updateGymleaderMove() {
     var moveChoice = Math.floor(Math.random() * (4 - 1)) + 1
     return moveChoice === 1 ? this.gymleaderMove = 'swipe' : 
@@ -20,9 +20,12 @@ class Game {
   }
 
   triggerFight(move) {
-    this.updatePlayerMove(move)
+    this.player.checkTutorialWins()
+    this.player.startRealGame()
+    this.playerMove = move
     this.updateGymleaderMove()
     this.getOutcome()
+   
   }
 
   getOutcome() {
