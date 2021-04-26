@@ -1,9 +1,7 @@
-// Intro Page
+// Intro Page & Tutorial
 var bgStripe = document.querySelector('#bgStripe')
 var introPage = document.querySelector('#introPage')
-var footer = document.querySelector('footer')
 var formCard = document.querySelector('#formCard')
-var header = document.querySelector('header')
 var nameForm = document.querySelector('#name')
 var oaksMsg = document.querySelector('#oaksMsg')
 var oaksMsgBox = document.querySelector('#oaksMsgContent')
@@ -12,8 +10,14 @@ var pokeballBtn = document.querySelector('#bigPokeball')
 var pokemonSheet = document.querySelector('#pokemonSheet')
 var profOak = document.querySelector('#profOak')
 var profOakText = document.querySelector('#profOakText')
-var showcase = document.querySelector('#showcase')
 var skipIntroBtn = document.querySelector('#skipIntro')
+
+// Main Page
+var footer = document.querySelector('footer')
+var header = document.querySelector('header')
+var showcase = document.querySelector('#showcase')
+var trainerName = document.querySelector('#trainerName')
+
 
 // Player & Enemey
 var bulbasaur = document.querySelector('#bulbasaur')
@@ -118,6 +122,7 @@ function gotoNext(pokemon) {
       show(header)
       show(footer)
       show(showcase)
+      updateHeader()
       summonOak()
     }
 }
@@ -224,7 +229,9 @@ function updateDialog(poke) {
   playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
 }
 
-
+function updateHeader() {
+  trainerName.innerText = nameForm.value.toUpperCase()
+}
 
 // Tutorial Card 
 var pCount = 0

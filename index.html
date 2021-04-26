@@ -40,13 +40,14 @@
     <header class="flex-row hidden">
       <h1>Pik-Pak-Po</h1>
       <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="big pokeball">
-        <p>Hello, Ash!</p>
+        <p>Hello, <span id="trainerName">Ash!</span></p>
         <div>
     </header>
     <!-- Content -->
     <section id="showcase" class="showcase flex-row hidden">
       <div class="playerCard third flex-column">
-        <div class="player-menu menu flex-column">
+        <div class="player-menu menu flex-column tutorial-card">
+          <p>Wins: <span id="playerWins" class="">0</span></p>
           <img id="playerSprite" src="assets/icons/charmander_icon-icons.com_67576.png" alt="charmender" class="pokemon">
         </div>
       </div>
@@ -98,7 +99,8 @@
       <!-- End Batte Card -->
       </div>
       <div class="game-card third flex-column">
-        <div class="game-menu menu gymleader-menu flex-column">
+        <div class="game-menu menu gymleader-menu flex-column tutorial-card">
+          <p>Wins: <span id="enemyWins" class="">0</span></p>
           <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur" class="pokemon">
         </div>
       </div>
