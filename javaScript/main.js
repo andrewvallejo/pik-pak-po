@@ -56,26 +56,24 @@ var tutorialUser = document.querySelector('#tutorialUser')
 var userInfo = document.querySelector('#userInfo')
 var winPlayerText = document.querySelector('#winPlayerText')
 var winEnemyText = document.querySelector('#winEnemyText')
+var playerStory;
 
-// Battle ER
 window.addEventListener('load', checkForSave)
 abilityMove.addEventListener('click', ability)
-hardenMove.addEventListener('click', harden)
+bulbasaur.addEventListener('click', chooseBulbasaur)
+charmander.addEventListener('click', chooseCharmander)
 fightMove.addEventListener('click', showBattleCard)
+hardenMove.addEventListener('click', harden)
+loadEgg.addEventListener('click', loadGame)
 nextMove.addEventListener('click', showPlayAgainCard)
+nextMoveOak.addEventListener('click', gotoNextPanel)
 pageOneBtn.addEventListener('click', gotoNext)
 playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
-swipeMove.addEventListener('click', swipe)
-skipIntroBtn.addEventListener('click', skipIntro)
-nextMoveOak.addEventListener('click', gotoNextPanel)
-charmander.addEventListener('click', chooseCharmander)
-bulbasaur.addEventListener('click', chooseBulbasaur)
-squirtle.addEventListener('click', chooseSquirtle)
 saveBall.addEventListener('click', saveGame)
-loadEgg.addEventListener('click', loadGame)
-
-var playerStory;
+skipIntroBtn.addEventListener('click', skipIntro)
+squirtle.addEventListener('click', chooseSquirtle)
+swipeMove.addEventListener('click', swipe)
 
 // Introduction
 var click = 0
