@@ -388,9 +388,9 @@ function startIntro() {
   hide(pokeballBtn)
   show(profOak)
   show(bgStripe)
+  hide(loadEgg)
   show(oaksMsg)
   show(oaksMsgBox)
-  hide(loadEgg)
   hide(pikpakpo)
   hide(skipIntroBtn)
 }
@@ -453,6 +453,7 @@ function checkForSave() {
 function saveGame() {
   playerStory.player.saveWinsToStorage() 
   show(savedMsg) 
+  alert(' ')
 }
 
 function loadGame() {
