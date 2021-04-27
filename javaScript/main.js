@@ -35,10 +35,12 @@ var winEnemyText = document.querySelector('#winEnemyText')
 var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
 var enemyCard = document.querySelector('#enemyCard')
 
+
 // Player Info 
 var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
 var playerSprite = document.querySelector('#playerSprite')
 var tutorialUser = document.querySelector('#tutorialUser')
+var playerInfo = document.querySelector('#pokeInfo')
 var userInfo = document.querySelector('#userInfo')
 var saveBall = document.querySelector('#saveBall')
 var savedMsg = document.querySelector('#savedMsg')
@@ -169,10 +171,10 @@ function chooseBulbasaur() {
     pokemon: 'bulbasaur',
     move: 'vinewhip' 
   }
-  playerTutorialSprite.src = '/assets/pokemon/01_bulbasaur.png'
+  playerTutorialSprite.src = '/assets/pokemon/bulbasaur.png'
   playerTutorialSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
-  playerSprite.src = 'assets/pokemon/01_bulbasaur.png'
+  playerSprite.src = 'assets/pokemon/bulbasaur.png'
   summonOak()
   gotoNext(bulbasaur.pokemon)
   return playerStory = new Game(nameForm.value, bulbasaur)
@@ -183,11 +185,11 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
-  playerTutorialSprite.src = '/assets/pokemon/04_charmander.png'
+  playerTutorialSprite.src = '/assets/pokemon/charmander.png'
   playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
-  playerSprite.src = 'assets/pokemon/04_charmander'
+  playerSprite.src = 'assets/pokemon/charmander'
 
   return playerStory = new Game(nameForm.value, charmander)
 }
@@ -198,9 +200,9 @@ function chooseSquirtle() {
     move: 'bubble' 
   }
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
-  playerTutorialSprite.src = '/assets/pokemon/07_squirtle.png'
+  playerTutorialSprite.src = '/assets/pokemon/squirtle.png'
   playerTutorialSprite.alt = 'squirtle'
-  playerSprite.src = 'assets/pokemon/07_squirtle.png'
+  playerSprite.src = 'assets/pokemon/squirtle.png'
 
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
@@ -230,9 +232,9 @@ function summonPikachu() {
     move: 'lightning'
   }
   pokemonDo.innerText = pikachu.pokemon.toUpperCase()
-  playerTutorialSprite.src = 'assets/pokemon/25_pikachu.png'
+  playerTutorialSprite.src = 'assets/pokemon/pikachu.png'
   playerTutorialSprite.alt = 'pikachu'
-  playerSprite.src = 'assets/pokemon/25_pikachu.png'
+  playerSprite.src = 'assets/pokemon/pikachu.png'
   return pikachu
 }
 
@@ -248,7 +250,7 @@ function summonCaterpie() {
     pokemon: 'caterpie',
     move: 'string shot'
   }
-  enemyPokemonTutorialSprite.src = 'assets/pokemon/10_caterpie.png'
+  enemyPokemonTutorialSprite.src = 'assets/pokemon/caterpie.png'
   enemyPokemonTutorialSprite.alt = 'Caterpie'
   enemyPokemonTutorialSprite.classList.add('pokemon')
   enemyPokemonTutorialSprite.classList.remove('prof-oak-small')
@@ -349,7 +351,6 @@ function gotoNextPanel() {
         hide(enemyPokemonTutorialSprite)
         show(playerSprite)
         show(userInfo)
-    
       }
   }
   
@@ -457,7 +458,42 @@ function saveGame() {
 }
 
 function loadGame() {
-  playerStory = new Game('ash', 'pikachu')
+  var parsedData = JSON.parse(localStorage.getItem('trainer'))
+  playerStory = new Game(parsedData.name, parsedData.pokemon)
   playerStory.player.retrieveWinsFromStorage()
-  playerStory = new Game(playerStory.player, playerStory.pokemon)
+  updatePlayerSprite(playerStory.player.pokemon.pokemon)
+  loadContent()
+  updatePokedex(playerStory.player)
 }
+
+function loadContent() {
+  hide(introPage)
+  hide(tutorialCard)
+  show(showcase)
+  show(header)
+  show(footer) 
+  hide(enemyPokemonTutorialSprite)
+  hide(tutorialUser)
+  show(userInfo)
+  hide(enemyTutorialCard)
+  show(enemyCard)
+  hide(loadEgg)
+  hide(skipIntroBtn)
+  hide(pikpakpo)
+}
+
+function updatePlayerSprite(pokemon) {
+  playerSprite.alt = pokemon
+  playerSprite.src = `assets/pokemon/${pokemon}.png`
+}
+
+function updatePokedex(player) {
+  var name = player.name.toUpperCase()
+  var pokemon = player.pokemon.pokemon.toUpperCase()
+  var wins = player.wins
+  playerInfo.innerHTML = `
+    <h2>${name}</h2>
+    <p>${pokemon}</p>
+    <p>Wins: ${wins}</p> `
+}
+
