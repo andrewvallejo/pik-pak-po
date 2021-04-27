@@ -229,7 +229,7 @@ header img {
   justify-content: flex-start;
   align-items: flex-start;
   background: var(--pokedex);
-  border-radius: 20% 0 0 0 ;
+  border-radius: 20% 2% 2% 2% ;
 }
 
 /* pokedex */
@@ -299,11 +299,15 @@ header img {
   height: 4rem;
   padding: 0 .7rem;
   border-radius: 5px;
-  filter: grayscale(1)
+  filter: grayscale(1);
+}
+
+.set img:hover {
+  animation: shake 500ms forwards;
 }
 
 .l-2 {
-  top: 68% 
+  top: 72.7% 
 }
 
 
