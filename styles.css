@@ -77,6 +77,9 @@ body {
   font-size: .7rem;
 }
 
+.gray-scale {
+  filter: grayscale(1);
+}
 
 /*===*[intro page]*===*/
 .intro {
