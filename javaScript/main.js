@@ -266,7 +266,7 @@ function updateDialog(poke) {
 }
 
 function updateHeader() {
-  trainerName.innerText = nameForm.value.toUpperCase()
+  trainerName.innerText = playerStory.player.name.toUpperCase()
 }
 
 // Tutorial Card 
@@ -463,6 +463,7 @@ function loadGame() {
   playerStory.player.retrieveWinsFromStorage()
   updatePlayerSprite(playerStory.player.pokemon.pokemon)
   loadContent()
+  updateHeader()
   updatePokedex(playerStory.player)
 }
 
@@ -480,6 +481,7 @@ function loadContent() {
   hide(loadEgg)
   hide(skipIntroBtn)
   hide(pikpakpo)
+  
 }
 
 function updatePlayerSprite(pokemon) {
