@@ -50,7 +50,7 @@
       <div class="playerCard third flex-column">
         <div id="tutorialUser" class="player-menu menu flex-column">
           <p id="winPlayerText" class="hidden">Wins: <span id="playerWins">0</span></p>
-          <img id="playerTutorialSprite" src="" alt="charmender" class="pokemomn">
+          <img id="playerTutorialSprite" src="" alt="charmender" class="pokemon">
         </div>
 
         <!-- YOURE WORKING ON THIS -->
@@ -67,7 +67,14 @@
             <p>Name: Ash</p>
             <p>ID: 25</p>
           </div>
-          <span class="line prioity"></span>
+          <span class="line l-3 prioity"></span>
+          <div id="playerHpBar" class="hp-bar player-hp prioity flex-row">
+             <div class="hp-text flex-row"><p>HP: </p></div>
+            <div class="one-third-hp hp"></div>
+            <div class="two-third-hp hp"></div>
+            <div class="full-hp hp "></div>
+          </div>
+          <span class="line l-1 prioity"></span>
           <div id="badgeBox" class="badge-box flex-column">
             <div class="set flex-row">
               <img id="boulderBadge" src="assets/badges/Boulder_Badge.png" alt="Boulder Badge"class='gray-scale'>
@@ -84,7 +91,7 @@
           </div>
           <span class="line l-2 prioity"></span>
 
-gray-scale
+
         </div>
 
 
@@ -141,11 +148,29 @@ gray-scale
       <!-- End Batte Card -->
       </div>
       <div class="game-card third flex-column">
-        <div class="game-menu menu gymleader-menu flex-column tutorial-card">
+        <div id="enemyTutorialCard" class="game-menu menu gymleader-menu flex-column tutorial-card">
           <p id="winEnemyText" class="hidden">Wins: <span id="enemyWins">0</span></p>
-          <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur"
+          <img id="enemyPokemonTutorialSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur"
             class="pokemon">
         </div>
+        <div id="enemyCard" class="game-menu menu gymleader-menu flex-column enemy-card hidden">
+          <h2>Misty</h2>
+          <p>Pokemon: Starme</p>
+          <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur"
+          class="pokemon enemy-pokemon">
+        <div id="enemyHpBar" class="hp-bar enemy-hp prioity flex-row">
+           <div class="hp-text flex-row"><p>HP: </p></div>
+          <div class="one-third-hp hp"></div>
+          <div class="two-third-hp hp"></div>
+          <div class="full-hp hp "></div>
+        </div>
+      </div>
+        </div>
+
+
+
+
+      </div>
       </div>
     </section>
     <!-- Footer -->
