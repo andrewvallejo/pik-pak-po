@@ -10,29 +10,34 @@ class Player {
    }
   saveWinsToStorage() {
     var trainerData = JSON.stringify(this)
-
-   localStorage.setItem('trainer', trainerData)
+    localStorage.setItem('trainer', trainerData)
   }
   
   retrieveWinsFromStorage() { 
     var parsedData = JSON.parse(localStorage.getItem('trainer'))
-    this.name = parsedData.name
-    this.badges = parsedData.badges
-    this.wins = parsedData.wins
-    this.pokemon = parsedData.pokemon
-    this.tutorialComplete = true
+    this.updateProfile(parsedData)
     console.log(this)
   }
+
+  updateProfile(player) {
+    this.name = player.name
+    this.badges = player.badges
+    this.wins = player.wins
+    this.pokemon = player.pokemon
+    this.tutorialComplete = true
+  }
+
   checkTutorialWins() {
     if (this.wins >= 2 && !this.tutorialComplete) {
       this.tutorialComplete = true
     }
   }
+
   updateWins() {
     this.wins += 1
     saveWinsToStorage() 
    }
- 
  }
+
 
 
