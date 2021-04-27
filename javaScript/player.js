@@ -10,7 +10,7 @@ class Player {
     this.trainerData = JSON.stringify(this)
    }
   saveWinsToStorage() {
-   localStorage.setItem('trainer', trainerData)
+   localStorage.setItem('trainer', this.trainerData)
   }
   
   retrieveWinsFromStorage() { 
