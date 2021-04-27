@@ -13,6 +13,7 @@ var profOakText = document.querySelector('#profOakText')
 var skipIntroBtn = document.querySelector('#skipIntro')
 var enemyWins = document.querySelector('#enemyWins')
 var playerWins = document.querySelector('#playerWins')
+var pikpakpo = document.querySelector('#pikpakpo')
 
 // Main Page
 var footer = document.querySelector('footer')
@@ -41,6 +42,7 @@ var tutorialUser = document.querySelector('#tutorialUser')
 var userInfo = document.querySelector('#userInfo')
 var saveBall = document.querySelector('#saveBall')
 var savedMsg = document.querySelector('#savedMsg')
+var loadEgg = document.querySelector('#loadEgg')
 
 // Gameboy
 var screen = document.querySelector('#screen')
@@ -70,6 +72,7 @@ var runMove = document.querySelector('#runMove')
 var swipeMove =  document.querySelector('#swipeMove')
 
 // Battle ER
+window.addEventListener('load', checkForSave)
 abilityMove.addEventListener('click', ability)
 hardenMove.addEventListener('click', harden)
 fightMove.addEventListener('click', showBattleCard)
@@ -86,10 +89,8 @@ nextMoveOak.addEventListener('click', gotoNextPanel)
 charmander.addEventListener('click', chooseCharmander)
 bulbasaur.addEventListener('click', chooseBulbasaur)
 squirtle.addEventListener('click', chooseSquirtle)
-saveBall.addEventListener('click', function() {
-  playerStory.player.saveWinsToStorage() 
-  show(savedMsg) 
-})
+saveBall.addEventListener('click', saveGame)
+loadEgg.addEventListener('click', loadGame)
 
 var playerStory;
 
@@ -216,6 +217,9 @@ function skipIntro() {
   show(userInfo)
   hide(enemyTutorialCard)
   show(enemyCard)
+  hide(loadEgg)
+  hide(skipIntroBtn)
+  hide(pikpakpo)
 
   return playerStory = new Game('Ash', summonPikachu())
 }
@@ -386,6 +390,9 @@ function startIntro() {
   show(bgStripe)
   show(oaksMsg)
   show(oaksMsgBox)
+  hide(loadEgg)
+  hide(pikpakpo)
+  hide(skipIntroBtn)
 }
 
 function showBattleCard() {
@@ -437,4 +444,19 @@ function hide(e) {
 
 function show(e) {
   e.classList.remove('hidden')
+}
+
+function checkForSave() {
+  localStorage.length === 1 ? show(loadEgg) : hide(loadEgg)
+}
+
+function saveGame() {
+  playerStory.player.saveWinsToStorage() 
+  show(savedMsg) 
+}
+
+function loadGame() {
+  playerStory = new Game('ash', 'pikachu')
+  playerStory.player.retrieveWinsFromStorage()
+  playerStory = new Game(playerStory.player, playerStory.pokemon)
 }
