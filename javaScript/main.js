@@ -34,6 +34,7 @@ var winPlayerText = document.querySelector('#winPlayerText')
 var winEnemyText = document.querySelector('#winEnemyText')
 var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
 var enemyCard = document.querySelector('#enemyCard')
+var enemyCardContent = document.querySelector('#enemyCardContent')
 
 
 // Player Info 
@@ -481,6 +482,7 @@ function loadContent() {
   hide(loadEgg)
   hide(skipIntroBtn)
   hide(pikpakpo)
+  hide(enemyCardContent)
   
 }
 
