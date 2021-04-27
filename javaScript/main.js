@@ -26,11 +26,13 @@ var bulbasaur = document.querySelector('#bulbasaur')
 var charmander = document.querySelector('#charmander')
 var enemyMove = document.querySelector('#enemyMove')
 var enemyPokemonText = document.querySelector('#enemyPokemonText')
-var enemyPokemonSprite = document.querySelector('#enemyPokemonSprite')
+var enemyPokemonTutorialSprite = document.querySelector('#enemyPokemonTutorialSprite')
 var playerPokemon = document.querySelector('#playerPokemon')
 var squirtle = document.querySelector('#squirtle')
 var winPlayerText = document.querySelector('#winPlayerText')
 var winEnemyText = document.querySelector('#winEnemyText')
+var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
+var enemyCard = document.querySelector('#enemyCard')
 
 // Player Info 
 var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
@@ -163,6 +165,7 @@ function chooseBulbasaur() {
   playerTutorialSprite.src = '/assets/pokemon/01_bulbasaur.png'
   playerTutorialSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
+  playerSprite.src = 'assets/pokemon/01_bulbasaur.png'
   summonOak()
   gotoNext(bulbasaur.pokemon)
   return playerStory = new Game(nameForm.value, bulbasaur)
@@ -177,6 +180,8 @@ function chooseCharmander() {
   playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
+  playerSprite.src = 'assets/pokemon/04_charmander'
+
   return playerStory = new Game(nameForm.value, charmander)
 }
 
@@ -188,6 +193,8 @@ function chooseSquirtle() {
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
   playerTutorialSprite.src = '/assets/pokemon/07_squirtle.png'
   playerTutorialSprite.alt = 'squirtle'
+  playerSprite.src = 'assets/pokemon/07_squirtle.png'
+
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
 }
@@ -198,9 +205,11 @@ function skipIntro() {
   show(showcase)
   show(header)
   show(footer) 
-  hide(enemyPokemonSprite)
+  hide(enemyPokemonTutorialSprite)
   hide(tutorialUser)
   show(userInfo)
+  hide(enemyTutorialCard)
+  show(enemyCard)
 
   return playerStory = new Game('Ash', summonPikachu())
 }
@@ -218,10 +227,10 @@ function summonPikachu() {
 }
 
 function summonOak() {
-  enemyPokemonSprite.src = 'assets/icons/professor-oak.png'
-  enemyPokemonSprite.alt = 'Professor Oak'
-  enemyPokemonSprite.classList.remove('pokemon')
-  enemyPokemonSprite.classList.add('prof-oak-small')
+  enemyPokemonTutorialSprite.src = 'assets/icons/professor-oak.png'
+  enemyPokemonTutorialSprite.alt = 'Professor Oak'
+  enemyPokemonTutorialSprite.classList.remove('pokemon')
+  enemyPokemonTutorialSprite.classList.add('prof-oak-small')
 }
 
 function summonCaterpie() {
@@ -229,10 +238,10 @@ function summonCaterpie() {
     pokemon: 'caterpie',
     move: 'string shot'
   }
-  enemyPokemonSprite.src = 'assets/pokemon/10_caterpie.png'
-  enemyPokemonSprite.alt = 'Caterpie'
-  enemyPokemonSprite.classList.add('pokemon')
-  enemyPokemonSprite.classList.remove('prof-oak-small')
+  enemyPokemonTutorialSprite.src = 'assets/pokemon/10_caterpie.png'
+  enemyPokemonTutorialSprite.alt = 'Caterpie'
+  enemyPokemonTutorialSprite.classList.add('pokemon')
+  enemyPokemonTutorialSprite.classList.remove('prof-oak-small')
   playerStory.gymleader = new Player('Tutorial Person', caterpie)
   changeEnemyText()
   return caterpie
@@ -256,7 +265,7 @@ function gotoNextPanel() {
     cardText.innerText =  `Now imagine playing that but in real life!`
     nextMoveOak.innerText = 'Um..'
   } else if (count === 2) {
-      cardText.innerText =  `They, this is your life now so you get used to it, now listen to the rules carefully`
+      cardText.innerText =  `Hey, this is your life now so you get used to it, now listen to the rules carefully`
       nextMoveOak.innerText = 'Ok..'
       }
       else if (count === 3) {
@@ -327,7 +336,7 @@ function gotoNextPanel() {
         nextMoveOak.innerText = 'Noo!!'
         hide(tutorialUser)
         hide(playerTutorialSprite)
-        hide(enemyPokemonSprite)
+        hide(enemyPokemonTutorialSprite)
         show(playerSprite)
         show(userInfo)
     
