@@ -18,7 +18,11 @@ html {
   --bulbasaur: #B7D0C0;
   --pikachu: #FFD400;
   --white: #fff;
-  --glass: rgba(200, 228, 216, 1)
+  --glass: rgba(200, 228, 216, 1);
+  --pokedex: rgba(255, 19, 19, .5);
+  --pokedexDecal: rgba(26, 129, 184, 0.7);
+
+
 }
 
 * {
@@ -72,7 +76,6 @@ body {
 .tiny-text {
   font-size: .7rem;
 }
-
 
 
 /*===*[intro page]*===*/
@@ -153,7 +156,7 @@ input {
 
 .pokemon {
   margin: 0 0 3rem 1.5rem;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   height: 10rem;
   width: 10rem;
   background: var(--glass);
@@ -209,12 +212,35 @@ header img {
 }
 
 .menu {
-  align-self: center;
+  /* align-self: center; */
   border: #FFD400 5px solid;
   border-radius: 5px;
   width: 24rem;
   height: 30rem;
   background-color: var(--glass);
+}
+
+.player-menu {
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: var(--pokedex);
+
+}
+
+.border {
+  padding: 0 1rem 2rem 1.5rem;
+  border: var(--pokedex) solid;
+  border-width: 0  6px  6px 0;
+  border-radius: 0 0 25% 25%;
+  background: var(--pokedexDecal);
+  margin: 0
+}
+
+.pokedex {
+  justify-content: flex-start;
+  border: pink 1px solid;
+  width: 100%;
+  height: 100%;
 }
 
 
