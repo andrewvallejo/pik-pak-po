@@ -8,6 +8,7 @@ class Player {
     this.pokemon = pokemon
     this.tutorialComplete = false 
    }
+   
   saveWinsToStorage() {
     var trainerData = JSON.stringify(this)
     localStorage.setItem('trainer', trainerData)
