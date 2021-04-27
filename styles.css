@@ -172,12 +172,18 @@ main-pokemon {
   animation: shake 500ms forwards;
 }
 
+
+
 .poke {
   position: absolute;
   top: 70%;
   width: 4rem;
   align-self: flex-end;
   transition: 100ms ease-in-out;
+}
+
+.skip {
+  top: 93%
 }
 
 .poke:hover {
@@ -205,10 +211,30 @@ h1 {
   margin-right: 2rem;
 }
 
+.player p:first-of-type {
+  margin-right: .5rem;
+}
+
 header img {
   margin-right: .5rem;
   height: 2rem;
 }
+
+.save-ball {
+transition: 100ms ease-in-out;
+/* position: relative; */
+}
+
+.save-ball:hover {
+  transition:  500ms ease-in-out;
+  transform: scale(1.3) rotate(390deg);
+}
+
+
+
+
+
+
 
 /*===*[Main]*===*/
 .showcase {
@@ -340,8 +366,6 @@ header img {
   top: 50%;
   left: 1%;
   border-color: var(--pokedexDecal);
-
-  
 }
 
 .set {
