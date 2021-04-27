@@ -319,7 +319,6 @@ header img {
 
 
 .line {
-  background: var(--charmender);
   width: 22rem;
   border: 1px white solid;
   position: absolute;
@@ -340,6 +339,9 @@ header img {
 .l-4 {
   top: 50%;
   left: 1%;
+  border-color: var(--pokedexDecal);
+
+  
 }
 
 .set {
