@@ -265,7 +265,7 @@ function gotoNextPanel() {
       nextMoveOak.innerText = 'Alright'
       }
       else if (count === 6) {
-      cardText.innerText =  `I will say it again because you're an idiot.`
+      cardText.innerText =  `I will say it again because you're a bagel.`
       nextMoveOak.innerText = 'Excuse me?!'
       }
       else if (count === 7) {
