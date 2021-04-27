@@ -5,8 +5,8 @@ class Game {
    this.playerMove = ''
    this.gymleaderMove = ''
    this.winner = ''
-   this.playersWins = 0
-   this.gymleaderWins = 0
+   this.playersWins = this.player.wins
+   this.gymleaderWins = this.gymleader.wins
   }
 
 
@@ -39,7 +39,7 @@ class Game {
 
   getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
-    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++ ) :
+    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++) :
     outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++) :
     outcome === 'draw' ? outcomeMsg.innerText = 'Draw!': 
     null

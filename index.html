@@ -15,8 +15,11 @@
   <body class="flex-column">
     <!-- Intro Page -->
     <section id="introPage" class="intro page flex-column">
+      <img id="pikpakpo" src="assets/misc/header.png" alt="PIK PAK PO Header" class="pikpakpo">
       <img id="bigPokeball" src="/assets/icons/pokeball.png" alt="pokeball" class="btn big-pokeball">
-      <img id="skipIntro" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity">
+      <div id='loadEgg' class="load center btn flex-row"> <img src="assets/icons/egg.png" alt="egg" class="egg center"><p>LOAD GAME</p></div>
+     
+      <img id="skipIntro" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity skip">
       <span id="bgStripe" class='bg-stripe hidden'></span>
       <img id="profOak" src="assets/icons/professor-oak.png" alt="Professor Oak" class='prof-oak hidden'>
       <img id="oaksMsg" src="assets/misc/text_border.png" alt="text border" class="oaks-msg msg-border-2x hidden">
@@ -30,9 +33,9 @@
           <input type="text" id="name" name="name">
         </form>
         <div id="pokemonSheet" class="flex-row hidden">
-          <img id="bulbasaur" src="/assets/pokemon/01_bulbasaur.png" alt="bulbasaur" class="pokemon btn">
-          <img id="charmander" src="/assets/pokemon/04_charmander.png" alt="charmander" class="pokemon btn">
-          <img id="squirtle" src="/assets/pokemon/07_squirtle.png" alt="squirtle" class="pokemon btn">
+          <img id="bulbasaur" src="/assets/pokemon/bulbasaur.png" alt="bulbasaur" class="pokemon btn">
+          <img id="charmander" src="/assets/pokemon/charmander.png" alt="charmander" class="pokemon btn">
+          <img id="squirtle" src="/assets/pokemon/squirtle.png" alt="squirtle" class="pokemon btn">
         </div>
         <img id="pageOneBtn" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity">
       </div>
@@ -41,7 +44,9 @@
     <!-- Header -->
     <header class="flex-row hidden">
       <h1>Pik-Pak-Po</h1>
-      <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="big pokeball">
+      <div class="player flex-row">
+        <p id="savedMsg" class="hidden">SAVED!</p>
+        <img id="saveBall" src="assets/icons/pokeball.png" alt="pokeball" class="btn save-ball">
         <p>Hello, <span id="trainerName">Ash!</span></p>
         <div>
     </header>
@@ -64,8 +69,8 @@
 
           <div id="pokeInfo" class="poke-info flex-column">
             <h2>Pikachu</h2>
-            <p>Name: Ash</p>
-            <p>ID: 25</p>
+            <p>Ash</p>
+            <p>Wins: 0</p>
           </div>
           <span class="line l-3 prioity"></span>
           <div id="playerHpBar" class="hp-bar player-hp prioity flex-row">
@@ -91,8 +96,6 @@
             </div>
           </div>
           <span class="line l-2 prioity"></span>
-
-
         </div>
 
 
@@ -188,4 +191,4 @@
 
 </html>
 
-<img src="assets/pokemon/25_pikachu.png" alt="pikachu">
+<img src="assets/pokemon/pikachu.png" alt="pikachu">
