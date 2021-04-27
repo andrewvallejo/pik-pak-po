@@ -232,7 +232,19 @@ header img {
   border-radius: 20% 0 0 0 ;
 }
 
-.border {
+/* pokedex */
+.pokedex {
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 20% 0 0 0 ;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+
+.main-pokemon {
   padding: 0 1rem 2rem 1.5rem;
   border: var(--pokedex) solid;
   border-width: 0 10px 10px 0;
@@ -242,11 +254,56 @@ header img {
   border-radius: 50% 10% 0 35%;
 }
 
-.pokedex {
-  justify-content: flex-start;
-  border-radius: 20% 0 0 0 ;
-  width: 100%;
-  height: 100%;
+.poke-info {
+  width: 95%;
+  height: 9rem;
+  background: rgb(227, 201, 167, .7);
+  align-self: flex-start;
+  margin: .5rem .3rem 0 0;
+  line-height: 2;
+  padding: .3rem .5rem;
+  border-radius: 5px;
+  border: var(--pokedexDecal) 10px solid;
+  justify-content: center;
+}
+
+.badge-box {
+  position: absolute;
+  background: rgb(227, 201, 167, .7);
+  top: 46%;
+  border-radius: 5px;
+  width: 22.5rem;
+  height: 16rem;
+}
+
+:is(.pokedex, h2, p) {
+  border-bottom: 2px rgb(176, 143, 13) dashed;
+}
+
+.line {
+  background: var(--charmender);
+  width: 22rem;
+  border: 1px white solid;
+  position: absolute;
+  top: 47%;
+  border-radius: 5px;
+}
+
+.set {
+  height: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.set img {
+  height: 4rem;
+  padding: 0 .7rem;
+  border-radius: 5px;
+  filter: grayscale(1)
+}
+
+.l-2 {
+  top: 68% 
 }
 
 
