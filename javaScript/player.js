@@ -4,6 +4,7 @@ class Player {
     this.token = '🙂'
     this.badges = []
     this.wins = 0
+    this.hp = 3
     this.pokemon = pokemon
     this.tutorialComplete = false 
    }
