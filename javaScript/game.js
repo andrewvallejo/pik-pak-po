@@ -26,13 +26,11 @@ class Game {
     this.updateCounter()
   }
 
-
-
   getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
     outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++ ) :
     outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++) :
-    outcome === 'draw' ? outcomeMsg.innerText = 'Draw!' :
+    outcome === 'draw' ? outcomeMsg.innerText = 'Draw!': 
     null
   }
 
