@@ -1,100 +1,79 @@
-// Intro Page & Tutorial
-var bgStripe = document.querySelector('#bgStripe')
-var introPage = document.querySelector('#introPage')
-var formCard = document.querySelector('#formCard')
-var nameForm = document.querySelector('#name')
-var oaksMsg = document.querySelector('#oaksMsg')
-var oaksMsgBox = document.querySelector('#oaksMsgContent')
-var pageOneBtn = document.querySelector('#pageOneBtn')
-var pokeballBtn = document.querySelector('#bigPokeball')
-var pokemonSheet = document.querySelector('#pokemonSheet')
-var profOak = document.querySelector('#profOak')
-var profOakText = document.querySelector('#profOakText')
-var skipIntroBtn = document.querySelector('#skipIntro')
-var enemyWins = document.querySelector('#enemyWins')
-var playerWins = document.querySelector('#playerWins')
-var pikpakpo = document.querySelector('#pikpakpo')
-
-// Main Page
-var footer = document.querySelector('footer')
-var header = document.querySelector('header')
-var showcase = document.querySelector('#showcase')
-var trainerName = document.querySelector('#trainerName')
-
-
-// Player & Enemey
-var bulbasaur = document.querySelector('#bulbasaur')
-var charmander = document.querySelector('#charmander')
-var enemyMove = document.querySelector('#enemyMove')
-var enemyPokemonText = document.querySelector('#enemyPokemonText')
-var enemyPokemonTutorialSprite = document.querySelector('#enemyPokemonTutorialSprite')
-var playerPokemon = document.querySelector('#playerPokemon')
-var squirtle = document.querySelector('#squirtle')
-var winPlayerText = document.querySelector('#winPlayerText')
-var winEnemyText = document.querySelector('#winEnemyText')
-var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
-var enemyCard = document.querySelector('#enemyCard')
-
-
-// Player Info 
-var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
-var playerSprite = document.querySelector('#playerSprite')
-var tutorialUser = document.querySelector('#tutorialUser')
-var playerInfo = document.querySelector('#pokeInfo')
-var userInfo = document.querySelector('#userInfo')
-var saveBall = document.querySelector('#saveBall')
-var savedMsg = document.querySelector('#savedMsg')
-var loadEgg = document.querySelector('#loadEgg')
-
-// Gameboy
-var screen = document.querySelector('#screen')
-
-// Card
-var battleCard = document.querySelector('#battleCard')
-var enemyMoveCard = document.querySelector('#enemyMoveCard')
-var openingCard = document.querySelector('#openingCard')
-var playAgainCard = document.querySelector('#playAgainCard')
-
-// Tutorial Card
-var nextMoveOak = document.querySelector('#nextMoveOak')
-var tutorialCard = document.querySelector('#tutorialCard')
-var cardText = document.querySelector('#cardText')
-
-// Battle Card
-var pokemonDo = document.querySelector('#pokemonDo')
 var abilityMove = document.querySelector('#abilityMove')
 var bagMove = document.querySelector('#bagMove')
+var battleCard = document.querySelector('#battleCard')
+var bgStripe = document.querySelector('#bgStripe')
+var bulbasaur = document.querySelector('#bulbasaur')
+var cardText = document.querySelector('#cardText')
+var charmander = document.querySelector('#charmander')
+var enemyCard = document.querySelector('#enemyCard')
+var enemyCardContent = document.querySelector('#enemyCardContent')
+var enemyMove = document.querySelector('#enemyMove')
+var enemyMoveCard = document.querySelector('#enemyMoveCard')
+var enemyWins = document.querySelector('#enemyWins')
+var enemyPokemonText = document.querySelector('#enemyPokemonText')
+var enemyPokemonTutorialSprite = document.querySelector('#enemyPokemonTutorialSprite')
+var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
 var fightMove = document.querySelector('#fightMove')
+var footer = document.querySelector('footer')
+var formCard = document.querySelector('#formCard')
 var hardenMove = document.querySelector('#hardenMove')
+var header = document.querySelector('header')
+var introPage = document.querySelector('#introPage')
+var loadEgg = document.querySelector('#loadEgg')
+var nameForm = document.querySelector('#name')
 var nextMove = document.querySelector('#nextMove')
+var nextMoveOak = document.querySelector('#nextMoveOak')
+var oaksMsg = document.querySelector('#oaksMsg')
+var oaksMsgBox = document.querySelector('#oaksMsgContent')
+var openingCard = document.querySelector('#openingCard')
 var openRunMove = document.querySelector('#openRunMove')
 var outcomeMsg = document.querySelector('#outcome')
+var pageOneBtn = document.querySelector('#pageOneBtn')
+var pikpakpo = document.querySelector('#pikpakpo')
+var playAgainCard = document.querySelector('#playAgainCard')
 var playAgainMove = document.querySelector('#playAgainMove')
+var playerInfo = document.querySelector('#pokeInfo')
+var playerPokemon = document.querySelector('#playerPokemon')
+var pokemonSheet = document.querySelector('#pokemonSheet')
+var playerSprite = document.querySelector('#playerSprite')
+var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
+var playerWins = document.querySelector('#playerWins')
+var pokeballBtn = document.querySelector('#bigPokeball')
+var pokemonDo = document.querySelector('#pokemonDo')
+var profOak = document.querySelector('#profOak')
+var profOakText = document.querySelector('#profOakText')
 var runMove = document.querySelector('#runMove')
+var saveBall = document.querySelector('#saveBall')
+var savedMsg = document.querySelector('#savedMsg')
+var screen = document.querySelector('#screen')
+var showcase = document.querySelector('#showcase')
+var skipIntroBtn = document.querySelector('#skipIntro')
+var squirtle = document.querySelector('#squirtle')
 var swipeMove =  document.querySelector('#swipeMove')
+var trainerName = document.querySelector('#trainerName')
+var tutorialCard = document.querySelector('#tutorialCard')
+var tutorialUser = document.querySelector('#tutorialUser')
+var userInfo = document.querySelector('#userInfo')
+var winPlayerText = document.querySelector('#winPlayerText')
+var winEnemyText = document.querySelector('#winEnemyText')
+var playerStory;
 
-// Battle ER
 window.addEventListener('load', checkForSave)
 abilityMove.addEventListener('click', ability)
-hardenMove.addEventListener('click', harden)
+bulbasaur.addEventListener('click', chooseBulbasaur)
+charmander.addEventListener('click', chooseCharmander)
 fightMove.addEventListener('click', showBattleCard)
+hardenMove.addEventListener('click', harden)
+loadEgg.addEventListener('click', loadGame)
 nextMove.addEventListener('click', showPlayAgainCard)
+nextMoveOak.addEventListener('click', gotoNextPanel)
 pageOneBtn.addEventListener('click', gotoNext)
 playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
-swipeMove.addEventListener('click', swipe)
-skipIntroBtn.addEventListener('click', skipIntro)
-nextMoveOak.addEventListener('click', gotoNextPanel)
-// bagMove.addEventListener('click', )
-// runMove.addEventListener('click', )
-// Intro ER
-charmander.addEventListener('click', chooseCharmander)
-bulbasaur.addEventListener('click', chooseBulbasaur)
-squirtle.addEventListener('click', chooseSquirtle)
 saveBall.addEventListener('click', saveGame)
-loadEgg.addEventListener('click', loadGame)
-
-var playerStory;
+skipIntroBtn.addEventListener('click', skipIntro)
+squirtle.addEventListener('click', chooseSquirtle)
+swipeMove.addEventListener('click', swipe)
 
 // Introduction
 var click = 0
@@ -105,7 +84,7 @@ function gotoNext(pokemon) {
     return;
   }
   click++
-  if(click <= 1) { 
+  if (click <= 1) { 
     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
     } else if (click === 2) {
       profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
@@ -115,8 +94,8 @@ function gotoNext(pokemon) {
       profOakText.innerHTML = `<p>Before you we start, can you tell me... </p>
       <p>What is your name?</p>`
     } else if (click === 5) {
-      show(formCard)
       hide(profOakText)
+      show(formCard)
     } else if (click === 6) {
       profOakText.innerHTML = `<p>${nameForm.value.toUpperCase()}? Well, there are some things in life that we can't choose...</p>`
       hide(formCard)
@@ -150,22 +129,22 @@ function gotoNext(pokemon) {
     }
 }
 
-// var click = 0 ;
-// function gotoNext(pokemon) {
-//   click++
-// switch (click) {
-//   case 2:
-//     profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
-//     break;
-//   case 3:
-//     profOakText.innerHTML = `<p>..so mind your manners..</p>`
-//     break;
-//   profOakText.innerHTML = `<p>..so mind your manners..</p>`
-//   default:
-//     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
-//   }
-// }
- 
+function skipIntro() {
+  hide(introPage)
+  hide(enemyTutorialCard)
+  hide(enemyPokemonTutorialSprite)
+  hide(loadEgg)
+  hide(pikpakpo)
+  hide(tutorialCard)
+  hide(skipIntroBtn)
+  show(enemyCard)
+  show(footer) 
+  show(header)
+  show(userInfo)
+  show(showcase)
+  return playerStory = new Game('Ash', summonPikachu())
+}
+
 function chooseBulbasaur() {
   var bulbasaur = {
     pokemon: 'bulbasaur',
@@ -208,22 +187,11 @@ function chooseSquirtle() {
   return playerStory = new Game(nameForm.value, squirtle)
 }
 
-function skipIntro() {
-  hide(introPage)
-  hide(tutorialCard)
-  show(showcase)
-  show(header)
-  show(footer) 
-  hide(enemyPokemonTutorialSprite)
-  hide(tutorialUser)
-  show(userInfo)
-  hide(enemyTutorialCard)
-  show(enemyCard)
-  hide(loadEgg)
-  hide(skipIntroBtn)
-  hide(pikpakpo)
-
-  return playerStory = new Game('Ash', summonPikachu())
+function summonOak() {
+  enemyPokemonTutorialSprite.src = 'assets/icons/professor-oak.png'
+  enemyPokemonTutorialSprite.alt = 'Professor Oak'
+  enemyPokemonTutorialSprite.classList.remove('pokemon')
+  enemyPokemonTutorialSprite.classList.add('prof-oak-small')
 }
 
 function summonPikachu() {
@@ -236,13 +204,6 @@ function summonPikachu() {
   playerTutorialSprite.alt = 'pikachu'
   playerSprite.src = 'assets/pokemon/pikachu.png'
   return pikachu
-}
-
-function summonOak() {
-  enemyPokemonTutorialSprite.src = 'assets/icons/professor-oak.png'
-  enemyPokemonTutorialSprite.alt = 'Professor Oak'
-  enemyPokemonTutorialSprite.classList.remove('pokemon')
-  enemyPokemonTutorialSprite.classList.add('prof-oak-small')
 }
 
 function summonCaterpie() {
@@ -259,105 +220,104 @@ function summonCaterpie() {
   return caterpie
 }
 
-function updateDialog(poke) {
-  enemyPokemonText.innerText =  poke.pokemon.toUpperCase()
-  enemyMove.innerText = poke.move.toUpperCase()
-  playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
-}
-
-function updateHeader() {
-  trainerName.innerText = playerStory.player.name.toUpperCase()
-}
-
-// Tutorial Card 
+// Tutorial  
 var count = 0
 function gotoNextPanel() {
   count++ 
-  if (count === 1) {
+  switch (count) {
+    case 1:
     cardText.innerText =  `Now imagine playing that but in real life!`
     nextMoveOak.innerText = 'Um..'
-  } else if (count === 2) {
+      break;
+      case 2:
       cardText.innerText =  `Hey, this is your life now so you get used to it, now listen to the rules carefully`
       nextMoveOak.innerText = 'Ok..'
-      }
-      else if (count === 3) {
+      break;
+      case 3:
       cardText.innerText =  `SWIPE will always beat ABILITY`
       nextMoveOak.innerText = 'Got it'
-      }
-      else if (count === 4) {
+      break;
+      case 4:
       cardText.innerText =  `ABILITY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
-      }
-      else if (count === 5) {
+      break;
+      case 5:
       cardText.innerText =  `And HARDEN will always beat SWIPE`
       nextMoveOak.innerText = 'Alright'
-      }
-      else if (count === 6) {
+      break;
+      case 6:
       cardText.innerText =  `I will say it again because you're a bagel.`
       nextMoveOak.innerText = 'Excuse me?!'
-      }
-      else if (count === 7) {
+      break;
+      case 7:
       cardText.innerText =  `I said! SWIPE beats ABILITY. ABILITY beats HARDEN. HARDEN beats SWIPE! You got it?!`
       nextMoveOak.innerText = 'I think so..'
-      }
-      else if (count === 8) {
+      break;
+      case 8:
       cardText.innerText =  `Okay! Are you ready to start your training?`
       nextMoveOak.innerText = 'Yah!'
-      }
-      else if (count === 9) {
+      break;
+      case 9:
+        hide(profOak)
         hide(tutorialCard)
         show(battleCard)
-        hide(profOak)
-        show(winPlayerText)
         show(winEnemyText)
+        show(winPlayerText)
         summonCaterpie()
-      }   
-      else if (count === 10) {
+        break;       
+    case 10:
         cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
     nextMoveOak.innerText = 'Um..'
-      }
-      else if (count === 11) {
+     break;
+    case 11:
         cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
-    nextMoveOak.innerText = 'NO!'
-      } else if (count === 12) {
+        nextMoveOak.innerText = 'NO!'
+     break;
+    case 12:
         cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
     nextMoveOak.innerText = 'Thats better?'
-      } else if (count === 13) {
+     break; 
+    case 13:
         cardText.innerText =  `Since the stakes are higher, the rules change too`
     nextMoveOak.innerText = 'Tell me more..'
-      } else if (count === 14) {
+     break; 
+    case 14:
         cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
     nextMoveOak.innerText = `This sucks!'`
-      }  else if (count === 15) {
-        cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
+     break;  
+    case 15:
+    cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
     nextMoveOak.innerText = 'Oh..'
-      } else if (count === 16) {
+     break; 
+    case 16:
         cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
     nextMoveOak.innerText = 'Thats nice'
-      } else if (count === 17) {
+     break; 
+    case 17:
         cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
     nextMoveOak.innerText = 'Capiche.'
-      } else if (count === 18) {
+     break; 
+    case 18:
         cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
     nextMoveOak.innerText = 'I want out!'
-      } else if (count === 19) {
+     break; 
+    case 19:
         cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
     nextMoveOak.innerText = 'Neat!'
-      } else if (count === 20) {
+     break; 
+    case 20:
         cardText.innerText =  `Off you go!`
         nextMoveOak.innerText = 'Noo!!'
-        hide(tutorialUser)
-        hide(playerTutorialSprite)
         hide(enemyPokemonTutorialSprite)
+        hide(playerTutorialSprite)
+        hide(tutorialUser)
         show(playerSprite)
+        hide(tutorialCard)    
         show(userInfo)
-      }
   }
-  
+}
 
-
-
-// Player's Moves
+// Moves
 function swipe() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
@@ -384,22 +344,22 @@ function ability() {
   }
 }
 
-//  Battle Card
+// Card
 function startIntro() {
-  hide(pokeballBtn)
-  show(profOak)
-  show(bgStripe)
   hide(loadEgg)
+  hide(pikpakpo)
+  hide(pokeballBtn)
+  hide(skipIntroBtn)
+  show(bgStripe)
+  show(profOak)
   show(oaksMsg)
   show(oaksMsgBox)
-  hide(pikpakpo)
-  hide(skipIntroBtn)
 }
 
 function showBattleCard() {
   hide(openingCard)
-  hide(screen)
   hide(playAgainCard)
+  hide(screen)
   show(battleCard)
 }
 
@@ -409,15 +369,9 @@ function showEnemyMoveCard() {
   changeEnemyText()
 }
 
-function changeEnemyText() {
-  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.pokemon.toUpperCase()}`
-  enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
-  playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
-}
-
 function showPlayAgainCard() {
-  show(screen)
   hide(enemyMoveCard)
+  show(screen)
   show(playAgainCard)
 }
 
@@ -436,25 +390,46 @@ function showEndTutorialCard() {
   nextMoveOak.innerText = 'Yah!'  
   show(tutorialCard)
 }
- 
 
-// Helper Function 
-function hide(e) {
-  e.classList.add('hidden')
+function changeEnemyText() {
+  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.pokemon.toUpperCase()}`
+  enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
+  playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
 }
 
-function show(e) {
-  e.classList.remove('hidden')
+function updateDialog(poke) {
+  enemyPokemonText.innerText =  poke.pokemon.toUpperCase()
+  enemyMove.innerText = poke.move.toUpperCase()
+  playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
+}
+
+// Player
+function updatePlayerSprite(pokemon) {
+  playerSprite.alt = pokemon
+  playerSprite.src = `assets/pokemon/${pokemon}.png`
+}
+
+function updatePokedex(player) {
+  var name = player.name.toUpperCase()
+  var pokemon = player.pokemon.pokemon.toUpperCase()
+  var wins = player.wins
+  playerInfo.innerHTML = `<h2>${name}</h2> <p>${pokemon}</p> <p>Wins: ${wins}</p> `
+}
+
+// Game 
+function updateHeader() {
+  trainerName.innerText = playerStory.player.name.toUpperCase()
 }
 
 function checkForSave() {
   localStorage.length === 1 ? show(loadEgg) : hide(loadEgg)
 }
 
+
 function saveGame() {
   playerStory.player.saveWinsToStorage() 
   show(savedMsg) 
-  alert(' ')
+  // Add animation
 }
 
 function loadGame() {
@@ -470,32 +445,29 @@ function loadGame() {
 function loadContent() {
   hide(introPage)
   hide(tutorialCard)
-  show(showcase)
-  show(header)
-  show(footer) 
-  hide(enemyPokemonTutorialSprite)
   hide(tutorialUser)
-  show(userInfo)
+  hide(enemyPokemonTutorialSprite)
   hide(enemyTutorialCard)
-  show(enemyCard)
   hide(loadEgg)
   hide(skipIntroBtn)
   hide(pikpakpo)
-  
+  hide(enemyCardContent)
+  show(enemyCard)
+  show(footer) 
+  show(header)
+  show(userInfo)
+  show(showcase)
 }
 
-function updatePlayerSprite(pokemon) {
-  playerSprite.alt = pokemon
-  playerSprite.src = `assets/pokemon/${pokemon}.png`
+
+// Helper Function 
+function hide(e) {
+  e.classList.add('hidden')
 }
 
-function updatePokedex(player) {
-  var name = player.name.toUpperCase()
-  var pokemon = player.pokemon.pokemon.toUpperCase()
-  var wins = player.wins
-  playerInfo.innerHTML = `
-    <h2>${name}</h2>
-    <p>${pokemon}</p>
-    <p>Wins: ${wins}</p> `
+function show(e) {
+  e.classList.remove('hidden')
 }
+
+
 
