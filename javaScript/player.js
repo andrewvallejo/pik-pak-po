@@ -27,6 +27,7 @@ class Player {
     this.wins += 1
     saveWinsToStorage() 
    }
-  }
+ 
+ }
 
 
