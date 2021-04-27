@@ -16,7 +16,7 @@
     <!-- Intro Page -->
     <section id="introPage" class="intro page flex-column">
       <img id="bigPokeball" src="/assets/icons/pokeball.png" alt="pokeball" class="btn big-pokeball">
-      <img id="skipIntro" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity">
+      <img id="skipIntro" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity skip">
       <span id="bgStripe" class='bg-stripe hidden'></span>
       <img id="profOak" src="assets/icons/professor-oak.png" alt="Professor Oak" class='prof-oak hidden'>
       <img id="oaksMsg" src="assets/misc/text_border.png" alt="text border" class="oaks-msg msg-border-2x hidden">
@@ -41,7 +41,9 @@
     <!-- Header -->
     <header class="flex-row hidden">
       <h1>Pik-Pak-Po</h1>
-      <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="big pokeball">
+      <div class="player flex-row">
+        <p id="savedMsg" class="hidden">SAVED!</p>
+        <img id="saveBall" src="assets/icons/pokeball.png" alt="pokeball" class="btn save-ball">
         <p>Hello, <span id="trainerName">Ash!</span></p>
         <div>
     </header>
