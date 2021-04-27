@@ -29,6 +29,8 @@ var enemyPokemonText = document.querySelector('#enemyPokemonText')
 var enemyPokemonSprite = document.querySelector('#enemyPokemonSprite')
 var playerPokemon = document.querySelector('#playerPokemon')
 var squirtle = document.querySelector('#squirtle')
+var winPlayerText = document.querySelector('#winPlayerText')
+var winEnemyText = document.querySelector('#winEnemyText')
 
 // Player Info 
 var playerSprite = document.querySelector('#playerSprite')
@@ -84,7 +86,7 @@ var playerStory;
 var click = 0
 function gotoNext(pokemon) {
   if(!nameForm.value && click === 5) {
-    nameForm.placeholder = "you're name, bud"
+    nameForm.placeholder = "your name, bud"
     click = 5
     return;
   }
@@ -185,7 +187,6 @@ function chooseSquirtle() {
   playerSprite.alt = 'squirtle'
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
-
 }
 
 function skipIntro() {
@@ -241,80 +242,83 @@ function updateHeader() {
 }
 
 // Tutorial Card 
-var pCount = 0
+var count = 0
 function gotoNextPanel() {
-  pCount++ 
-  if (pCount === 1) {
+  count++ 
+  if (count === 1) {
     cardText.innerText =  `Now imagine playing that but in real life!`
     nextMoveOak.innerText = 'Um..'
-  } else if (pCount === 2) {
+  } else if (count === 2) {
       cardText.innerText =  `They, this is your life now so you get used to it, now listen to the rules carefully`
       nextMoveOak.innerText = 'Ok..'
       }
-      else if (pCount === 3) {
+      else if (count === 3) {
       cardText.innerText =  `SWIPE will always beat ABILITY`
       nextMoveOak.innerText = 'Got it'
       }
-      else if (pCount === 4) {
+      else if (count === 4) {
       cardText.innerText =  `ABILITY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
       }
-      else if (pCount === 5) {
+      else if (count === 5) {
       cardText.innerText =  `And HARDEN will always beat SWIPE`
       nextMoveOak.innerText = 'Alright'
       }
-      else if (pCount === 6) {
+      else if (count === 6) {
       cardText.innerText =  `I will say it again because you're an idiot.`
       nextMoveOak.innerText = 'Excuse me?!'
       }
-      else if (pCount === 7) {
+      else if (count === 7) {
       cardText.innerText =  `I said! SWIPE beats ABILITY. ABILITY beats HARDEN. HARDEN beats SWIPE! You got it?!`
       nextMoveOak.innerText = 'I think so..'
       }
-      else if (pCount === 8) {
+      else if (count === 8) {
       cardText.innerText =  `Okay! Are you ready to start your training?`
       nextMoveOak.innerText = 'Yah!'
       }
-      else if (pCount === 9) {
+      else if (count === 9) {
         hide(tutorialCard)
         show(battleCard)
         hide(profOak)
+        show(winPlayerText)
+        show(winEnemyText)
         summonCaterpie()
+
       }   
-      else if (pCount === 10) {
+      else if (count === 10) {
         cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
     nextMoveOak.innerText = 'Um..'
       }
-      else if (pCount === 11) {
+      else if (count === 11) {
         cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
     nextMoveOak.innerText = 'NO!'
-      } else if (pCount === 12) {
+      } else if (count === 12) {
         cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
     nextMoveOak.innerText = 'Thats better?'
-      } else if (pCount === 13) {
+      } else if (count === 13) {
         cardText.innerText =  `Since the stakes are higher, the rules change too`
     nextMoveOak.innerText = 'Tell me more..'
-      } else if (pCount === 14) {
+      } else if (count === 14) {
         cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
     nextMoveOak.innerText = `This sucks!'`
-      }  else if (pCount === 15) {
+      }  else if (count === 15) {
         cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
     nextMoveOak.innerText = 'Oh..'
-      } else if (pCount === 16) {
+      } else if (count === 16) {
         cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
     nextMoveOak.innerText = 'Thats nice'
-      } else if (pCount === 17) {
+      } else if (count === 17) {
         cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
     nextMoveOak.innerText = 'Capiche.'
-      } else if (pCount === 18) {
+      } else if (count === 18) {
         cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
     nextMoveOak.innerText = 'I want out!'
-      } else if (pCount === 19) {
+      } else if (count === 19) {
         cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
     nextMoveOak.innerText = 'Neat!'
-      } else if (pCount === 20) {
+      } else if (count === 20) {
         cardText.innerText =  `Off you go!`
-    nextMoveOak.innerText = 'Nait!!'
+        nextMoveOak.innerText = 'Noo!!'
         hide(tutorialCard)
         hide(enemyPokemonSprite)
       }
@@ -330,9 +334,8 @@ function swipe() {
   } else {   
   playerStory.triggerFight('swipe')
   showEnemyMoveCard()
+  }
 }
-}
-
 
 function harden() {
   if (playerStory.player.tutorialComplete) {
@@ -397,7 +400,6 @@ function showEndTutorialCard() {
   cardText.innerText =  `Hold up! I think you are ready to take on the world. Are you with me?`
   nextMoveOak.innerText = 'Yah!'  
   show(tutorialCard)
-  // gotoNextPanel()
 }
  
 
