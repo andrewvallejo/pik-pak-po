@@ -159,10 +159,8 @@ input {
 
 .pokemon {
   margin: 0 0 3rem 1.5rem;
-  /* border-radius: 50%; */
   height: 10rem;
   width: 10rem;
-  background: var(--glass);
 }
 
 main-pokemon {
@@ -273,23 +271,70 @@ header img {
 .badge-box {
   position: absolute;
   background: rgb(227, 201, 167, .7);
-  top: 46%;
+  top: 40%;
   border-radius: 5px;
   width: 22.5rem;
   height: 16rem;
 }
 
-:is(.pokedex, h2, p) {
+.pokedex h2,
+.pokedex p {
   border-bottom: 2px rgb(176, 143, 13) dashed;
 }
+
+.hp-bar {
+  position: absolute;
+  height: 1.5rem;
+  /* border: #B7D0C0 1px solid; */
+  width: 20rem;
+
+  /* background: blue; */
+}
+
+.player-hp {
+  top: 34.3%;
+  left: 12%;
+}
+
+.enemy-hp {
+  bottom: 15% ;
+  right: 6%
+}
+
+.hp {
+  background: green;
+  border: #B7D0C0 1px solid;
+  height: 100%;
+  width: 100%;
+}
+
+
+.hp-text {
+  align-items: center;  
+}
+
+.enemy-pokemon {
+  margin: 3rem 0;
+}
+
 
 .line {
   background: var(--charmender);
   width: 22rem;
   border: 1px white solid;
   position: absolute;
-  top: 47%;
+  top: 4%;
   border-radius: 5px;
+}
+
+.l-1 {
+  top: 43%;
+}
+
+.l-3 {
+  top: 33%;
+  left: 44.65%;
+  width: 12.5rem;
 }
 
 .set {
@@ -310,7 +355,7 @@ header img {
 }
 
 .l-2 {
-  top: 72.7% 
+  top: 91% 
 }
 
 
@@ -319,6 +364,7 @@ header img {
 .gymleader-menu {
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 
@@ -384,7 +430,10 @@ header img {
   width: 100%;
   padding: 1rem;
 }
-
+ 
+.enemy-card h2 {
+  margin: 1rem 0;
+}
 
 /*===*[Oak Msg Card]*===*/
 .oak-btn {
