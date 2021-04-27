@@ -73,6 +73,8 @@ body {
   font-size: .7rem;
 }
 
+
+
 /*===*[intro page]*===*/
 .intro {
   position: relative;
@@ -87,8 +89,8 @@ body {
 
 .bg-stripe {
   position: absolute;
-  left: 100rem;
-  animation: slide 1s forwards ease-in-out;
+  left: 300rem;
+  animation: slide 1.4s forwards ease-in-out;
   width: 100%;
   height: 10rem;
   background: #C55D67;

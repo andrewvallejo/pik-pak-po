@@ -396,6 +396,8 @@ function showOpeningCard() {
 
 function showEndTutorialCard() {
   hide(battleCard)
+  hide(winEnemyText)
+  hide(winPlayerText)
   summonOak()
   cardText.innerText =  `Hold up! I think you are ready to take on the world. Are you with me?`
   nextMoveOak.innerText = 'Yah!'  
@@ -411,4 +413,3 @@ function hide(e) {
 function show(e) {
   e.classList.remove('hidden')
 }
-
