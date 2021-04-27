@@ -33,7 +33,10 @@ var winPlayerText = document.querySelector('#winPlayerText')
 var winEnemyText = document.querySelector('#winEnemyText')
 
 // Player Info 
+var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
 var playerSprite = document.querySelector('#playerSprite')
+var tutorialUser = document.querySelector('#tutorialUser')
+var userInfo = document.querySelector('#userInfo')
 
 // Gameboy
 var screen = document.querySelector('#screen')
@@ -157,8 +160,8 @@ function chooseBulbasaur() {
     pokemon: 'bulbasaur',
     move: 'vinewhip' 
   }
-  playerSprite.src = '/assets/pokemon/01_bulbasaur.png'
-  playerSprite.alt = 'bulbasaur'
+  playerTutorialSprite.src = '/assets/pokemon/01_bulbasaur.png'
+  playerTutorialSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
   summonOak()
   gotoNext(bulbasaur.pokemon)
@@ -170,8 +173,8 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
-  playerSprite.src = '/assets/pokemon/04_charmander.png'
-  playerSprite.alt = 'charmander'
+  playerTutorialSprite.src = '/assets/pokemon/04_charmander.png'
+  playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
   return playerStory = new Game(nameForm.value, charmander)
@@ -183,8 +186,8 @@ function chooseSquirtle() {
     move: 'bubble' 
   }
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
-  playerSprite.src = '/assets/pokemon/07_squirtle.png'
-  playerSprite.alt = 'squirtle'
+  playerTutorialSprite.src = '/assets/pokemon/07_squirtle.png'
+  playerTutorialSprite.alt = 'squirtle'
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
 }
@@ -192,10 +195,13 @@ function chooseSquirtle() {
 function skipIntro() {
   hide(introPage)
   hide(tutorialCard)
-  show(battleCard)
   show(showcase)
   show(header)
   show(footer) 
+  hide(enemyPokemonSprite)
+  hide(tutorialUser)
+  show(userInfo)
+
   return playerStory = new Game('Ash', summonPikachu())
 }
 
@@ -205,8 +211,9 @@ function summonPikachu() {
     move: 'lightning'
   }
   pokemonDo.innerText = pikachu.pokemon.toUpperCase()
+  playerTutorialSprite.src = 'assets/pokemon/25_pikachu.png'
+  playerTutorialSprite.alt = 'pikachu'
   playerSprite.src = 'assets/pokemon/25_pikachu.png'
-  playerSprite.alt = 'pikachu'
   return pikachu
 }
 
@@ -226,7 +233,7 @@ function summonCaterpie() {
   enemyPokemonSprite.alt = 'Caterpie'
   enemyPokemonSprite.classList.add('pokemon')
   enemyPokemonSprite.classList.remove('prof-oak-small')
-  playerStory.gymleader = new Player('Tutorial Person', 'caterpie')
+  playerStory.gymleader = new Player('Tutorial Person', caterpie)
   changeEnemyText()
   return caterpie
 }
@@ -283,7 +290,6 @@ function gotoNextPanel() {
         show(winPlayerText)
         show(winEnemyText)
         summonCaterpie()
-
       }   
       else if (count === 10) {
         cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
@@ -319,8 +325,12 @@ function gotoNextPanel() {
       } else if (count === 20) {
         cardText.innerText =  `Off you go!`
         nextMoveOak.innerText = 'Noo!!'
-        hide(tutorialCard)
+        hide(tutorialUser)
+        hide(playerTutorialSprite)
         hide(enemyPokemonSprite)
+        show(playerSprite)
+        show(userInfo)
+    
       }
   }
   
@@ -377,7 +387,7 @@ function showEnemyMoveCard() {
 }
 
 function changeEnemyText() {
-  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
+  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.pokemon.toUpperCase()}`
   enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
   playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
 }
