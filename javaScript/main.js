@@ -84,7 +84,7 @@ function gotoNext(pokemon) {
     return;
   }
   click++
-  if(click <= 1) { 
+  if (click <= 1) { 
     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
     } else if (click === 2) {
       profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
@@ -94,8 +94,8 @@ function gotoNext(pokemon) {
       profOakText.innerHTML = `<p>Before you we start, can you tell me... </p>
       <p>What is your name?</p>`
     } else if (click === 5) {
-      show(formCard)
       hide(profOakText)
+      show(formCard)
     } else if (click === 6) {
       profOakText.innerHTML = `<p>${nameForm.value.toUpperCase()}? Well, there are some things in life that we can't choose...</p>`
       hide(formCard)
@@ -129,22 +129,22 @@ function gotoNext(pokemon) {
     }
 }
 
-// var click = 0 ;
-// function gotoNext(pokemon) {
-//   click++
-// switch (click) {
-//   case 2:
-//     profOakText.innerHTML = `<p>But you should call me <q>The doctor Professor</q></p>`
-//     break;
-//   case 3:
-//     profOakText.innerHTML = `<p>..so mind your manners..</p>`
-//     break;
-//   profOakText.innerHTML = `<p>..so mind your manners..</p>`
-//   default:
-//     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
-//   }
-// }
- 
+function skipIntro() {
+  hide(introPage)
+  hide(enemyTutorialCard)
+  hide(enemyPokemonTutorialSprite)
+  hide(loadEgg)
+  hide(pikpakpo)
+  hide(tutorialCard)
+  hide(skipIntroBtn)
+  show(enemyCard)
+  show(footer) 
+  show(header)
+  show(userInfo)
+  show(showcase)
+  return playerStory = new Game('Ash', summonPikachu())
+}
+
 function chooseBulbasaur() {
   var bulbasaur = {
     pokemon: 'bulbasaur',
@@ -187,22 +187,11 @@ function chooseSquirtle() {
   return playerStory = new Game(nameForm.value, squirtle)
 }
 
-function skipIntro() {
-  hide(introPage)
-  hide(tutorialCard)
-  show(showcase)
-  show(header)
-  show(footer) 
-  hide(enemyPokemonTutorialSprite)
-  hide(tutorialUser)
-  show(userInfo)
-  hide(enemyTutorialCard)
-  show(enemyCard)
-  hide(loadEgg)
-  hide(skipIntroBtn)
-  hide(pikpakpo)
-
-  return playerStory = new Game('Ash', summonPikachu())
+function summonOak() {
+  enemyPokemonTutorialSprite.src = 'assets/icons/professor-oak.png'
+  enemyPokemonTutorialSprite.alt = 'Professor Oak'
+  enemyPokemonTutorialSprite.classList.remove('pokemon')
+  enemyPokemonTutorialSprite.classList.add('prof-oak-small')
 }
 
 function summonPikachu() {
@@ -215,13 +204,6 @@ function summonPikachu() {
   playerTutorialSprite.alt = 'pikachu'
   playerSprite.src = 'assets/pokemon/pikachu.png'
   return pikachu
-}
-
-function summonOak() {
-  enemyPokemonTutorialSprite.src = 'assets/icons/professor-oak.png'
-  enemyPokemonTutorialSprite.alt = 'Professor Oak'
-  enemyPokemonTutorialSprite.classList.remove('pokemon')
-  enemyPokemonTutorialSprite.classList.add('prof-oak-small')
 }
 
 function summonCaterpie() {
@@ -238,17 +220,7 @@ function summonCaterpie() {
   return caterpie
 }
 
-function updateDialog(poke) {
-  enemyPokemonText.innerText =  poke.pokemon.toUpperCase()
-  enemyMove.innerText = poke.move.toUpperCase()
-  playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
-}
-
-function updateHeader() {
-  trainerName.innerText = playerStory.player.name.toUpperCase()
-}
-
-// Tutorial Card 
+// Tutorial  
 var count = 0
 function gotoNextPanel() {
   count++ 
@@ -286,11 +258,11 @@ function gotoNextPanel() {
       nextMoveOak.innerText = 'Yah!'
       break;
       case 9:
+        hide(profOak)
         hide(tutorialCard)
         show(battleCard)
-        hide(profOak)
-        show(winPlayerText)
         show(winEnemyText)
+        show(winPlayerText)
         summonCaterpie()
         break;       
     case 10:
@@ -336,19 +308,16 @@ function gotoNextPanel() {
     case 20:
         cardText.innerText =  `Off you go!`
         nextMoveOak.innerText = 'Noo!!'
-        hide(tutorialUser)
-        hide(playerTutorialSprite)
         hide(enemyPokemonTutorialSprite)
+        hide(playerTutorialSprite)
+        hide(tutorialUser)
         show(playerSprite)
+        hide(tutorialCard)    
         show(userInfo)
-        hide(tutorialCard)
-        
   }
 }
 
-
-
-// Player's Moves
+// Moves
 function swipe() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
@@ -375,22 +344,22 @@ function ability() {
   }
 }
 
-//  Battle Card
+// Card
 function startIntro() {
-  hide(pokeballBtn)
-  show(profOak)
-  show(bgStripe)
   hide(loadEgg)
+  hide(pikpakpo)
+  hide(pokeballBtn)
+  hide(skipIntroBtn)
+  show(bgStripe)
+  show(profOak)
   show(oaksMsg)
   show(oaksMsgBox)
-  hide(pikpakpo)
-  hide(skipIntroBtn)
 }
 
 function showBattleCard() {
   hide(openingCard)
-  hide(screen)
   hide(playAgainCard)
+  hide(screen)
   show(battleCard)
 }
 
@@ -400,15 +369,9 @@ function showEnemyMoveCard() {
   changeEnemyText()
 }
 
-function changeEnemyText() {
-  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.pokemon.toUpperCase()}`
-  enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
-  playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
-}
-
 function showPlayAgainCard() {
-  show(screen)
   hide(enemyMoveCard)
+  show(screen)
   show(playAgainCard)
 }
 
@@ -427,25 +390,46 @@ function showEndTutorialCard() {
   nextMoveOak.innerText = 'Yah!'  
   show(tutorialCard)
 }
- 
 
-// Helper Function 
-function hide(e) {
-  e.classList.add('hidden')
+function changeEnemyText() {
+  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.pokemon.toUpperCase()}`
+  enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
+  playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
 }
 
-function show(e) {
-  e.classList.remove('hidden')
+function updateDialog(poke) {
+  enemyPokemonText.innerText =  poke.pokemon.toUpperCase()
+  enemyMove.innerText = poke.move.toUpperCase()
+  playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
+}
+
+// Player
+function updatePlayerSprite(pokemon) {
+  playerSprite.alt = pokemon
+  playerSprite.src = `assets/pokemon/${pokemon}.png`
+}
+
+function updatePokedex(player) {
+  var name = player.name.toUpperCase()
+  var pokemon = player.pokemon.pokemon.toUpperCase()
+  var wins = player.wins
+  playerInfo.innerHTML = `<h2>${name}</h2> <p>${pokemon}</p> <p>Wins: ${wins}</p> `
+}
+
+// Game 
+function updateHeader() {
+  trainerName.innerText = playerStory.player.name.toUpperCase()
 }
 
 function checkForSave() {
   localStorage.length === 1 ? show(loadEgg) : hide(loadEgg)
 }
 
+
 function saveGame() {
   playerStory.player.saveWinsToStorage() 
   show(savedMsg) 
-  alert(' ')
+  // Add animation
 }
 
 function loadGame() {
@@ -461,33 +445,29 @@ function loadGame() {
 function loadContent() {
   hide(introPage)
   hide(tutorialCard)
-  show(showcase)
-  show(header)
-  show(footer) 
-  hide(enemyPokemonTutorialSprite)
   hide(tutorialUser)
-  show(userInfo)
+  hide(enemyPokemonTutorialSprite)
   hide(enemyTutorialCard)
-  show(enemyCard)
   hide(loadEgg)
   hide(skipIntroBtn)
   hide(pikpakpo)
   hide(enemyCardContent)
-  
+  show(enemyCard)
+  show(footer) 
+  show(header)
+  show(userInfo)
+  show(showcase)
 }
 
-function updatePlayerSprite(pokemon) {
-  playerSprite.alt = pokemon
-  playerSprite.src = `assets/pokemon/${pokemon}.png`
+
+// Helper Function 
+function hide(e) {
+  e.classList.add('hidden')
 }
 
-function updatePokedex(player) {
-  var name = player.name.toUpperCase()
-  var pokemon = player.pokemon.pokemon.toUpperCase()
-  var wins = player.wins
-  playerInfo.innerHTML = `
-    <h2>${name}</h2>
-    <p>${pokemon}</p>
-    <p>Wins: ${wins}</p> `
+function show(e) {
+  e.classList.remove('hidden')
 }
+
+
 
