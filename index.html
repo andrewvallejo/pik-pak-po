@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
 </head>
 <!-- Main Page  -->
 <main id="mainPage" class="page flex-column">
+
   <body class="flex-column">
     <!-- Intro Page -->
     <section id="introPage" class="intro page flex-column">
@@ -23,15 +25,15 @@
           <p> Hello there! </p>
           <p> Welcome to the world of pokémon! My name is Oak!</p>
         </div>
-          <form id="formCard" class="form-card hidden flex-column">
-            <label for="name">Your Name?</label>
-            <input type="text" id="name" name="name">
-          </form>
-          <div id="pokemonSheet" class="flex-row hidden">
-            <img id="bulbasaur" src="/assets/pokemon/01_bulbasaur.png" alt="bulbasaur" class="pokemon btn">
-            <img id="charmander" src="/assets/pokemon/04_charmander.png" alt="charmander"class="pokemon btn">
-            <img id="squirtle" src="/assets/pokemon/07_squirtle.png" alt="squirtle"class="pokemon btn">
-          </div>
+        <form id="formCard" class="form-card hidden flex-column">
+          <label for="name">Your Name?</label>
+          <input type="text" id="name" name="name">
+        </form>
+        <div id="pokemonSheet" class="flex-row hidden">
+          <img id="bulbasaur" src="/assets/pokemon/01_bulbasaur.png" alt="bulbasaur" class="pokemon btn">
+          <img id="charmander" src="/assets/pokemon/04_charmander.png" alt="charmander" class="pokemon btn">
+          <img id="squirtle" src="/assets/pokemon/07_squirtle.png" alt="squirtle" class="pokemon btn">
+        </div>
         <img id="pageOneBtn" src="assets/sprites/ball/poke.png" alt="pokeball" class="btn poke prioity">
       </div>
     </section>
@@ -40,15 +42,63 @@
     <header class="flex-row hidden">
       <h1>Pik-Pak-Po</h1>
       <div class="player flex-row"><img src="assets/icons/pokeball.png" alt="big pokeball">
-        <p>Hello, Ash!</p>
+        <p>Hello, <span id="trainerName">Ash!</span></p>
         <div>
     </header>
     <!-- Content -->
     <section id="showcase" class="showcase flex-row hidden">
       <div class="playerCard third flex-column">
-        <div class="player-menu menu flex-column">
-          <img id="playerSprite" src="assets/icons/charmander_icon-icons.com_67576.png" alt="charmender" class="pokemon">
+        <div id="tutorialUser" class="player-menu menu flex-column">
+          <p id="winPlayerText" class="hidden">Wins: <span id="playerWins">0</span></p>
+          <img id="playerTutorialSprite" src="" alt="charmender" class="pokemon">
         </div>
+
+        <!-- YOURE WORKING ON THIS -->
+
+
+        <div id="userInfo" class="player-menu menu flex-row hidden">
+
+          <div class="pokedex flex-column">
+            <img id="playerSprite" src="" alt="charmender" class="pokemon main-pokemon">
+          </div>
+
+          <div id="pokeInfo" class="poke-info flex-column">
+            <h2>Pikachu</h2>
+            <p>Name: Ash</p>
+            <p>ID: 25</p>
+          </div>
+          <span class="line l-3 prioity"></span>
+          <div id="playerHpBar" class="hp-bar player-hp prioity flex-row">
+             <div class="hp-text flex-row"><p>HP: </p></div>
+            <div class="one-third-hp hp"></div>
+            <div class="two-third-hp hp"></div>
+            <div class="full-hp hp "></div>
+          </div>
+          <span class="line l-1 prioity"></span>
+          <div id="badgeBox" class="badge-box flex-column">
+            <div class="set flex-row">
+              <img id="boulderBadge" src="assets/badges/Boulder_Badge.png" alt="Boulder Badge"class='gray-scale'>
+              <img src="assets/badges/Cascade_Badge.png" alt="Cascade Badge" class='gray-scale'>
+              <img src="assets/badges/Thunder_Badge.png" alt="Thunder Badge" class='gray-scale'>
+              <img src="assets/badges/Rainbow_Badge.png" alt="Rainbow Badge" class='gray-scale'>
+            </div>
+            <span class="line l-4 prioity"></span>
+            <div class="set flex-row">
+              <img src="assets/badges/Soul_Badge.png" alt="Soul Badge" class='gray-scale'>
+              <img src="assets/badges/Marsh_Badge.png" alt="Marsh Badge" class='gray-scale'>
+              <img src="assets/badges/Volcano_Badge.png" alt="Volcano Badge" class='gray-scale'>
+              <img src="assets/badges/Earth_Badge.png" alt="Earth Badge" class='gray-scale'>
+            </div>
+          </div>
+          <span class="line l-2 prioity"></span>
+
+
+        </div>
+
+
+
+
+        <!-- RIGHT UP HERE -->
       </div>
       <div class="gameboy-battle third flex-column">
         <div class="gameboy-outline flex-column">
@@ -84,7 +134,8 @@
             </li>
           </div>
           <div id="enemyMoveCard" class="inner-card flex-row hidden">
-            <p class="card-text">Foe, <span id="enemyPokemonText">BULBASAUR</span>, used <span id="enemyMove">MOVE</span> on
+            <p class="card-text">Foe, <span id="enemyPokemonText">BULBASAUR</span>, used <span
+                id="enemyMove">MOVE</span> on
               <span id="playerPokemon">CHARMANDER</span></p>
             <div class="box opening-box flex-column">
               <p id="nextMove" class="btn move prioity">NEXT!</p>
@@ -98,9 +149,29 @@
       <!-- End Batte Card -->
       </div>
       <div class="game-card third flex-column">
-        <div class="game-menu menu gymleader-menu flex-column">
-          <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur" class="pokemon">
+        <div id="enemyTutorialCard" class="game-menu menu gymleader-menu flex-column tutorial-card">
+          <p id="winEnemyText" class="hidden">Wins: <span id="enemyWins">0</span></p>
+          <img id="enemyPokemonTutorialSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur"
+            class="pokemon">
         </div>
+        <div id="enemyCard" class="game-menu menu gymleader-menu flex-column enemy-card hidden">
+          <h2>Misty</h2>
+          <p>Pokemon: Starme</p>
+          <img id="enemyPokemonSprite" src="assets/icons/bulbasaur_icon-icons.com_67580.png" alt="bulbasaur"
+          class="pokemon enemy-pokemon">
+        <div id="enemyHpBar" class="hp-bar enemy-hp prioity flex-row">
+           <div class="hp-text flex-row"><p>HP: </p></div>
+          <div class="one-third-hp hp"></div>
+          <div class="two-third-hp hp"></div>
+          <div class="full-hp hp "></div>
+        </div>
+      </div>
+        </div>
+
+
+
+
+      </div>
       </div>
     </section>
     <!-- Footer -->
@@ -114,6 +185,7 @@
 <script src="javaScript/player.js"></script>
 <script src="javaScript/game.js"></script>
 <script src="javaScript/main.js"></script>
+
 </html>
 
 <img src="assets/pokemon/25_pikachu.png" alt="pikachu">

@@ -18,7 +18,11 @@ html {
   --bulbasaur: #B7D0C0;
   --pikachu: #FFD400;
   --white: #fff;
-  --glass: rgba(200, 228, 216, 1)
+  --glass: rgba(200, 228, 216, 1);
+  --pokedex: rgba(255, 19, 19, .5);
+  --pokedexDecal: rgba(26, 129, 184, .9);
+
+
 }
 
 * {
@@ -73,6 +77,10 @@ body {
   font-size: .7rem;
 }
 
+.gray-scale {
+  filter: grayscale(1);
+}
+
 /*===*[intro page]*===*/
 .intro {
   position: relative;
@@ -87,8 +95,8 @@ body {
 
 .bg-stripe {
   position: absolute;
-  left: 100rem;
-  animation: slide 1s forwards ease-in-out;
+  left: 300rem;
+  animation: slide 1.4s forwards ease-in-out;
   width: 100%;
   height: 10rem;
   background: #C55D67;
@@ -151,10 +159,13 @@ input {
 
 .pokemon {
   margin: 0 0 3rem 1.5rem;
-  border-radius: 50%;
   height: 10rem;
   width: 10rem;
-  background: var(--glass);
+}
+
+main-pokemon {
+  border: var(--white) solid;
+  border-width: 3px 0 0 2px;
 }
 
 .pokemon:hover {
@@ -207,12 +218,151 @@ header img {
 }
 
 .menu {
-  align-self: center;
+  /* align-self: center; */
   border: #FFD400 5px solid;
   border-radius: 5px;
   width: 24rem;
   height: 30rem;
   background-color: var(--glass);
+}
+
+.player-menu {
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: var(--pokedex);
+  border-radius: 20% 2% 2% 2% ;
+}
+
+/* pokedex */
+.pokedex {
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 20% 0 0 0 ;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+
+
+.main-pokemon {
+  padding: 0 1rem 2rem 1.5rem;
+  border: var(--pokedex) solid;
+  border-width: 0 10px 10px 0;
+  border-radius: 0 0 25% 25%;
+  background: var(--pokedexDecal);
+  margin: 0;
+  border-radius: 50% 10% 0 35%;
+}
+
+.poke-info {
+  width: 95%;
+  height: 9rem;
+  background: rgb(227, 201, 167, .7);
+  align-self: flex-start;
+  margin: .5rem .3rem 0 0;
+  line-height: 2;
+  padding: .3rem .5rem;
+  border-radius: 5px;
+  border: var(--pokedexDecal) 10px solid;
+  justify-content: center;
+}
+
+.badge-box {
+  position: absolute;
+  background: rgb(227, 201, 167, .7);
+  top: 43%;
+  border-radius: 5px;
+  width: 22.5rem;
+  height: 16rem;
+}
+
+.pokedex h2,
+.pokedex p {
+  border-bottom: 2px rgb(176, 143, 13) dashed;
+}
+
+.hp-bar {
+  position: absolute;
+  height: 1.5rem;
+  /* border: #B7D0C0 1px solid; */
+  width: 20rem;
+
+  /* background: blue; */
+}
+
+.player-hp {
+  top: 36.3%;
+  left: 12%;
+}
+
+.enemy-hp {
+  bottom: 15% ;
+  right: 6%
+}
+
+.hp {
+  background: green;
+  border: #B7D0C0 1px solid;
+  height: 100%;
+  width: 100%;
+}
+
+
+.hp-text {
+  align-items: center;  
+}
+
+.enemy-pokemon {
+  margin: 3rem 0;
+}
+
+
+.line {
+  width: 22rem;
+  border: 1px white solid;
+  position: absolute;
+  top: 4%;
+  border-radius: 5px;
+}
+
+.l-1 {
+  top: 46%;
+}
+
+.l-3 {
+  top: 33%;
+  left: 44.65%;
+  width: 12.5rem;
+}
+
+.l-4 {
+  top: 50%;
+  left: 1%;
+  border-color: var(--pokedexDecal);
+
+  
+}
+
+.set {
+  height: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.set img {
+  height: 4rem;
+  padding: 0 .7rem;
+  border-radius: 5px;
+  filter: grayscale(1);
+}
+
+.set img:hover {
+  animation: shake 500ms forwards;
+}
+
+.l-2 {
+  top: 94% 
 }
 
 
@@ -221,6 +371,7 @@ header img {
 .gymleader-menu {
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 
@@ -286,12 +437,15 @@ header img {
   width: 100%;
   padding: 1rem;
 }
+ 
+.enemy-card h2 {
+  margin: 1rem 0;
+}
 
-
-/* Oak Msg Card */
+/*===*[Oak Msg Card]*===*/
 .oak-btn {
   align-self: flex-end;
-  margin: 6rem 1rem 0 0;
+  margin: 6rem 1.3rem 0 0;
 }
 
 /*===*[Battle Card]*===*/
@@ -337,10 +491,11 @@ header img {
 
 /*===*[footer]*===*/
 footer {
+  justify-content: center;
   align-items: center;
   height: 5vh;
   background-color: var(--pikachu);
-  font-size: .5rem;
+  font-size: .8rem;
   line-height: 1.8;
 }
 
@@ -373,14 +528,13 @@ footer p {
   }
 
   40% {
-     transform: translateX(3px) rotate(7deg);
-
+    transform: translateX(3px) rotate(7deg);
   }
-  
+
   80% {
     transform: translateX(0px) rotate(-1deg);
   }
-  
+
   100% {
     transform: translateX(0px) rotate(0deg);
 

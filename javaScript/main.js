@@ -1,9 +1,7 @@
-// Intro Page
+// Intro Page & Tutorial
 var bgStripe = document.querySelector('#bgStripe')
 var introPage = document.querySelector('#introPage')
-var footer = document.querySelector('footer')
 var formCard = document.querySelector('#formCard')
-var header = document.querySelector('header')
 var nameForm = document.querySelector('#name')
 var oaksMsg = document.querySelector('#oaksMsg')
 var oaksMsgBox = document.querySelector('#oaksMsgContent')
@@ -12,20 +10,35 @@ var pokeballBtn = document.querySelector('#bigPokeball')
 var pokemonSheet = document.querySelector('#pokemonSheet')
 var profOak = document.querySelector('#profOak')
 var profOakText = document.querySelector('#profOakText')
-var showcase = document.querySelector('#showcase')
 var skipIntroBtn = document.querySelector('#skipIntro')
+var enemyWins = document.querySelector('#enemyWins')
+var playerWins = document.querySelector('#playerWins')
+
+// Main Page
+var footer = document.querySelector('footer')
+var header = document.querySelector('header')
+var showcase = document.querySelector('#showcase')
+var trainerName = document.querySelector('#trainerName')
+
 
 // Player & Enemey
 var bulbasaur = document.querySelector('#bulbasaur')
 var charmander = document.querySelector('#charmander')
 var enemyMove = document.querySelector('#enemyMove')
 var enemyPokemonText = document.querySelector('#enemyPokemonText')
-var enemyPokemonSprite = document.querySelector('#enemyPokemonSprite')
+var enemyPokemonTutorialSprite = document.querySelector('#enemyPokemonTutorialSprite')
 var playerPokemon = document.querySelector('#playerPokemon')
 var squirtle = document.querySelector('#squirtle')
+var winPlayerText = document.querySelector('#winPlayerText')
+var winEnemyText = document.querySelector('#winEnemyText')
+var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
+var enemyCard = document.querySelector('#enemyCard')
 
 // Player Info 
+var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
 var playerSprite = document.querySelector('#playerSprite')
+var tutorialUser = document.querySelector('#tutorialUser')
+var userInfo = document.querySelector('#userInfo')
 
 // Gameboy
 var screen = document.querySelector('#screen')
@@ -77,6 +90,11 @@ var playerStory;
 // Introduction
 var click = 0
 function gotoNext(pokemon) {
+  if(!nameForm.value && click === 5) {
+    nameForm.placeholder = "your name, bud"
+    click = 5
+    return;
+  }
   click++
   if(click <= 1) { 
     profOakText.innerHTML = `<p>People affectionately refer to me as the Pokemon professor</p>`
@@ -118,6 +136,7 @@ function gotoNext(pokemon) {
       show(header)
       show(footer)
       show(showcase)
+      updateHeader()
       summonOak()
     }
 }
@@ -143,9 +162,10 @@ function chooseBulbasaur() {
     pokemon: 'bulbasaur',
     move: 'vinewhip' 
   }
-  playerSprite.src = '/assets/pokemon/01_bulbasaur.png'
-  playerSprite.alt = 'bulbasaur'
+  playerTutorialSprite.src = '/assets/pokemon/01_bulbasaur.png'
+  playerTutorialSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
+  playerSprite.src = 'assets/pokemon/01_bulbasaur.png'
   summonOak()
   gotoNext(bulbasaur.pokemon)
   return playerStory = new Game(nameForm.value, bulbasaur)
@@ -156,10 +176,12 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
-  playerSprite.src = '/assets/pokemon/04_charmander.png'
-  playerSprite.alt = 'charmander'
+  playerTutorialSprite.src = '/assets/pokemon/04_charmander.png'
+  playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
+  playerSprite.src = 'assets/pokemon/04_charmander'
+
   return playerStory = new Game(nameForm.value, charmander)
 }
 
@@ -169,20 +191,26 @@ function chooseSquirtle() {
     move: 'bubble' 
   }
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
-  playerSprite.src = '/assets/pokemon/07_squirtle.png'
-  playerSprite.alt = 'squirtle'
+  playerTutorialSprite.src = '/assets/pokemon/07_squirtle.png'
+  playerTutorialSprite.alt = 'squirtle'
+  playerSprite.src = 'assets/pokemon/07_squirtle.png'
+
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
-
 }
 
 function skipIntro() {
   hide(introPage)
   hide(tutorialCard)
-  show(battleCard)
   show(showcase)
   show(header)
   show(footer) 
+  hide(enemyPokemonTutorialSprite)
+  hide(tutorialUser)
+  show(userInfo)
+  hide(enemyTutorialCard)
+  show(enemyCard)
+
   return playerStory = new Game('Ash', summonPikachu())
 }
 
@@ -192,16 +220,17 @@ function summonPikachu() {
     move: 'lightning'
   }
   pokemonDo.innerText = pikachu.pokemon.toUpperCase()
+  playerTutorialSprite.src = 'assets/pokemon/25_pikachu.png'
+  playerTutorialSprite.alt = 'pikachu'
   playerSprite.src = 'assets/pokemon/25_pikachu.png'
-  playerSprite.alt = 'pikachu'
   return pikachu
 }
 
 function summonOak() {
-  enemyPokemonSprite.src = 'assets/icons/professor-oak.png'
-  enemyPokemonSprite.alt = 'Professor Oak'
-  enemyPokemonSprite.classList.remove('pokemon')
-  enemyPokemonSprite.classList.add('prof-oak-small')
+  enemyPokemonTutorialSprite.src = 'assets/icons/professor-oak.png'
+  enemyPokemonTutorialSprite.alt = 'Professor Oak'
+  enemyPokemonTutorialSprite.classList.remove('pokemon')
+  enemyPokemonTutorialSprite.classList.add('prof-oak-small')
 }
 
 function summonCaterpie() {
@@ -209,11 +238,11 @@ function summonCaterpie() {
     pokemon: 'caterpie',
     move: 'string shot'
   }
-  enemyPokemonSprite.src = 'assets/pokemon/10_caterpie.png'
-  enemyPokemonSprite.alt = 'Caterpie'
-  enemyPokemonSprite.classList.add('pokemon')
-  enemyPokemonSprite.classList.remove('prof-oak-small')
-  playerStory.gymleader = new Player('Tutorial Person', 'caterpie')
+  enemyPokemonTutorialSprite.src = 'assets/pokemon/10_caterpie.png'
+  enemyPokemonTutorialSprite.alt = 'Caterpie'
+  enemyPokemonTutorialSprite.classList.add('pokemon')
+  enemyPokemonTutorialSprite.classList.remove('prof-oak-small')
+  playerStory.gymleader = new Player('Tutorial Person', caterpie)
   changeEnemyText()
   return caterpie
 }
@@ -224,85 +253,93 @@ function updateDialog(poke) {
   playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
 }
 
-
+function updateHeader() {
+  trainerName.innerText = nameForm.value.toUpperCase()
+}
 
 // Tutorial Card 
-var pCount = 0
+var count = 0
 function gotoNextPanel() {
-  pCount++ 
-  if (pCount === 1) {
+  count++ 
+  if (count === 1) {
     cardText.innerText =  `Now imagine playing that but in real life!`
     nextMoveOak.innerText = 'Um..'
-  } else if (pCount === 2) {
-      cardText.innerText =  `They, this is your life now so you get used to it, now listen to the rules carefully`
+  } else if (count === 2) {
+      cardText.innerText =  `Hey, this is your life now so you get used to it, now listen to the rules carefully`
       nextMoveOak.innerText = 'Ok..'
       }
-      else if (pCount === 3) {
+      else if (count === 3) {
       cardText.innerText =  `SWIPE will always beat ABILITY`
       nextMoveOak.innerText = 'Got it'
       }
-      else if (pCount === 4) {
+      else if (count === 4) {
       cardText.innerText =  `ABILITY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
       }
-      else if (pCount === 5) {
+      else if (count === 5) {
       cardText.innerText =  `And HARDEN will always beat SWIPE`
       nextMoveOak.innerText = 'Alright'
       }
-      else if (pCount === 6) {
-      cardText.innerText =  `I will say it again because you're an idiot.`
+      else if (count === 6) {
+      cardText.innerText =  `I will say it again because you're a bagel.`
       nextMoveOak.innerText = 'Excuse me?!'
       }
-      else if (pCount === 7) {
+      else if (count === 7) {
       cardText.innerText =  `I said! SWIPE beats ABILITY. ABILITY beats HARDEN. HARDEN beats SWIPE! You got it?!`
       nextMoveOak.innerText = 'I think so..'
       }
-      else if (pCount === 8) {
+      else if (count === 8) {
       cardText.innerText =  `Okay! Are you ready to start your training?`
       nextMoveOak.innerText = 'Yah!'
       }
-      else if (pCount === 9) {
+      else if (count === 9) {
         hide(tutorialCard)
         show(battleCard)
         hide(profOak)
+        show(winPlayerText)
+        show(winEnemyText)
         summonCaterpie()
       }   
-      else if (pCount === 10) {
+      else if (count === 10) {
         cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
     nextMoveOak.innerText = 'Um..'
       }
-      else if (pCount === 11) {
+      else if (count === 11) {
         cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
     nextMoveOak.innerText = 'NO!'
-      } else if (pCount === 12) {
+      } else if (count === 12) {
         cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
     nextMoveOak.innerText = 'Thats better?'
-      } else if (pCount === 13) {
+      } else if (count === 13) {
         cardText.innerText =  `Since the stakes are higher, the rules change too`
     nextMoveOak.innerText = 'Tell me more..'
-      } else if (pCount === 14) {
+      } else if (count === 14) {
         cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
     nextMoveOak.innerText = `This sucks!'`
-      }  else if (pCount === 15) {
-        cardText.innerText =  `I know, ${playerStory.player.name}, I know.`
+      }  else if (count === 15) {
+        cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
     nextMoveOak.innerText = 'Oh..'
-      } else if (pCount === 16) {
+      } else if (count === 16) {
         cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
     nextMoveOak.innerText = 'Thats nice'
-      } else if (pCount === 17) {
+      } else if (count === 17) {
         cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
     nextMoveOak.innerText = 'Capiche.'
-      } else if (pCount === 18) {
+      } else if (count === 18) {
         cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
     nextMoveOak.innerText = 'I want out!'
-      } else if (pCount === 19) {
+      } else if (count === 19) {
         cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
     nextMoveOak.innerText = 'Neat!'
-      } else if (pCount === 20) {
+      } else if (count === 20) {
         cardText.innerText =  `Off you go!`
-    nextMoveOak.innerText = 'Nait!!'
-        hide(tutorialCard)
-        hide(enemyPokemonSprite)
+        nextMoveOak.innerText = 'Noo!!'
+        hide(tutorialUser)
+        hide(playerTutorialSprite)
+        hide(enemyPokemonTutorialSprite)
+        show(playerSprite)
+        show(userInfo)
+    
       }
   }
   
@@ -316,9 +353,8 @@ function swipe() {
   } else {   
   playerStory.triggerFight('swipe')
   showEnemyMoveCard()
+  }
 }
-}
-
 
 function harden() {
   if (playerStory.player.tutorialComplete) {
@@ -360,7 +396,7 @@ function showEnemyMoveCard() {
 }
 
 function changeEnemyText() {
-  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.toUpperCase()}`
+  enemyPokemonText.innerHTML = `${playerStory.gymleader.pokemon.pokemon.toUpperCase()}`
   enemyMove.innerHTML = `${playerStory.gymleaderMove.toUpperCase()}`
   playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
 }
@@ -379,11 +415,12 @@ function showOpeningCard() {
 
 function showEndTutorialCard() {
   hide(battleCard)
+  hide(winEnemyText)
+  hide(winPlayerText)
   summonOak()
   cardText.innerText =  `Hold up! I think you are ready to take on the world. Are you with me?`
   nextMoveOak.innerText = 'Yah!'  
   show(tutorialCard)
-  // gotoNextPanel()
 }
  
 
@@ -395,4 +432,3 @@ function hide(e) {
 function show(e) {
   e.classList.remove('hidden')
 }
-

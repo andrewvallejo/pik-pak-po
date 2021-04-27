@@ -10,6 +10,13 @@ class Game {
   }
 
 
+  triggerFight(move) {
+    this.player.checkTutorialWins()
+    this.playerMove = move
+    this.updateGymleaderMove()
+    this.getOutcome()
+    this.updateCounter()
+  }
 
   updateGymleaderMove() {
     var moveChoice = Math.floor(Math.random() * (4 - 1)) + 1
@@ -17,24 +24,6 @@ class Game {
     moveChoice === 2 ? this.gymleaderMove = 'harden' :
     moveChoice === 3 ? this.gymleaderMove = 'ability' :
     null 
-  }
-
-  triggerFight(move) {
-    this.player.checkTutorialWins()
-    this.playerMove = move
-    this.updateGymleaderMove()
-    this.getOutcome()
-  }
-
-
-
-  getOutcome() {
-    var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
-    outcome === 'win' ? this.player.wins++ : null
-    outcome === 'win' ? outcomeMsg.innerText = 'You Win!' :
-    outcome === 'lose' ? outcomeMsg.innerText = 'You Lose!':
-    outcome === 'draw' ? outcomeMsg.innerText = 'Draw!' :
-    null
   }
 
   compareMove(playerMove, gymLeaderMove) {
@@ -47,4 +36,18 @@ class Game {
           playerMove ===  gymLeaderMove ? 'draw' :
           null
   }
+
+  getOutcome() {
+    var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
+    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++ ) :
+    outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++) :
+    outcome === 'draw' ? outcomeMsg.innerText = 'Draw!': 
+    null
+  }
+
+  updateCounter() {
+    enemyWins.innerText = this.gymleader.wins
+    playerWins.innerText = this.player.wins
+  }
 }
+
