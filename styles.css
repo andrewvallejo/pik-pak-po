@@ -288,7 +288,7 @@ header img {
 }
 
 
-/* Oak Msg Card */
+/*===*[Oak Msg Card]*===*/
 .oak-btn {
   align-self: flex-end;
   margin: 6rem 1.3rem 0 0;
@@ -337,10 +337,11 @@ header img {
 
 /*===*[footer]*===*/
 footer {
+  justify-content: center;
   align-items: center;
   height: 5vh;
   background-color: var(--pikachu);
-  font-size: .5rem;
+  font-size: .8rem;
   line-height: 1.8;
 }
 
@@ -373,14 +374,13 @@ footer p {
   }
 
   40% {
-     transform: translateX(3px) rotate(7deg);
-
+    transform: translateX(3px) rotate(7deg);
   }
-  
+
   80% {
     transform: translateX(0px) rotate(-1deg);
   }
-  
+
   100% {
     transform: translateX(0px) rotate(0deg);
 
