@@ -39,6 +39,8 @@ var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
 var playerSprite = document.querySelector('#playerSprite')
 var tutorialUser = document.querySelector('#tutorialUser')
 var userInfo = document.querySelector('#userInfo')
+var saveBall = document.querySelector('#saveBall')
+var savedMsg = document.querySelector('#savedMsg')
 
 // Gameboy
 var screen = document.querySelector('#screen')
@@ -84,6 +86,10 @@ nextMoveOak.addEventListener('click', gotoNextPanel)
 charmander.addEventListener('click', chooseCharmander)
 bulbasaur.addEventListener('click', chooseBulbasaur)
 squirtle.addEventListener('click', chooseSquirtle)
+saveBall.addEventListener('click', function() {
+  playerStory.player.saveWinsToStorage() 
+  show(savedMsg) 
+})
 
 var playerStory;
 
