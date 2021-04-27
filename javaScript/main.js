@@ -252,77 +252,88 @@ function updateHeader() {
 var count = 0
 function gotoNextPanel() {
   count++ 
-  if (count === 1) {
+  switch (count) {
+    case 1:
     cardText.innerText =  `Now imagine playing that but in real life!`
     nextMoveOak.innerText = 'Um..'
-  } else if (count === 2) {
+      break;
+      case 2:
       cardText.innerText =  `Hey, this is your life now so you get used to it, now listen to the rules carefully`
       nextMoveOak.innerText = 'Ok..'
-      }
-      else if (count === 3) {
+      break;
+      case 3:
       cardText.innerText =  `SWIPE will always beat ABILITY`
       nextMoveOak.innerText = 'Got it'
-      }
-      else if (count === 4) {
+      break;
+      case 4:
       cardText.innerText =  `ABILITY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
-      }
-      else if (count === 5) {
+      break;
+      case 5:
       cardText.innerText =  `And HARDEN will always beat SWIPE`
       nextMoveOak.innerText = 'Alright'
-      }
-      else if (count === 6) {
+      break;
+      case 6:
       cardText.innerText =  `I will say it again because you're a bagel.`
       nextMoveOak.innerText = 'Excuse me?!'
-      }
-      else if (count === 7) {
+      break;
+      case 7:
       cardText.innerText =  `I said! SWIPE beats ABILITY. ABILITY beats HARDEN. HARDEN beats SWIPE! You got it?!`
       nextMoveOak.innerText = 'I think so..'
-      }
-      else if (count === 8) {
+      break;
+      case 8:
       cardText.innerText =  `Okay! Are you ready to start your training?`
       nextMoveOak.innerText = 'Yah!'
-      }
-      else if (count === 9) {
+      break;
+      case 9:
         hide(tutorialCard)
         show(battleCard)
         hide(profOak)
         show(winPlayerText)
         show(winEnemyText)
         summonCaterpie()
-      }   
-      else if (count === 10) {
+        break;       
+    case 10:
         cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
     nextMoveOak.innerText = 'Um..'
-      }
-      else if (count === 11) {
+     break;
+    case 11:
         cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
-    nextMoveOak.innerText = 'NO!'
-      } else if (count === 12) {
+        nextMoveOak.innerText = 'NO!'
+     break;
+    case 12:
         cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
     nextMoveOak.innerText = 'Thats better?'
-      } else if (count === 13) {
+     break; 
+    case 13:
         cardText.innerText =  `Since the stakes are higher, the rules change too`
     nextMoveOak.innerText = 'Tell me more..'
-      } else if (count === 14) {
+     break; 
+    case 14:
         cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
     nextMoveOak.innerText = `This sucks!'`
-      }  else if (count === 15) {
-        cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
+     break;  
+    case 15:
+    cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
     nextMoveOak.innerText = 'Oh..'
-      } else if (count === 16) {
+     break; 
+    case 16:
         cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
     nextMoveOak.innerText = 'Thats nice'
-      } else if (count === 17) {
+     break; 
+    case 17:
         cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
     nextMoveOak.innerText = 'Capiche.'
-      } else if (count === 18) {
+     break; 
+    case 18:
         cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
     nextMoveOak.innerText = 'I want out!'
-      } else if (count === 19) {
+     break; 
+    case 19:
         cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
     nextMoveOak.innerText = 'Neat!'
-      } else if (count === 20) {
+     break; 
+    case 20:
         cardText.innerText =  `Off you go!`
         nextMoveOak.innerText = 'Noo!!'
         hide(tutorialUser)
@@ -330,9 +341,10 @@ function gotoNextPanel() {
         hide(enemyPokemonTutorialSprite)
         show(playerSprite)
         show(userInfo)
-      }
+        hide(tutorialCard)
+        
   }
-  
+}
 
 
 
