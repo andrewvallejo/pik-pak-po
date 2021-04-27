@@ -12,8 +12,12 @@ class Player {
    var trainerData = JSON.stringify(this)
    localStorage.setItem('trainer', trainerData)
   }
+  saveGame() {
+    var trainerData = JSON.stringify(this)
+    localStorage.setItem('trainer', trainerData)
+   }
   loadGame() {
-
+    var trainerData = JSON.stringify(this)
   }
   retrieveWinsFromStorage() { 
     var parsedData = JSON.parse(localStorage.getItem('trainer'))
