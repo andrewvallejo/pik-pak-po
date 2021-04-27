@@ -7,10 +7,11 @@ class Player {
     this.hp = 3
     this.pokemon = pokemon
     this.tutorialComplete = false 
-    this.trainerData = JSON.stringify(this)
    }
   saveWinsToStorage() {
-   localStorage.setItem('trainer', this.trainerData)
+    var trainerData = JSON.stringify(this)
+
+   localStorage.setItem('trainer', trainerData)
   }
   
   retrieveWinsFromStorage() { 
@@ -20,6 +21,7 @@ class Player {
     this.wins = parsedData.wins
     this.pokemon = parsedData.pokemon
     this.tutorialComplete = true
+    console.log(this)
   }
   checkTutorialWins() {
     if (this.wins >= 2 && !this.tutorialComplete) {
