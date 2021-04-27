@@ -81,6 +81,12 @@ body {
   filter: grayscale(1);
 }
 
+.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 /*===*[intro page]*===*/
 .intro {
   position: relative;
@@ -89,8 +95,49 @@ body {
   background: var(--squirtle);
 }
 
+.pikpakpo {
+  position: absolute;
+  width: 60rem;
+  top: 10%;
+  align-self: center;
+}
+
 .big-pokeball {
   align-self: center;
+  width: 10rem;
+  transition: all 200ms ease-in-out;
+
+}
+
+.big-pokeball:hover {
+  /* animation: shake 500ms forwards; */
+  transition: all 500ms ease-in-out;
+  transform: rotate(720deg) scale(3);
+}
+
+
+.load {
+  position: absolute;
+  bottom: 15%;
+  right: 44.75%
+}
+
+.egg {
+  width: 5rem;
+}
+
+.egg:hover {
+  animation: shake 500ms forwards;
+}
+
+.load p {
+  transition: .200ms ease-in-out all;
+}
+
+.load p:hover {
+  text-shadow: 0 0 10px var(--charmender);
+  color: var(--white);
+  transition: 300ms ease-in-out all;
 }
 
 .bg-stripe {
