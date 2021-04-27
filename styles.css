@@ -271,7 +271,7 @@ header img {
 .badge-box {
   position: absolute;
   background: rgb(227, 201, 167, .7);
-  top: 40%;
+  top: 43%;
   border-radius: 5px;
   width: 22.5rem;
   height: 16rem;
@@ -292,7 +292,7 @@ header img {
 }
 
 .player-hp {
-  top: 34.3%;
+  top: 36.3%;
   left: 12%;
 }
 
@@ -328,13 +328,18 @@ header img {
 }
 
 .l-1 {
-  top: 43%;
+  top: 46%;
 }
 
 .l-3 {
   top: 33%;
   left: 44.65%;
   width: 12.5rem;
+}
+
+.l-4 {
+  top: 50%;
+  left: 1%;
 }
 
 .set {
@@ -355,7 +360,7 @@ header img {
 }
 
 .l-2 {
-  top: 91% 
+  top: 94% 
 }
 
 
