@@ -35,7 +35,7 @@ var pageOneBtn = document.querySelector('#pageOneBtn')
 var pikpakpo = document.querySelector('#pikpakpo')
 var playAgainCard = document.querySelector('#playAgainCard')
 var playAgainMove = document.querySelector('#playAgainMove')
-var playHpFull = document.querySelector('#pfhp')
+var playerHpFull = document.querySelector('#pfhp')
 var playerHpOneThird = document.querySelector('#pothp')
 var playerHpTwoThird = document.querySelector('#ptthp')
 var playerInfo = document.querySelector('#pokeInfo')
@@ -466,7 +466,19 @@ function loadContent() {
 }
 
 // Health Bar Mechanic
+function takeDamage() {
+  playerStory.player.hp === 3 ? playerHpFull.classList.remove('green-bar') : 
+  playerStory.player.hp === 2 ? playerHpTwoThird.classList.remove('green-bar') : 
+  playerStory.player.hp === 1 ? playerHpOneThird.classList.remove('green-bar') : 
+  null
+}
 
+function giveDamage() {
+  playerStory.gymleader.hp === 3 ? enemyHpFull.classList.remove('green-bar') :
+  playerStory.gymleader.hp === 2 ? enemyHpTwoThird.classList.remove('green-bar') :
+  playerStory.gymleader.hp === 1 ? enemyHpOneThird.classList.remove('green-bar') :
+  null
+}
 
 
 // Helper Function 
