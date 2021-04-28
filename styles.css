@@ -372,6 +372,9 @@ header img {
   border: #B7D0C0 1px solid;
   height: 100%;
   width: 100%;
+}
+
+.green-bar {
   background: green;
 }
 
