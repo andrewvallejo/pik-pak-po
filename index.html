@@ -19,7 +19,6 @@
         <img src='assets/icons/egg.png' alt='egg' class='egg center'>
         <p>LOAD GAME</p>
       </div>
-      <img id='skipIntro' src='assets/sprites/ball/poke.png' alt='pokeball' class='btn poke prioity skip'>
       <span id='bgStripe' class='bg-stripe hidden'></span>
       <img id='profOak' src='assets/icons/professor-oak.png' alt='Professor Oak' class='prof-oak hidden'>
       <img id='oaksMsg' src='assets/misc/text_border.png' alt='text border' class='oaks-msg msg-border-2x hidden'>
@@ -117,8 +116,9 @@
               <p id='hardenMove' class='btn move'>HARDEN</p>
               <p id='abilityMove' class=' btn move'>ABILITY</p>
             </li>
-            <li id='potionSlot' class='box flex-column hidden'>
-              <p id='potionMove' class='btn move potion'>POTION</p>
+            <li id='potionSlot' class='box flex-column'>
+              <p id='potionMove' class='btn move'> <img id="potionSprite" src="assets/sprites/medicine/potion.png" alt="potion" class>
+                POTION</p>
             </li>
           </div>
           <div id='enemyMoveCard' class='inner-card flex-row hidden'>
@@ -142,9 +142,9 @@
             class='pokemon'>
         </article>
         <article id='enemyCard' class='game-menu menu gymleader-menu flex-column enemy-card hidden'>
-          <h2>Misty</h2>
-          <p>Pokemon: Starme</p>
-          <img id='enemyPokemonSprite' src='assets/icons/bulbasaurTutorial.png' alt='bulbasaur'
+          <h2>Ash</h2>
+          <p>Pokemon: Pikachu</p>
+          <img id='enemyPokemonSprite' src='assets/pokemon/pikachu.png' alt='pikachu'
             class='pokemon enemy-pokemon'>
           <div id='enemyHpBar' class='hp-bar enemy-hp prioity flex-row'>
             <div class='hp-text flex-row'>
