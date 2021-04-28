@@ -60,7 +60,7 @@ var squirtle = document.querySelector('#squirtle')
 var swipeMove =  document.querySelector('#swipeMove')
 var trainerName = document.querySelector('#trainerName')
 var tutorialCard = document.querySelector('#tutorialCard')
-var tutorialEnemy = document.querySelector('#tutorialEnemy')
+var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
 var tutorialUser = document.querySelector('#tutorialUser')
 var userInfo = document.querySelector('#userInfo')
 var winPlayerText = document.querySelector('#winPlayerText')
@@ -324,6 +324,7 @@ function gotoNextPanel() {
       hide(enemyPokemonTutorialSprite)
       hide(playerTutorialSprite)
       hide(tutorialUser)
+      show(enemyCard)
       show(playerSprite)
       show(userInfo)
       break;
@@ -331,7 +332,6 @@ function gotoNextPanel() {
     hide(tutorialCard)
     hide(tutorialEnemy)
     show(battleCard)  
-    show(gymleaderCard)
     show(potionSlot)
     summonCaterpie()
       break;
@@ -351,8 +351,6 @@ function swipe() {
 function harden() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
-    playerStory.triggerFight('swipe')
-    showEnemyMoveCard()
   } else {   
     playerStory.triggerFight('harden')
     showEnemyMoveCard()
@@ -361,8 +359,6 @@ function harden() {
 function ability() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
-    playerStory.triggerFight('swipe')
-    showEnemyMoveCard()
   } else {   
     playerStory.triggerFight('ability')
     showEnemyMoveCard()
@@ -480,13 +476,12 @@ function loadContent() {
   hide(introPage)
   hide(tutorialUser)
   hide(enemyPokemonTutorialSprite)
+  hide(enemyTutorialCard)
   hide(loadEgg)
   hide(skipIntroBtn)
   hide(pikpakpo)
-  show(enemyCardContent)
   show(tutorialCard)
   show(enemyCard)
-  show(gymleaderCard)
   show(footer) 
   show(header)
   show(potionSlot)
@@ -499,14 +494,15 @@ function takeDamage() {
   playerStory.player.hp === 3 ? playerHpFull.classList.remove('green-bar') : 
   playerStory.player.hp === 2 ? playerHpTwoThird.classList.remove('green-bar') : 
   playerStory.player.hp === 1 ? playerHpOneThird.classList.remove('green-bar') : 
-  !playerStory.player.hp ? (outcomeMsg.innerHTML = `GAME OVER`, refillHP(player)) : null
+  !playerStory.player.hp ? (outcomeMsg.innerHTML = `GAME OVER`, refillHP(player)) : 
+  console.log('tutorialLog:1')
 }
 
 function giveDamage() {
   playerStory.gymleader.hp === 3 ? enemyHpFull.classList.remove('green-bar') :
   playerStory.gymleader.hp === 2 ? enemyHpTwoThird.classList.remove('green-bar') :
   playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, refillHP(gymleader), rotateEnemy()) :
-  null
+  console.log('tutorialLog:2')
 }
 
 function usePotion() {
