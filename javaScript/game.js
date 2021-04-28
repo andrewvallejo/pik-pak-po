@@ -39,8 +39,8 @@ class Game {
 
   getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
-    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++, doDamage('win')) :
-    outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++, doDamage('lose')) :
+    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++, this.doDamage('win')) :
+    outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++, this.doDamage('lose')) :
     outcome === 'draw' ? outcomeMsg.innerText = 'Draw!': 
     null
   }
@@ -54,8 +54,8 @@ class Game {
     if(this.player.tutorialComplete && condition === 'win') {
       this.gymleader.loseHealth()
       giveDamage()
-    } else {
-      this.player.loseHealth
+    } else if (this.player.tutorialComplete && condition === 'lose') {
+      this.player.loseHealth()
       takeDamage()
     }
   }
