@@ -340,7 +340,7 @@ function gotoNextPanel() {
 
 // Moves
 function swipe() {
-  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
+  if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
   } else {   
     playerStory.triggerFight('swipe')
@@ -349,7 +349,7 @@ function swipe() {
 }
 
 function harden() {
-  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
+  if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
     playerStory.triggerFight('swipe')
     showEnemyMoveCard()
@@ -359,7 +359,7 @@ function harden() {
   }
 }
 function ability() {
-  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
+  if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
     playerStory.triggerFight('swipe')
     showEnemyMoveCard()
