@@ -7,6 +7,9 @@ var cardText = document.querySelector('#cardText')
 var charmander = document.querySelector('#charmander')
 var enemyCard = document.querySelector('#enemyCard')
 var enemyCardContent = document.querySelector('#enemyCardContent')
+var enemyHpFull = document.querySelector('#efhp')
+var enemyHpOneThird = document.querySelector('#eothp')
+var enemyHpTwoThird = document.querySelector('#etthp')
 var enemyMove = document.querySelector('#enemyMove')
 var enemyMoveCard = document.querySelector('#enemyMoveCard')
 var enemyWins = document.querySelector('#enemyWins')
@@ -32,6 +35,9 @@ var pageOneBtn = document.querySelector('#pageOneBtn')
 var pikpakpo = document.querySelector('#pikpakpo')
 var playAgainCard = document.querySelector('#playAgainCard')
 var playAgainMove = document.querySelector('#playAgainMove')
+var playHpFull = document.querySelector('#pfhp')
+var playerHpOneThird = document.querySelector('#pothp')
+var playerHpTwoThird = document.querySelector('#ptthp')
 var playerInfo = document.querySelector('#pokeInfo')
 var playerPokemon = document.querySelector('#playerPokemon')
 var pokemonSheet = document.querySelector('#pokemonSheet')
@@ -416,6 +422,7 @@ function updatePokedex(player) {
   playerInfo.innerHTML = `<h2>${name}</h2> <p>${pokemon}</p> <p>Wins: ${wins}</p> `
 }
 
+
 // Game 
 function updateHeader() {
   trainerName.innerText = playerStory.player.name.toUpperCase()
@@ -429,7 +436,6 @@ function checkForSave() {
 function saveGame() {
   playerStory.player.saveWinsToStorage() 
   show(savedMsg) 
-  // Add animation
 }
 
 function loadGame() {
@@ -458,6 +464,9 @@ function loadContent() {
   show(userInfo)
   show(showcase)
 }
+
+// Health Bar Mechanic
+
 
 
 // Helper Function 
