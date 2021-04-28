@@ -605,7 +605,7 @@ function rotateEnemy() {
       pokemonDo.innerText = pokemon[i].pokemon.toUpperCase()
       enemyPokemonSprite.src = `/assets/pokemon/${pokemon[i].pokemon}.png`
       enemyPokemonSprite.alt = pokemon[i].pokemon
-      updateDialog()
+      changeEnemyText()
       playerStory.gymleader = new Player(pokemon[i].gymleader, pokemon[i])
       }
     }
