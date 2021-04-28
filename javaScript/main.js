@@ -149,8 +149,9 @@ function chooseBulbasaur() {
   }
   playerSprite.src = '/assets/pokemon/bulbasaur.png'
   playerSprite.alt = 'bulbasaur'
+  playerTutorialSprite.src = '/assets/pokemon/bulbasaur.png'
+  playerTutorialSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
-  playerSprite.src = 'assets/pokemon/bulbasaur.png'
   summonOak()
   gotoNext(bulbasaur.pokemon)
   return playerStory.player = new Game(nameForm.value, bulbasaur)
@@ -163,9 +164,10 @@ function chooseCharmander() {
   }
   playerSprite.src = '/assets/pokemon/charmander.png'
   playerSprite.alt = 'charmander'
+  playerTutorialSprite.src = '/assets/pokemon/charmander.png'
+  playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
-  playerSprite.src = 'assets/pokemon/charmander.png'
 
   return playerStory = new Game(nameForm.value, charmander)
 }
@@ -178,7 +180,8 @@ function chooseSquirtle() {
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
   playerSprite.src = '/assets/pokemon/squirtle.png'
   playerSprite.alt = 'squirtle'
-  playerSprite.src = 'assets/pokemon/squirtle.png'
+  playerTutorialSprite.src = '/assets/pokemon/squirtle.png'
+  playerTutorialSprite.alt = 'squirtle'
 
   gotoNext(squirtle.pokemon)
   return playerStory = new Game(nameForm.value, squirtle)
