@@ -316,11 +316,14 @@ function gotoNextPanel() {
         nextMoveOak.innerText = 'Noo!!'
         hide(enemyPokemonTutorialSprite)
         hide(playerTutorialSprite)
+        // hide(tutorialCard)    
         hide(tutorialUser)
         show(playerSprite)
-        hide(tutorialCard)    
         show(userInfo)
-  }
+        // show(stageBattleCard)
+        cardText.innerText = `Ready to fight?`
+        nextMove.innerText = `YAH!`
+  } 
 }
 
 // Moves
@@ -442,8 +445,10 @@ function loadGame() {
   var parsedData = JSON.parse(localStorage.getItem('trainer'))
   playerStory = new Game(parsedData.name, parsedData.pokemon)
   playerStory.player.retrieveWinsFromStorage()
+  count = 19
   updatePlayerSprite(playerStory.player.pokemon.pokemon)
   loadContent()
+  gotoNextPanel()
   updateHeader()
   updatePokedex(playerStory.player)
 }
@@ -462,7 +467,9 @@ function loadContent() {
   show(footer) 
   show(header)
   show(userInfo)
-  show(showcase)
+  show(showcase)    
+  // show(stageBattleCard)
+
 }
 
 // Health Bar Mechanic
