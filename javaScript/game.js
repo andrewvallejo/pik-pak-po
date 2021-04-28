@@ -1,7 +1,7 @@
 class Game {
   constructor(trainer, pokemon) {
    this.player = new Player(trainer, pokemon)
-   this.gymleader = new Player('Misty', 'raichu')
+   this.gymleader = new Player(trainer, pokemon)
    this.playerMove = ''
    this.gymleaderMove = ''
    this.winner = ''
@@ -15,8 +15,7 @@ class Game {
     this.updateGymleaderMove()
     this.getOutcome()
     this.updateCounter()
-    this.doDamage()
-  }
+    }
 
   updateGymleaderMove() {
     var moveChoice = Math.floor(Math.random() * (4 - 1)) + 1
@@ -51,10 +50,10 @@ class Game {
   }
 
   doDamage(condition) {
-    if(this.player.tutorialComplete && condition === 'win' && this.player.tutorialComplete) {
+    if(this.player.tutorialComplete && condition === 'win') {
       giveDamage()
       this.gymleader.loseHealth()
-    } else if (this.player.tutorialComplete && condition === 'lose' && this.player.tutorialComplete) {
+    } else if (this.player.tutorialComplete && condition === 'lose') {
       takeDamage()
       this.player.loseHealth()
     }
