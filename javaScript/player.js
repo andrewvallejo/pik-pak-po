@@ -5,6 +5,7 @@ class Player {
     this.badges = []
     this.wins = 0
     this.hp = 3
+    this.potions = 1
     this.pokemon = pokemon
     this.tutorialComplete = false 
     this.tutorialsDone = 0
@@ -45,12 +46,13 @@ class Player {
     this.hp -= 1
     }
   
-  getFullHeal() {
-    this.hp = 3
-  }
-  
   takePotion() {
-    this.hp + 2
+    this.hp = 3
+    this.potions -= 1
+  } 
+
+  gainPotion() {
+    this.potions += 1
   }
  }
 
