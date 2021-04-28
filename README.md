@@ -16,6 +16,7 @@ Do you like Pokémon games and all of their franchise? Well then prepare yoursel
 Battle with the same battle script as the pokemon video games! In the tutorial (normal version) of the game, you will be given 3 options, swipe, harden, and ability. The sequence in which the moves beat eachother are as follows: <br>
 **ABILITY < SWIPE < HARDEN < ABILITY** <br>
 Players will take turns choosing their moves and the player who chooses the stronger moves wins
+**REMEMBER** In order to **SAVE** one must click the little pokeball by their name on the top right of the screen. A load button will appear when user refresh.
 
 ### Future Features
 The player who chooses the losing move will lose one HP
