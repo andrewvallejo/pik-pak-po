@@ -232,97 +232,96 @@ function gotoNextPanel() {
   count++ 
   switch (count) {
     case 1:
-    cardText.innerText =  `Now imagine playing that but in real life!`
-    nextMoveOak.innerText = 'Um..'
+      cardText.innerText =  `Now imagine playing that but in real life!`
+      nextMoveOak.innerText = 'Um..'
       break;
-      case 2:
+    case 2:
       cardText.innerText =  `Hey, this is your life now so you get used to it, now listen to the rules carefully`
       nextMoveOak.innerText = 'Ok..'
       break;
-      case 3:
+    case 3:
       cardText.innerText =  `SWIPE will always beat ABILITY`
       nextMoveOak.innerText = 'Got it'
       break;
-      case 4:
+    case 4:
       cardText.innerText =  `ABILITY will always beat HARDEN`
       nextMoveOak.innerText = 'I see'
       break;
-      case 5:
+    case 5:
       cardText.innerText =  `And HARDEN will always beat SWIPE`
       nextMoveOak.innerText = 'Alright'
       break;
-      case 6:
+    case 6:
       cardText.innerText =  `I will say it again because you're a bagel.`
       nextMoveOak.innerText = 'Excuse me?!'
       break;
-      case 7:
+    case 7:
       cardText.innerText =  `I said! SWIPE beats ABILITY. ABILITY beats HARDEN. HARDEN beats SWIPE! You got it?!`
       nextMoveOak.innerText = 'I think so..'
       break;
-      case 8:
+    case 8:
       cardText.innerText =  `Okay! Are you ready to start your training?`
       nextMoveOak.innerText = 'Yah!'
       break;
-      case 9:
-        hide(profOak)
-        hide(tutorialCard)
-        show(battleCard)
-        show(winEnemyText)
-        show(winPlayerText)
-        summonCaterpie()
-        break;       
+    case 9:
+      hide(profOak)
+      hide(tutorialCard)
+      show(battleCard)
+      show(winEnemyText)
+      show(winPlayerText)
+      summonCaterpie()
+      break;       
     case 10:
-        cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
-    nextMoveOak.innerText = 'Um..'
-     break;
+      cardText.innerText =  `Now Listen closely because its about to get dangerous for you`
+      nextMoveOak.innerText = 'Um..'
+      break;
     case 11:
-        cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
-        nextMoveOak.innerText = 'NO!'
-     break;
+      cardText.innerText =  `You will now duel other pokemons.. to THE DEATH!`
+      nextMoveOak.innerText = 'NO!'
+      break;
     case 12:
-        cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
-    nextMoveOak.innerText = 'Thats better?'
-     break; 
+      cardText.innerText =  `Okay, not to the death but you'll be badly injured!`
+      nextMoveOak.innerText = 'Thats better?'
+      break; 
     case 13:
-        cardText.innerText =  `Since the stakes are higher, the rules change too`
-    nextMoveOak.innerText = 'Tell me more..'
-     break; 
+      cardText.innerText =  `Since the stakes are higher, the rules change too`
+      nextMoveOak.innerText = 'Tell me more..'
+      break; 
     case 14:
-        cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
-    nextMoveOak.innerText = `This sucks!'`
-     break;  
+      cardText.innerText =  `You have a finite amount of HP and you'll battle more than one pokemon in a row`
+      nextMoveOak.innerText = `This sucks!'`
+      break;  
     case 15:
-    cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
-    nextMoveOak.innerText = 'Oh..'
-     break; 
+      cardText.innerText =  `I know, ${playerStory.player.name.toUpperCase()}, I know.`
+      nextMoveOak.innerText = 'Oh..'
+      break; 
     case 16:
-        cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
-    nextMoveOak.innerText = 'Thats nice'
-     break; 
+      cardText.innerText =  `Anyways...you will also now have the option to use a potion to heal youself`
+      nextMoveOak.innerText = 'Thats nice'
+      break; 
     case 17:
-        cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
-    nextMoveOak.innerText = 'Capiche.'
-     break; 
+      cardText.innerText =  `Instead of measuring your success in wins it will be measured in badges, capiche?`
+      nextMoveOak.innerText = 'Capiche.'
+      break; 
     case 18:
-        cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
-    nextMoveOak.innerText = 'I want out!'
-     break; 
+      cardText.innerText =  `And you'll now face gymleaders with much more years of experience than you`
+      nextMoveOak.innerText = 'I want out!'
+      break; 
     case 19:
-        cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
-    nextMoveOak.innerText = 'Neat!'
-     break; 
+      cardText.innerText =  `You can take the coward way out and hit the save button if you want to take a break`
+      nextMoveOak.innerText = 'Neat!'
+      break; 
     case 20:
-        cardText.innerText =  `Off you go!`
-        nextMoveOak.innerText = 'Noo!!'
-        hide(enemyPokemonTutorialSprite)
-        hide(playerTutorialSprite)
-        // hide(tutorialCard)    
-        hide(tutorialUser)
-        show(playerSprite)
-        show(userInfo)
-        // show(stageBattleCard)
-        cardText.innerText = `Ready to fight?`
-        nextMove.innerText = `YAH!`
+      cardText.innerText =  `Off you go!`
+      nextMoveOak.innerText = 'Noo!!'
+      hide(enemyPokemonTutorialSprite)
+      hide(playerTutorialSprite)
+      hide(tutorialUser)
+      show(playerSprite)
+      show(userInfo)
+      cardText.innerText = `Ready to fight?`
+      nextMoveOak.innerText = `YAH!`
+      break;
   } 
 }
 
@@ -331,8 +330,8 @@ function swipe() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
   } else {   
-  playerStory.triggerFight('swipe')
-  showEnemyMoveCard()
+    playerStory.triggerFight('swipe')
+    showEnemyMoveCard()
   }
 }
 
@@ -340,16 +339,16 @@ function harden() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
   } else {   
-  playerStory.triggerFight('harden')
-  showEnemyMoveCard()
+    playerStory.triggerFight('harden')
+    showEnemyMoveCard()
   }
 }
 function ability() {
   if (playerStory.player.tutorialComplete) {
     showEndTutorialCard()
   } else {   
-  playerStory.triggerFight('ability')
-  showEnemyMoveCard()
+    playerStory.triggerFight('ability')
+    showEnemyMoveCard()
   }
 }
 
