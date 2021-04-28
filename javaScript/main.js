@@ -147,9 +147,9 @@ function chooseBulbasaur() {
     pokemon: 'bulbasaur',
     move: 'vinewhip' 
   }
-  playerSprite.src = '/assets/starters/bulbasaur.png'
+  playerSprite.src = '/assets/pokemon/bulbasaur.png'
   playerSprite.alt = 'bulbasaur'
-  playerTutorialSprite.src = '/assets/starters/bulbasaur.png'
+  playerTutorialSprite.src = '/assets/pokemon/bulbasaur.png'
   playerTutorialSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
   summonOak()
@@ -162,9 +162,9 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
-  playerSprite.src = '/assets/starters/charmander.png'
+  playerSprite.src = '/assets/pokemon/charmander.png'
   playerSprite.alt = 'charmander'
-  playerTutorialSprite.src = '/assets/starters/charmander.png'
+  playerTutorialSprite.src = '/assets/pokemon/charmander.png'
   playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
@@ -178,9 +178,9 @@ function chooseSquirtle() {
     move: 'bubble' 
   }
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
-  playerSprite.src = '/assets/starters/squirtle.png'
+  playerSprite.src = '/assets/pokemon/squirtle.png'
   playerSprite.alt = 'squirtle'
-  playerTutorialSprite.src = '/assets/starters/squirtle.png'
+  playerTutorialSprite.src = '/assets/pokemon/squirtle.png'
   playerTutorialSprite.alt = 'squirtle'
 
   gotoNext(squirtle.pokemon)
