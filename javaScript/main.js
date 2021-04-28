@@ -506,7 +506,7 @@ function takeDamage() {
 function giveDamage() {
   playerStory.gymleader.hp === 3 ? enemyHpFull.classList.remove('green-bar') :
   playerStory.gymleader.hp === 2 ? enemyHpTwoThird.classList.remove('green-bar') :
-  playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), rotateEnemy(), resetPotion()) :
+  playerStory.gymleader.hp === 1 ? (usePotion('gymleader'), rotateEnemy(), resetPotion()) :
   console.log('tutorialLog:2')
 }
 
