@@ -16,9 +16,11 @@ Do you like Pokémon games and all of their franchise? Well then prepare yoursel
 Battle with the same battle script as the pokemon video games! In the tutorial (normal version) of the game, you will be given 3 options, swipe, harden, and ability. The sequence in which the moves beat eachother are as follows: <br>
 **ABILITY < SWIPE < HARDEN < ABILITY** <br>
 Players will take turns choosing their moves and the player who chooses the stronger moves wins
-The player who chooses the losing move will lose one HP
-Player can heal to instead of choosing rock paper or scissor.
 
+### Future Features
+The player who chooses the losing move will lose one HP
+Player will be able heal to instead of choosing rock paper or scissor.
+Player will be able to obtain gym badges.
 
 
 <img width="1293" alt="Screen Shot 2021-04-27 at 1 35 45 PM" src="https://user-images.githubusercontent.com/17935770/116340404-59e74e80-a79c-11eb-9da2-635211b92d35.png">
