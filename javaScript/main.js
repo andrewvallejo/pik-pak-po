@@ -176,11 +176,11 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
-  playerTutorialSprite.src = '/assets/pokemon/charmander.png'
+  playerTutorialSprite.src = '/assets/pokemon/charmander.webp'
   playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
-  playerSprite.src = 'assets/pokemon/charmander'
+  playerSprite.src = 'assets/pokemon/charmander.webp'
 
   return playerStory = new Game(nameForm.value, charmander)
 }
@@ -526,7 +526,7 @@ function refillHP(trainer) {
     enemyHpTwoThird.classList.add('green-bar') 
     enemyHpOneThird.classList.add('green-bar')
   }
-
+  
 }
 // Pokemon Enemies 
 function rotateEnemy() {
