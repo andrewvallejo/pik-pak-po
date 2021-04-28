@@ -38,6 +38,11 @@ class Player {
     this.wins += 1
     saveWinsToStorage() 
    }
+
+ loseHealth() {
+    this.hp -= 1
+  }
+  
  }
 
 
