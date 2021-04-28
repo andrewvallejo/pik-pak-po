@@ -1,5 +1,6 @@
 var abilityMove = document.querySelector('#abilityMove')
 var potionMove = document.querySelector('#potionMove')
+var potionSprite = document.querySelector('#potionSprite')
 var battleCard = document.querySelector('#battleCard')
 var bgStripe = document.querySelector('#bgStripe')
 var bulbasaur = document.querySelector('#bulbasaur')
@@ -55,12 +56,11 @@ var saveBall = document.querySelector('#saveBall')
 var savedMsg = document.querySelector('#savedMsg')
 var screen = document.querySelector('#screen')
 var showcase = document.querySelector('#showcase')
-var skipIntroBtn = document.querySelector('#skipIntro')
 var squirtle = document.querySelector('#squirtle')
 var swipeMove =  document.querySelector('#swipeMove')
 var trainerName = document.querySelector('#trainerName')
 var tutorialCard = document.querySelector('#tutorialCard')
-var tutorialEnemy = document.querySelector('#tutorialEnemy')
+var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
 var tutorialUser = document.querySelector('#tutorialUser')
 var userInfo = document.querySelector('#userInfo')
 var winPlayerText = document.querySelector('#winPlayerText')
@@ -79,9 +79,10 @@ nextMoveOak.addEventListener('click', gotoNextPanel)
 pageOneBtn.addEventListener('click', gotoNext)
 playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
-potionMove.addEventListener('click', usePotion)
+potionMove.addEventListener('click', function () {
+  usePotion('player')
+})
 saveBall.addEventListener('click', saveGame)
-skipIntroBtn.addEventListener('click', skipIntro)
 squirtle.addEventListener('click', chooseSquirtle)
 swipeMove.addEventListener('click', swipe)
 
@@ -141,21 +142,7 @@ function gotoNext(pokemon) {
     }
 }
 
-function skipIntro() {
-  hide(introPage)
-  hide(tutorialEnemy)
-  hide(enemyPokemonTutorialSprite)
-  hide(loadEgg)
-  hide(pikpakpo)
-  hide(tutorialCard)
-  hide(skipIntroBtn)
-  show(enemyCard)
-  show(footer) 
-  show(header)
-  show(userInfo)
-  show(showcase)
-  return playerStory = new Game('Ash', summonPikachu())
-}
+
 
 function chooseBulbasaur() {
   var bulbasaur = {
@@ -180,7 +167,7 @@ function chooseCharmander() {
   playerTutorialSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
-  playerSprite.src = 'assets/pokemon/charmander'
+  playerSprite.src = 'assets/pokemon/charmander.png'
 
   return playerStory = new Game(nameForm.value, charmander)
 }
@@ -324,14 +311,14 @@ function gotoNextPanel() {
       hide(enemyPokemonTutorialSprite)
       hide(playerTutorialSprite)
       hide(tutorialUser)
+      show(enemyCard)
       show(playerSprite)
       show(userInfo)
       break;
     case 21: 
     hide(tutorialCard)
-    hide(tutorialEnemy)
+    hide(enemyTutorialCard)
     show(battleCard)  
-    show(gymleaderCard)
     show(potionSlot)
     summonCaterpie()
       break;
@@ -340,7 +327,7 @@ function gotoNextPanel() {
 
 // Moves
 function swipe() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.wins >= 2 && playerStory.player.tutorialsDone < 1) {
     showEndTutorialCard()
   } else {   
     playerStory.triggerFight('swipe')
@@ -349,20 +336,16 @@ function swipe() {
 }
 
 function harden() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.wins >= 2  && playerStory.player.tutorialsDone < 1) {
     showEndTutorialCard()
-    playerStory.triggerFight('swipe')
-    showEnemyMoveCard()
   } else {   
     playerStory.triggerFight('harden')
     showEnemyMoveCard()
   }
 }
 function ability() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.wins >= 2  && playerStory.player.tutorialsDone < 1) {
     showEndTutorialCard()
-    playerStory.triggerFight('swipe')
-    showEnemyMoveCard()
   } else {   
     playerStory.triggerFight('ability')
     showEnemyMoveCard()
@@ -374,7 +357,6 @@ function startIntro() {
   hide(loadEgg)
   hide(pikpakpo)
   hide(pokeballBtn)
-  hide(skipIntroBtn)
   show(bgStripe)
   show(profOak)
   show(oaksMsg)
@@ -464,7 +446,12 @@ function saveGame() {
 }
 
 function loadGame() {
-  count = 20
+  var pokemon = { 
+    gymleader: 'ash',
+    pokemon: 'pikachu',
+    move: 'lightning'
+  }
+  count = 20  
   var parsedData = JSON.parse(localStorage.getItem('trainer'))
   playerStory = new Game(parsedData.name, parsedData.pokemon)
   playerStory.player.retrieveWinsFromStorage()
@@ -472,51 +459,59 @@ function loadGame() {
   updatePlayerSprite(playerStory.player.pokemon.pokemon)
   loadContent()
   updateHeader()
+  updateDialog(pokemon)
   updatePokedex(playerStory.player)
-  summonCaterpie()
 }
 
 function loadContent() {
   hide(introPage)
   hide(tutorialUser)
   hide(enemyPokemonTutorialSprite)
+  hide(enemyTutorialCard)
   hide(loadEgg)
-  hide(skipIntroBtn)
   hide(pikpakpo)
-  show(enemyCardContent)
   show(tutorialCard)
   show(enemyCard)
-  show(gymleaderCard)
   show(footer) 
   show(header)
   show(potionSlot)
   show(userInfo)
   show(showcase)
+
 }
 
 // Health Bar Mechanic
 function takeDamage() {
   playerStory.player.hp === 3 ? playerHpFull.classList.remove('green-bar') : 
   playerStory.player.hp === 2 ? playerHpTwoThird.classList.remove('green-bar') : 
-  playerStory.player.hp === 1 ? playerHpOneThird.classList.remove('green-bar') : 
-  !playerStory.player.hp ? (outcomeMsg.innerHTML = `GAME OVER`, refillHP(player)) : null
+  playerStory.player.hp === 1 ? (playerHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, loadGame()) : 
+  console.log('tutorialLog:1')
 }
 
 function giveDamage() {
   playerStory.gymleader.hp === 3 ? enemyHpFull.classList.remove('green-bar') :
   playerStory.gymleader.hp === 2 ? enemyHpTwoThird.classList.remove('green-bar') :
-  playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, refillHP(gymleader), rotateEnemy()) :
-  null
+  playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, refillHP('gymleader'), rotateEnemy()) :
+  console.log('tutorialLog:2')
 }
 
-function usePotion() {
+function usePotion(user) {
+if (user === 'player' && playerStory.player.potions >= 1) {
   playerStory.player.takePotion()
   playerHpFull.classList.add('green-bar') 
   playerHpTwoThird.classList.add('green-bar') 
+  hide(potionSprite)
+  } else if (user === 'gymleader') {
+  enemyHpFull.classList.add('green-bar') 
+  enemyHpTwoThird.classList.add('green-bar')
+  } 
+  else if (user === 'player') {
+  potionMove.innerText = `EMPTY`
+  } 
 }
 
 function refillHP(trainer) {
-  playerStory.trainer.getFullHeal() 
+  playerStory.player.takePotion()
   if (trainer === 'player') {
     playerHpFull.classList.add('green-bar') 
     playerHpTwoThird.classList.add('green-bar') 
@@ -526,29 +521,71 @@ function refillHP(trainer) {
     enemyHpTwoThird.classList.add('green-bar') 
     enemyHpOneThird.classList.add('green-bar')
   }
-
+  
 }
 // Pokemon Enemies 
 function rotateEnemy() {
-  var pokemon = [{
-    pokemon: 'raichu,',
-    move: 'thunder bolt'
+  playerStory.player.gainPotion()
+  var defeated = 0
+  var pokemon = [{ 
+    gymleader: 'brock',
+    pokemon: 'onyx',
+    move: 'earth quake',
+    badge: 'boulder'
   }, {
+    gymleader: 'misty',
     pokemon: 'staryu',
-    move: 'splash'
+    move: 'splash',
+    badge: 'cascade'
   }, {
-    pokemon: 'abra',
-    move: 'teleport'
+    gymleader: 'lt. surge',
+    pokemon: 'raichu',
+    move: 'thunder',
+    badge: 'thunder'
+  }, {
+    gymleader: 'erika',
+    pokemon: 'vileplume',
+    move: 'poison',
+    badge: 'rainbow'
+  }, {
+    gymleader: 'koga',
+    pokemon: 'staryu',
+    move: 'splash',
+    badge: 'rainbow'
+  }, {    
+    gymleader: 'janine',
+    pokemon: 'jigglypuff',
+    move: 'sing',
+    badge: 'soul'
+  }, {
+    gymleader: 'sabrina',
+    pokemon: 'alakazam',
+    move: 'psychic',
+    badge: 'marsh'
+  }, {
+    gymleader: 'blaine',
+    pokemon: 'moltress',
+    move: 'fire blast',
+    badge: 'volcano'
+  }, {
+    gymleader: 'giovanni',
+    pokemon: 'mewtew',
+    move: 'pyschic',
+    badge: 'eath'
   }]
 
-  var enemyChoice = Math.floor(Math.random() * (4 - 1)) + 1
-  pokemonDo.innerText = pokemon[enemyChoice].pokemon.toUpperCase()
-  enemyPokemonSprite.src = `/assets/pokemon/${pokemon.pokemon}.png`
-  enemyPokemonSprite.alt = pokemon.pokemon
-  return enemyChoice === 1 ? playerStory = new Game(misty,pokemon[0]) : 
-         enemyChoice === 2 ? playerStory = new Game(brock, pokemon[1]) :
-         enemyChoice === 3 ? playerStory = new Game(sabrina, pokemon[2]) : null
-  }
+  for (let i = 0; i < pokemon.length; i++) {
+    if (i === defeated) {
+      defeated++
+      pokemonDo.innerText = pokemon[i].pokemon.toUpperCase()
+      enemyPokemonSprite.src = `/assets/pokemon/${pokemon[i].pokemon}.png`
+      enemyPokemonSprite.alt = pokemon[i].pokemon
+      updateDialog(pokemon[i])
+      playerStory.gymleader = new Game(pokemon[i].gymleader, pokemon[i])
+      }
+    }
+  }  
+  
 
 // Helper Function 
 function hide(e) {
