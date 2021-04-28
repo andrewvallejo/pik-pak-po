@@ -143,7 +143,7 @@ function gotoNext(pokemon) {
 
 function skipIntro() {
   hide(introPage)
-  hide(tutorialEnemy)
+  hide(enemyTutorialCard)
   hide(enemyPokemonTutorialSprite)
   hide(loadEgg)
   hide(pikpakpo)
@@ -330,7 +330,7 @@ function gotoNextPanel() {
       break;
     case 21: 
     hide(tutorialCard)
-    hide(tutorialEnemy)
+    hide(enemyTutorialCard)
     show(battleCard)  
     show(potionSlot)
     summonCaterpie()
@@ -340,7 +340,7 @@ function gotoNextPanel() {
 
 // Moves
 function swipe() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
     showEndTutorialCard()
   } else {   
     playerStory.triggerFight('swipe')
@@ -349,7 +349,7 @@ function swipe() {
 }
 
 function harden() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
     showEndTutorialCard()
   } else {   
     playerStory.triggerFight('harden')
@@ -357,7 +357,7 @@ function harden() {
   }
 }
 function ability() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
     showEndTutorialCard()
   } else {   
     playerStory.triggerFight('ability')

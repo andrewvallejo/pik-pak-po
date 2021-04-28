@@ -27,7 +27,7 @@ class Player {
     this.wins = player.wins
     this.pokemon = player.pokemon
     this.tutorialComplete = true
-    this.tutiralsDone = 1
+    this.tutorialsDone = 1
   }
 
   checkTutorialWins() {
