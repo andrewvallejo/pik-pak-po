@@ -135,7 +135,6 @@ function gotoNext(pokemon) {
       show(header)
       show(footer)
       show(showcase)
-      show(playerTutorialSprite)
       updateHeader()
       summonOak()
     }
@@ -148,8 +147,8 @@ function chooseBulbasaur() {
     pokemon: 'bulbasaur',
     move: 'vinewhip' 
   }
-  playerTutorialSprite.src = '/assets/pokemon/bulbasaur.png'
-  playerTutorialSprite.alt = 'bulbasaur'
+  playerSprite.src = '/assets/pokemon/bulbasaur.png'
+  playerSprite.alt = 'bulbasaur'
   pokemonDo.innerText = bulbasaur.pokemon.toUpperCase()
   playerSprite.src = 'assets/pokemon/bulbasaur.png'
   summonOak()
@@ -162,8 +161,8 @@ function chooseCharmander() {
     pokemon: 'charmander',
     move: 'ember',
   }
-  playerTutorialSprite.src = '/assets/pokemon/charmander.png'
-  playerTutorialSprite.alt = 'charmander'
+  playerSprite.src = '/assets/pokemon/charmander.png'
+  playerSprite.alt = 'charmander'
   pokemonDo.innerText = charmander.pokemon.toUpperCase()
   gotoNext('charmander')
   playerSprite.src = 'assets/pokemon/charmander.png'
@@ -177,8 +176,8 @@ function chooseSquirtle() {
     move: 'bubble' 
   }
   pokemonDo.innerText = squirtle.pokemon.toUpperCase()
-  playerTutorialSprite.src = '/assets/pokemon/squirtle.png'
-  playerTutorialSprite.alt = 'squirtle'
+  playerSprite.src = '/assets/pokemon/squirtle.png'
+  playerSprite.alt = 'squirtle'
   playerSprite.src = 'assets/pokemon/squirtle.png'
 
   gotoNext(squirtle.pokemon)
