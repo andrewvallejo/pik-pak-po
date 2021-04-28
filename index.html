@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
   <meta charset='UTF-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -9,11 +10,12 @@
   <title>Poke-Pik-Po</title>
 </head>
 <main id='mazinPage' class='page flex-column'>
+
   <body class='flex-column'>
     <section id='introPage' class='intro page flex-column'>
       <img id='pikpakpo' src='assets/misc/header.png' alt='PIKPAKPO Header' class='pikpakpo'>
       <img id='bigPokeball' src='/assets/icons/pokeball.png' alt='pokeball' class='btn big-pokeball'>
-      <div id='loadEgg' class='load center btn flex-row'> 
+      <div id='loadEgg' class='load center btn flex-row'>
         <img src='assets/icons/egg.png' alt='egg' class='egg center'>
         <p>LOAD GAME</p>
       </div>
@@ -106,8 +108,8 @@
             </li>
           </div>
           <div id='tutorialCard' class='inner-card flex-column'>
-            <p id='cardText' class='card-text'> Have you ever played rock paper scissors?</p>
-            <p id='nextMoveOak' class='btn move oak-btn  prioity'>I have...</p>
+            <p id='cardText' class='card-text'> Ready?</p>
+            <p id='nextMoveOak' class='btn move oak-btn  prioity'>Yes!</p>
           </div>
           <div id='battleCard' class='inner-card flex-row hidden'>
             <li class='moves-box box flex-column'>
@@ -115,9 +117,8 @@
               <p id='hardenMove' class='btn move'>HARDEN</p>
               <p id='abilityMove' class=' btn move'>ABILITY</p>
             </li>
-            <li class='box flex-column hidden'>
-              <p id='bagMove' class='btn move'>BAG</p>
-              <p id='runMove' class='btn move'>RUN!</p>
+            <li id='potionSlot' class='box flex-column hidden'>
+              <p id='potionMove' class='btn move potion'>POTION</p>
             </li>
           </div>
           <div id='enemyMoveCard' class='inner-card flex-row hidden'>
@@ -135,27 +136,29 @@
       </div>
       </div>
       <div class='game-card third flex-column'>
-        <div id='enemyTutorialCard' class='game-menu menu gymleader-menu flex-column tutorial-card'>
-          <p id='winEnemyText' class='hidden'>Wins: <span id='enemyWins'>0</span></p>
-          <img id='enemyPokemonTutorialSprite' src='assets/icons/bulbasaur_icon-icons.com_67580.png' alt='bulbasaur'
-            class='pokemon'>
-        </div>
-        <article id='enemyCard' class='game-menu menu gymleader-menu flex-column enemy-card hidden'>
-          <div id="enemyCardContent">
-          <h2>Misty</h2>
-          <p>Pokemon: Starme</p>
-          <img id='enemyPokemonSprite' src='assets/icons/bulbasaur_icon-icons.com_67580.png' alt='bulbasaur'
-            class='pokemon enemy-pokemon'>
-          <div id='enemyHpBar' class='hp-bar enemy-hp prioity flex-row'>
-            <div class='hp-text flex-row'>
-              <p>HP: </p>
-            </div>
-            <div id='eothp' class='one-third-hp hp green-bar'></div>
-            <div id='etthp' class='two-third-hp hp green-bar'></div>
-            <div id='efhp' class='full-hp hp green-bar'></div>
+        <article id='enemyCard' class='game-menu menu gymleader-menu flex-column tutorial-card'>
+          <div id='tutorialEnemy'>
+            <p id='winEnemyText' class='hidden'>Wins: <span id='enemyWins'>0</span></p>
+            <img id='enemyPokemonTutorialSprite' src='assets/icons/bulbasaur_icon-icons.com_67580.png' alt='bulbasaur'
+              class='pokemon'>
           </div>
-        </div>
+          <div id='gymleaderCard' class='game-menu menu gymleader-menu flex-column enemy-card hidden'>
+            <div id="enemyCardContent">
+              <p>Pokemon: bulbasaur</p>
+              <img id='enemyPokemonSprite' src='assets/icons/bulbasaur_icon-icons.com_67580.png' alt='bulbasaur'
+                class='pokemon enemy-pokemon'>
+              <div id='enemyHpBar' class='hp-bar enemy-hp prioity flex-row'>
+                <div class='hp-text flex-row'>
+                  <p>HP: </p>
+                </div>
+                <div id='eothp' class='one-third-hp hp green-bar'></div>
+                <div id='etthp' class='two-third-hp hp green-bar'></div>
+                <div id='efhp' class='full-hp hp green-bar'></div>
+              </div>
+            </div>
+          </div>
         </article>
+
       </div>
       </div>
       </div>
@@ -170,4 +173,5 @@
 <script src='javaScript/player.js'></script>
 <script src='javaScript/game.js'></script>
 <script src='javaScript/main.js'></script>
+
 </html>

@@ -51,12 +51,12 @@ class Game {
   }
 
   doDamage(condition) {
-    if(this.player.tutorialComplete && condition === 'win') {
-      this.gymleader.loseHealth()
+    if(this.player.tutorialComplete && condition === 'win' && this.player.tutorialComplete) {
       giveDamage()
-    } else if (this.player.tutorialComplete && condition === 'lose') {
-      this.player.loseHealth()
+      this.gymleader.loseHealth()
+    } else if (this.player.tutorialComplete && condition === 'lose' && this.player.tutorialComplete) {
       takeDamage()
+      this.player.loseHealth()
     }
   }
 }

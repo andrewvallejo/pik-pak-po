@@ -7,6 +7,7 @@ class Player {
     this.hp = 3
     this.pokemon = pokemon
     this.tutorialComplete = false 
+    this.tutorialsDone = 0
    }
    
   saveWinsToStorage() {
@@ -26,6 +27,7 @@ class Player {
     this.wins = player.wins
     this.pokemon = player.pokemon
     this.tutorialComplete = true
+    this.tutiralsDone = 1
   }
 
   checkTutorialWins() {
@@ -39,10 +41,17 @@ class Player {
     saveWinsToStorage() 
    }
 
- loseHealth() {
+  loseHealth() {
     this.hp -= 1
+    }
+  
+  getFullHeal() {
+    this.hp = 3
   }
   
+  takePotion() {
+    this.hp + 2
+  }
  }
 
 

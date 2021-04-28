@@ -1,5 +1,5 @@
 var abilityMove = document.querySelector('#abilityMove')
-var bagMove = document.querySelector('#bagMove')
+var potionMove = document.querySelector('#potionMove')
 var battleCard = document.querySelector('#battleCard')
 var bgStripe = document.querySelector('#bgStripe')
 var bulbasaur = document.querySelector('#bulbasaur')
@@ -13,12 +13,13 @@ var enemyHpTwoThird = document.querySelector('#etthp')
 var enemyMove = document.querySelector('#enemyMove')
 var enemyMoveCard = document.querySelector('#enemyMoveCard')
 var enemyWins = document.querySelector('#enemyWins')
+var enemyPokemonSprite = document.querySelector('#enemyPokemonSprite')
 var enemyPokemonText = document.querySelector('#enemyPokemonText')
 var enemyPokemonTutorialSprite = document.querySelector('#enemyPokemonTutorialSprite')
-var enemyTutorialCard = document.querySelector('#enemyTutorialCard')
 var fightMove = document.querySelector('#fightMove')
 var footer = document.querySelector('footer')
 var formCard = document.querySelector('#formCard')
+var gymleaderCard = document.querySelector('#gymleaderCard')
 var hardenMove = document.querySelector('#hardenMove')
 var header = document.querySelector('header')
 var introPage = document.querySelector('#introPage')
@@ -46,6 +47,7 @@ var playerTutorialSprite = document.querySelector('#playerTutorialSprite')
 var playerWins = document.querySelector('#playerWins')
 var pokeballBtn = document.querySelector('#bigPokeball')
 var pokemonDo = document.querySelector('#pokemonDo')
+var potionSlot = document.querySelector('#potionSlot')
 var profOak = document.querySelector('#profOak')
 var profOakText = document.querySelector('#profOakText')
 var runMove = document.querySelector('#runMove')
@@ -58,6 +60,7 @@ var squirtle = document.querySelector('#squirtle')
 var swipeMove =  document.querySelector('#swipeMove')
 var trainerName = document.querySelector('#trainerName')
 var tutorialCard = document.querySelector('#tutorialCard')
+var tutorialEnemy = document.querySelector('#tutorialEnemy')
 var tutorialUser = document.querySelector('#tutorialUser')
 var userInfo = document.querySelector('#userInfo')
 var winPlayerText = document.querySelector('#winPlayerText')
@@ -76,10 +79,12 @@ nextMoveOak.addEventListener('click', gotoNextPanel)
 pageOneBtn.addEventListener('click', gotoNext)
 playAgainMove.addEventListener('click', showBattleCard)
 pokeballBtn.addEventListener('click', startIntro)
+potionMove.addEventListener('click', usePotion)
 saveBall.addEventListener('click', saveGame)
 skipIntroBtn.addEventListener('click', skipIntro)
 squirtle.addEventListener('click', chooseSquirtle)
 swipeMove.addEventListener('click', swipe)
+
 
 // Introduction
 var click = 0
@@ -130,6 +135,7 @@ function gotoNext(pokemon) {
       show(header)
       show(footer)
       show(showcase)
+      show(playerTutorialSprite)
       updateHeader()
       summonOak()
     }
@@ -137,7 +143,7 @@ function gotoNext(pokemon) {
 
 function skipIntro() {
   hide(introPage)
-  hide(enemyTutorialCard)
+  hide(tutorialEnemy)
   hide(enemyPokemonTutorialSprite)
   hide(loadEgg)
   hide(pikpakpo)
@@ -232,7 +238,7 @@ function gotoNextPanel() {
   count++ 
   switch (count) {
     case 1:
-      cardText.innerText =  `Now imagine playing that but in real life!`
+      cardText.innerText =  `The rules are just like rock paper scissors but with your body!`
       nextMoveOak.innerText = 'Um..'
       break;
     case 2:
@@ -314,20 +320,27 @@ function gotoNextPanel() {
     case 20:
       cardText.innerText =  `Off you go!`
       nextMoveOak.innerText = 'Noo!!'
+      playAgainMove.innerText = `Try again!`
       hide(enemyPokemonTutorialSprite)
       hide(playerTutorialSprite)
       hide(tutorialUser)
       show(playerSprite)
       show(userInfo)
-      cardText.innerText = `Ready to fight?`
-      nextMoveOak.innerText = `YAH!`
+      break;
+    case 21: 
+    hide(tutorialCard)
+    hide(tutorialEnemy)
+    show(battleCard)  
+    show(gymleaderCard)
+    show(potionSlot)
+    summonCaterpie()
       break;
   } 
 }
 
 // Moves
 function swipe() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
     showEndTutorialCard()
   } else {   
     playerStory.triggerFight('swipe')
@@ -336,16 +349,20 @@ function swipe() {
 }
 
 function harden() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
     showEndTutorialCard()
+    playerStory.triggerFight('swipe')
+    showEnemyMoveCard()
   } else {   
     playerStory.triggerFight('harden')
     showEnemyMoveCard()
   }
 }
 function ability() {
-  if (playerStory.player.tutorialComplete) {
+  if (playerStory.player.tutorialComplete && playerStory.player.tutorialsDone < 0) {
     showEndTutorialCard()
+    playerStory.triggerFight('swipe')
+    showEnemyMoveCard()
   } else {   
     playerStory.triggerFight('ability')
     showEnemyMoveCard()
@@ -390,13 +407,19 @@ function showOpeningCard() {
 }
 
 function showEndTutorialCard() {
-  hide(battleCard)
-  hide(winEnemyText)
-  hide(winPlayerText)
-  summonOak()
-  cardText.innerText =  `Hold up! I think you are ready to take on the world. Are you with me?`
-  nextMoveOak.innerText = 'Yah!'  
-  show(tutorialCard)
+    if(playerStory.player.tutorialsDone < 1) {
+      playerStory.player.tutorialsDone += 1
+      hide(battleCard)
+      hide(winEnemyText)
+      hide(winPlayerText)
+      summonOak()
+      cardText.innerText =  `Hold up! I think you are ready to take on the world. Are you with me?`
+      nextMoveOak.innerText = 'Yah!'  
+      show(tutorialCard)
+    } else {
+      return;
+    }
+  
 }
 
 function changeEnemyText() {
@@ -441,34 +464,34 @@ function saveGame() {
 }
 
 function loadGame() {
+  count = 20
   var parsedData = JSON.parse(localStorage.getItem('trainer'))
   playerStory = new Game(parsedData.name, parsedData.pokemon)
   playerStory.player.retrieveWinsFromStorage()
-  count = 19
+  playAgainMove.innerText = `Try again!`
   updatePlayerSprite(playerStory.player.pokemon.pokemon)
   loadContent()
-  gotoNextPanel()
   updateHeader()
   updatePokedex(playerStory.player)
+  summonCaterpie()
 }
 
 function loadContent() {
   hide(introPage)
-  hide(tutorialCard)
   hide(tutorialUser)
   hide(enemyPokemonTutorialSprite)
-  hide(enemyTutorialCard)
   hide(loadEgg)
   hide(skipIntroBtn)
   hide(pikpakpo)
-  hide(enemyCardContent)
+  show(enemyCardContent)
+  show(tutorialCard)
   show(enemyCard)
+  show(gymleaderCard)
   show(footer) 
   show(header)
+  show(potionSlot)
   show(userInfo)
-  show(showcase)    
-  // show(stageBattleCard)
-
+  show(showcase)
 }
 
 // Health Bar Mechanic
@@ -476,16 +499,56 @@ function takeDamage() {
   playerStory.player.hp === 3 ? playerHpFull.classList.remove('green-bar') : 
   playerStory.player.hp === 2 ? playerHpTwoThird.classList.remove('green-bar') : 
   playerStory.player.hp === 1 ? playerHpOneThird.classList.remove('green-bar') : 
-  null
+  !playerStory.player.hp ? (outcomeMsg.innerHTML = `GAME OVER`, refillHP(player)) : null
 }
 
 function giveDamage() {
   playerStory.gymleader.hp === 3 ? enemyHpFull.classList.remove('green-bar') :
   playerStory.gymleader.hp === 2 ? enemyHpTwoThird.classList.remove('green-bar') :
-  playerStory.gymleader.hp === 1 ? enemyHpOneThird.classList.remove('green-bar') :
+  playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, refillHP(gymleader), rotateEnemy()) :
   null
 }
 
+function usePotion() {
+  playerStory.player.takePotion()
+  playerHpFull.classList.add('green-bar') 
+  playerHpTwoThird.classList.add('green-bar') 
+}
+
+function refillHP(trainer) {
+  playerStory.trainer.getFullHeal() 
+  if (trainer === 'player') {
+    playerHpFull.classList.add('green-bar') 
+    playerHpTwoThird.classList.add('green-bar') 
+    playerHpOneThird.classList.add('green-bar') 
+  } else {
+    enemyHpFull.classList.add('green-bar') 
+    enemyHpTwoThird.classList.add('green-bar') 
+    enemyHpOneThird.classList.add('green-bar')
+  }
+
+}
+// Pokemon Enemies 
+function rotateEnemy() {
+  var pokemon = [{
+    pokemon: 'raichu,',
+    move: 'thunder bolt'
+  }, {
+    pokemon: 'staryu',
+    move: 'splash'
+  }, {
+    pokemon: 'abra',
+    move: 'teleport'
+  }]
+
+  var enemyChoice = Math.floor(Math.random() * (4 - 1)) + 1
+  pokemonDo.innerText = pokemon[enemyChoice].pokemon.toUpperCase()
+  enemyPokemonSprite.src = `/assets/pokemon/${pokemon.pokemon}.png`
+  enemyPokemonSprite.alt = pokemon.pokemon
+  return enemyChoice === 1 ? playerStory = new Game(misty,pokemon[0]) : 
+         enemyChoice === 2 ? playerStory = new Game(brock, pokemon[1]) :
+         enemyChoice === 3 ? playerStory = new Game(sabrina, pokemon[2]) : null
+  }
 
 // Helper Function 
 function hide(e) {

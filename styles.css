@@ -499,14 +499,11 @@ header img {
   margin: 4.5rem 1rem 0 0;
 }
 
-.moves-box {
-  margin-left: .5rem;
-}
-
 .play-again-move {
   justify-content: center;
   align-items: center;
 }
+
 
 .move {
   font-size: 1.4rem;
@@ -523,13 +520,14 @@ header img {
   opacity: 1;
 }
 
-.box:nth-of-type(2) p {
-  font-size: 1.8rem;
+.moves-box {
+  margin-left: .5rem;
 }
 
-.box:nth-of-type(2) p:nth-of-type(1) {
-  margin-top: .8rem;
+.box:nth-of-type(2) p {
+  font-size: 1.3rem;
 }
+
 
 /*===*[footer]*===*/
 footer {
