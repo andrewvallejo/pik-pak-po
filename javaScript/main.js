@@ -1,6 +1,5 @@
 var abilityMove = document.querySelector('#abilityMove')
 var potionMove = document.querySelector('#potionMove')
-var potionSprite = document.querySelector('#potionSprite')
 var battleCard = document.querySelector('#battleCard')
 var bgStripe = document.querySelector('#bgStripe')
 var bulbasaur = document.querySelector('#bulbasaur')
@@ -155,7 +154,7 @@ function chooseBulbasaur() {
   playerSprite.src = 'assets/pokemon/bulbasaur.png'
   summonOak()
   gotoNext(bulbasaur.pokemon)
-  return playerStory = new Game(nameForm.value, bulbasaur)
+  return playerStory.player = new Game(nameForm.value, bulbasaur)
 }
 
 function chooseCharmander() {
@@ -305,11 +304,13 @@ function gotoNextPanel() {
       nextMoveOak.innerText = 'Neat!'
       break; 
     case 20:
+      hide(enemyPokemonTutorialSprite)
+      hide(playerTutorialSprite)
+      updatePokedex()
+      changeEnemyText()
       cardText.innerText =  `Off you go!`
       nextMoveOak.innerText = 'Noo!!'
       playAgainMove.innerText = `Try again!`
-      hide(enemyPokemonTutorialSprite)
-      hide(playerTutorialSprite)
       hide(tutorialUser)
       show(enemyCard)
       show(playerSprite)
@@ -320,7 +321,6 @@ function gotoNextPanel() {
     hide(enemyTutorialCard)
     show(battleCard)  
     show(potionSlot)
-    summonCaterpie()
       break;
   } 
 }
@@ -343,6 +343,7 @@ function harden() {
     showEnemyMoveCard()
   }
 }
+
 function ability() {
   if (playerStory.player.wins >= 2  && playerStory.player.tutorialsDone < 1) {
     showEndTutorialCard()
@@ -410,23 +411,17 @@ function changeEnemyText() {
   playerPokemon.innerHTML = `${playerStory.player.pokemon.pokemon.toUpperCase()}`
 }
 
-function updateDialog(poke) {
-  enemyPokemonText.innerText =  poke.pokemon.toUpperCase()
-  enemyMove.innerText = poke.move.toUpperCase()
-  playerPokemon.innerText = playerStory.player.pokemon.pokemon.toUpperCase()
-}
-
 // Player
 function updatePlayerSprite(pokemon) {
   playerSprite.alt = pokemon
   playerSprite.src = `assets/pokemon/${pokemon}.png`
 }
 
-function updatePokedex(player) {
-  var name = player.name.toUpperCase()
-  var pokemon = player.pokemon.pokemon.toUpperCase()
-  var wins = player.wins
-  playerInfo.innerHTML = `<h2>${name}</h2> <p>${pokemon}</p> <p>Wins: ${wins}</p> `
+function updatePokedex() {
+  var name = playerStory.player.name.toUpperCase()
+  var pokemon = playerStory.player.pokemon.pokemon.toUpperCase()
+  var wins = playerStory.player.wins
+  playerInfo.innerHTML = `<h2>${name}</h2> <p>${pokemon}</p> </p><p>Wins: ${wins}</p> `
 }
 
 
@@ -446,11 +441,6 @@ function saveGame() {
 }
 
 function loadGame() {
-  var pokemon = { 
-    gymleader: 'ash',
-    pokemon: 'pikachu',
-    move: 'lightning'
-  }
   count = 20  
   var parsedData = JSON.parse(localStorage.getItem('trainer'))
   playerStory = new Game(parsedData.name, parsedData.pokemon)
@@ -459,11 +449,13 @@ function loadGame() {
   updatePlayerSprite(playerStory.player.pokemon.pokemon)
   loadContent()
   updateHeader()
-  updateDialog(pokemon)
-  updatePokedex(playerStory.player)
+  rotateEnemy()
+  changeEnemyText()
+  updatePokedex()
 }
 
 function loadContent() {
+  hide(battleCard)
   hide(introPage)
   hide(tutorialUser)
   hide(enemyPokemonTutorialSprite)
@@ -477,21 +469,42 @@ function loadContent() {
   show(potionSlot)
   show(userInfo)
   show(showcase)
-
 }
+
+function reload() {
+  hide(tutorialCard)
+  reloadPlayer()
+  reloadEnemy
+}
+
+function reloadPlayer() {
+  resetPotion()
+  refillHp('player')
+  usePotion('player')
+  resetPotion()
+  refillHp('player')
+}
+
+function reloadEnemy() {
+  resetPotion('gymleader')
+  refillHp('gymleader')
+  usePotion('gymleader')
+}
+
+
 
 // Health Bar Mechanic
 function takeDamage() {
   playerStory.player.hp === 3 ? playerHpFull.classList.remove('green-bar') : 
   playerStory.player.hp === 2 ? playerHpTwoThird.classList.remove('green-bar') : 
-  playerStory.player.hp === 1 ? (playerHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, loadGame()) : 
+  playerStory.player.hp === 1 ? (playerHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, loadGame(), reload()) : 
   console.log('tutorialLog:1')
 }
 
 function giveDamage() {
   playerStory.gymleader.hp === 3 ? enemyHpFull.classList.remove('green-bar') :
   playerStory.gymleader.hp === 2 ? enemyHpTwoThird.classList.remove('green-bar') :
-  playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), outcomeMsg.innerHTML = `GAME OVER`, refillHP('gymleader'), rotateEnemy()) :
+  playerStory.gymleader.hp === 1 ? (enemyHpOneThird.classList.remove('green-bar'), rotateEnemy(), resetPotion()) :
   console.log('tutorialLog:2')
 }
 
@@ -500,7 +513,6 @@ if (user === 'player' && playerStory.player.potions >= 1) {
   playerStory.player.takePotion()
   playerHpFull.classList.add('green-bar') 
   playerHpTwoThird.classList.add('green-bar') 
-  hide(potionSprite)
   } else if (user === 'gymleader') {
   enemyHpFull.classList.add('green-bar') 
   enemyHpTwoThird.classList.add('green-bar')
@@ -510,13 +522,17 @@ if (user === 'player' && playerStory.player.potions >= 1) {
   } 
 }
 
-function refillHP(trainer) {
-  playerStory.player.takePotion()
+function resetPotion() {
+  playerStory.player.gainPotion()
+  potionMove.innerText = `POTION`
+}
+
+function refillHp(trainer) {
   if (trainer === 'player') {
     playerHpFull.classList.add('green-bar') 
     playerHpTwoThird.classList.add('green-bar') 
     playerHpOneThird.classList.add('green-bar') 
-  } else {
+  } else if (trainer === 'gymleader') {
     enemyHpFull.classList.add('green-bar') 
     enemyHpTwoThird.classList.add('green-bar') 
     enemyHpOneThird.classList.add('green-bar')
@@ -525,9 +541,12 @@ function refillHP(trainer) {
 }
 // Pokemon Enemies 
 function rotateEnemy() {
-  playerStory.player.gainPotion()
-  var defeated = 0
   var pokemon = [{ 
+      gymleader: 'ash',
+      pokemon: 'pikachu',
+      move: 'lightning',
+      badge: 'none'
+  }, {
     gymleader: 'brock',
     pokemon: 'onyx',
     move: 'earth quake',
@@ -574,14 +593,18 @@ function rotateEnemy() {
     badge: 'eath'
   }]
 
+  if (playerStory.player.potion < 1) {
+    playerStory.player.gainPotion()
+  } 
+
   for (let i = 0; i < pokemon.length; i++) {
-    if (i === defeated) {
-      defeated++
+    if (i === playerStory.player.badges.length|| playerStory.player.badges.length === 0) {
+      playerStory.player.updateBadge()
       pokemonDo.innerText = pokemon[i].pokemon.toUpperCase()
       enemyPokemonSprite.src = `/assets/pokemon/${pokemon[i].pokemon}.png`
       enemyPokemonSprite.alt = pokemon[i].pokemon
-      updateDialog(pokemon[i])
-      playerStory.gymleader = new Game(pokemon[i].gymleader, pokemon[i])
+      updateDialog()
+      playerStory.gymleader = new Player(pokemon[i].gymleader, pokemon[i])
       }
     }
   }  

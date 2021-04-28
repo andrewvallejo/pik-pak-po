@@ -19,7 +19,6 @@ class Player {
   retrieveWinsFromStorage() { 
     var parsedData = JSON.parse(localStorage.getItem('trainer'))
     this.updateProfile(parsedData)
-    console.log(this)
   }
 
   updateProfile(player) {
@@ -53,6 +52,10 @@ class Player {
 
   gainPotion() {
     this.potions += 1
+  }
+
+  updateBadge() {
+    this.badges+= 1
   }
  }
 

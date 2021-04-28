@@ -5,7 +5,7 @@
   <meta charset='UTF-8'>
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <link rel='icon' type='image/png' sizes='32x32' href='assets/misc/favicon.png'>
+  <link rel='icon' type='image/png' sizes='32x32' href='./assets/misc/favicon.png'>
   <link rel='stylesheet' href='styles.css'>
   <title>Poke-Pik-Po</title>
 </head>
@@ -13,15 +13,15 @@
 
   <body class='flex-column'>
     <section id='introPage' class='intro page flex-column'>
-      <img id='pikpakpo' src='assets/misc/header.png' alt='PIKPAKPO Header' class='pikpakpo'>
-      <img id='bigPokeball' src='/assets/icons/pokeball.png' alt='pokeball' class='btn big-pokeball'>
+      <img id='pikpakpo' src='././assets/misc/header.png' alt='PIKPAKPO Header' class='pikpakpo'>
+      <img id='bigPokeball' src='././assets/icons/pokeball.png' alt='pokeball' class='btn big-pokeball'>
       <div id='loadEgg' class='load center btn flex-row'>
-        <img src='assets/icons/egg.png' alt='egg' class='egg center'>
+        <img src='./assets/icons/egg.png' alt='egg' class='egg center'>
         <p>LOAD GAME</p>
       </div>
       <span id='bgStripe' class='bg-stripe hidden'></span>
-      <img id='profOak' src='assets/icons/professor-oak.png' alt='Professor Oak' class='prof-oak hidden'>
-      <img id='oaksMsg' src='assets/misc/text_border.png' alt='text border' class='oaks-msg msg-border-2x hidden'>
+      <img id='profOak' src='./assets/icons/professor-oak.png' alt='Professor Oak' class='prof-oak hidden'>
+      <img id='oaksMsg' src='./assets/misc/text_border.png' alt='text border' class='oaks-msg msg-border-2x hidden'>
       <div id='oaksMsgContent' class='oaks-msg-content flex-column hidden'>
         <div id='profOakText'>
           <p> Hello there! </p>
@@ -32,18 +32,18 @@
           <input type='text' id='name' name='name'>
         </form>
         <div id='pokemonSheet' class='flex-row hidden'>
-          <img id='bulbasaur' src='/assets/pokemon/bulbasaur.png' alt='bulbasaur' class='pokemon btn'>
-          <img id='charmander' src='/assets/pokemon/charmander.png' alt='charmander' class='pokemon btn'>
-          <img id='squirtle' src='/assets/pokemon/squirtle.png' alt='squirtle' class='pokemon btn'>
+          <img id='bulbasaur' src='/./assets/pokemon/bulbasaur.png' alt='bulbasaur' class='pokemon btn'>
+          <img id='charmander' src='/./assets/pokemon/charmander.png' alt='charmander' class='pokemon btn'>
+          <img id='squirtle' src='/./assets/pokemon/squirtle.png' alt='squirtle' class='pokemon btn'>
         </div>
-        <img id='pageOneBtn' src='assets/sprites/ball/poke.png' alt='pokeball' class='btn poke prioity'>
+        <img id='pageOneBtn' src='./assets/sprites/ball/poke.png' alt='pokeball' class='btn poke prioity'>
       </div>
     </section>
     <header class='flex-row hidden'>
       <h1>Pik-Pak-Po</h1>
       <div class='player flex-row'>
         <p id='savedMsg' class='hidden'>SAVED!</p>
-        <img id='saveBall' src='assets/icons/pokeball.png' alt='pokeball' class='btn save-ball'>
+        <img id='saveBall' src='./assets/icons/pokeball.png' alt='pokeball' class='btn save-ball'>
         <p>Hello, <span id='trainerName'>Ash!</span></p>
         <div>
     </header>
@@ -74,17 +74,17 @@
           <span class='line l-1 prioity'></span>
           <div id='badgeBox' class='badge-box flex-column'>
             <div class='set flex-row'>
-              <img src='assets/badges/Boulder_Badge.png' alt='Boulder Badge' class='gray-scale'>
-              <img src='assets/badges/Cascade_Badge.png' alt='Cascade Badge' class='gray-scale'>
-              <img src='assets/badges/Thunder_Badge.png' alt='Thunder Badge' class='gray-scale'>
-              <img src='assets/badges/Rainbow_Badge.png' alt='Rainbow Badge' class='gray-scale'>
+              <img src='./assets/badges/Boulder_Badge.png' alt='Boulder Badge' class='gray-scale'>
+              <img src='./assets/badges/Cascade_Badge.png' alt='Cascade Badge' class='gray-scale'>
+              <img src='./assets/badges/Thunder_Badge.png' alt='Thunder Badge' class='gray-scale'>
+              <img src='./assets/badges/Rainbow_Badge.png' alt='Rainbow Badge' class='gray-scale'>
             </div>
             <span class='line l-4 prioity'></span>
             <div class='set flex-row'>
-              <img src='assets/badges/Soul_Badge.png' alt='Soul Badge' class='gray-scale'>
-              <img src='assets/badges/Marsh_Badge.png' alt='Marsh Badge' class='gray-scale'>
-              <img src='assets/badges/Volcano_Badge.png' alt='Volcano Badge' class='gray-scale'>
-              <img src='assets/badges/Earth_Badge.png' alt='Earth Badge' class='gray-scale'>
+              <img src='./assets/badges/Soul_Badge.png' alt='Soul Badge' class='gray-scale'>
+              <img src='./assets/badges/Marsh_Badge.png' alt='Marsh Badge' class='gray-scale'>
+              <img src='./assets/badges/Volcano_Badge.png' alt='Volcano Badge' class='gray-scale'>
+              <img src='./assets/badges/Earth_Badge.png' alt='Earth Badge' class='gray-scale'>
             </div>
           </div>
           <span class='line l-2 prioity'></span>
@@ -92,13 +92,13 @@
       </article>
       <div class='gameboy-battle third flex-column'>
         <div class='gameboy-outline flex-column'>
-          <img src='assets/misc/gameboy-color.png' class='gameboy' alt='gameboy'>
+          <img src='./assets/misc/gameboy-color.png' class='gameboy' alt='gameboy'>
           <div id='screen' class='gameboyScreen flex-column hidden'>
             <strong id='outcome' class='outcome'></strong>
           </div>
         </div>
         <div class='card flex-row'>
-          <img src='assets/misc/text_border.png' alt='text border' class='msg-border'>
+          <img src='./assets/misc/text_border.png' alt='text border' class='msg-border'>
           <div id='openingCard' class='inner-card flex-row hidden'>
             <p class='card-text'>What will <span id='pokemonDo'>charmander</span> do?</p>
             <li class='box opening-box flex-column prioity'>
@@ -116,8 +116,8 @@
               <p id='hardenMove' class='btn move'>HARDEN</p>
               <p id='abilityMove' class=' btn move'>ABILITY</p>
             </li>
-            <li id='potionSlot' class='box flex-column'>
-              <p id='potionMove' class='btn move'> <img id="potionSprite" src="assets/sprites/medicine/potion.png" alt="potion" class>
+            <li id='potionSlot' class='box flex-column hidden'>
+              <p id='potionMove' class='btn move'> 
                 POTION</p>
             </li>
           </div>
@@ -138,13 +138,13 @@
       <div class='game-card third flex-column'>
         <article id='enemyTutorialCard' class='game-menu menu gymleader-menu flex-column tutorial-card'>
           <p id='winEnemyText' class='hidden'>Wins: <span id='enemyWins'>0</span></p>
-          <img id='enemyPokemonTutorialSprite' src='assets/icons/bulbasaurTutorial.png' alt='bulbasaur'
+          <img id='enemyPokemonTutorialSprite' src='./assets/icons/bulbasaurTutorial.png' alt='bulbasaur'
             class='pokemon'>
         </article>
         <article id='enemyCard' class='game-menu menu gymleader-menu flex-column enemy-card hidden'>
           <h2>Ash</h2>
           <p>Pokemon: Pikachu</p>
-          <img id='enemyPokemonSprite' src='assets/pokemon/pikachu.png' alt='pikachu'
+          <img id='enemyPokemonSprite' src='./assets/pokemon/pikachu.png' alt='pikachu'
             class='pokemon enemy-pokemon'>
           <div id='enemyHpBar' class='hp-bar enemy-hp prioity flex-row'>
             <div class='hp-text flex-row'>
