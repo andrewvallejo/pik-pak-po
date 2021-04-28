@@ -9,13 +9,13 @@ class Game {
    this.gymleaderWins = this.gymleader.wins
   }
 
-
   triggerFight(move) {
     this.player.checkTutorialWins()
     this.playerMove = move
     this.updateGymleaderMove()
     this.getOutcome()
     this.updateCounter()
+    this.doDamage()
   }
 
   updateGymleaderMove() {
@@ -39,8 +39,8 @@ class Game {
 
   getOutcome() {
     var outcome = this.compareMove(this.playerMove, this.gymleaderMove)
-    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++) :
-    outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++) :
+    outcome === 'win' ? (outcomeMsg.innerText = 'You Win!', this.player.wins++, doDamage('win')) :
+    outcome === 'lose' ? (outcomeMsg.innerText = 'You Lose!', this.gymleader.wins++, doDamage('lose')) :
     outcome === 'draw' ? outcomeMsg.innerText = 'Draw!': 
     null
   }
@@ -48,6 +48,16 @@ class Game {
   updateCounter() {
     enemyWins.innerText = this.gymleader.wins
     playerWins.innerText = this.player.wins
+  }
+
+  doDamage(condition) {
+    if(this.player.tutorialComplete && condition === 'win') {
+      this.gymleader.loseHealth()
+      giveDamage()
+    } else {
+      this.player.loseHealth
+      takeDamage()
+    }
   }
 }
 
