@@ -98,7 +98,8 @@ body {
   position: absolute;
   align-self: center;
   top: 10%;
-  width: 60rem;
+  height: 10rem;
+  width: 45rem;
 }
 
 .big-pokeball {
@@ -109,7 +110,7 @@ body {
 
 .big-pokeball:hover {
   transition: all 500ms ease-in-out;
-  transform: rotate(720deg) scale(3);
+  transform: rotate(720deg) scale(2);
 }
 
 
@@ -371,6 +372,9 @@ header img {
   border: #B7D0C0 1px solid;
   height: 100%;
   width: 100%;
+}
+
+.green-bar {
   background: green;
 }
 
@@ -495,14 +499,11 @@ header img {
   margin: 4.5rem 1rem 0 0;
 }
 
-.moves-box {
-  margin-left: .5rem;
-}
-
 .play-again-move {
   justify-content: center;
   align-items: center;
 }
+
 
 .move {
   font-size: 1.4rem;
@@ -519,13 +520,14 @@ header img {
   opacity: 1;
 }
 
-.box:nth-of-type(2) p {
-  font-size: 1.8rem;
+.moves-box {
+  margin-left: .5rem;
 }
 
-.box:nth-of-type(2) p:nth-of-type(1) {
-  margin-top: .8rem;
+.box:nth-of-type(2) p {
+  font-size: 1.3rem;
 }
+
 
 /*===*[footer]*===*/
 footer {
